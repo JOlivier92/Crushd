@@ -30,6 +30,8 @@ We will need to:
 
 ## WireFrames
 
+![alt text](https://cdn1.medicalnewstoday.com/content/images/headlines/271/271157/bananas.jpg)
+
 ## Technologies & Challenges
 
 ## Things Accomplished Over The Weekend
