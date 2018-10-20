@@ -17,6 +17,6 @@ Crush'd is primarily built with the MERN stack, a combination of following four 
 
 We will need to:
 
-* Build a database to store user and browsing data such as videos, 'likes' and 'dis-likes'
-* Construct a web application with interactive web page to browse user profiles and videos
-* Build a messenger feature that allows users who have liked each other to interact in real time
+* Build a database to store user and browsing data such as videos, 'likes' and 'dis-likes'.
+* Construct a web application with interactive web page to browse user profiles and videos.
+* Build a messenger feature that allows users who have liked each other to interact in real time.
