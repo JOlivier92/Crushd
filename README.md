@@ -26,6 +26,10 @@ We will need to:
 
 ## Functionality & MVP
 
+
+
+## WireFrames
+
 ## Technologies & Challenges
 
 ## Things Accomplished Over The Weekend
