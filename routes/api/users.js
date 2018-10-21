@@ -5,12 +5,13 @@ const User = require('../../models/User');
 const jsonwebtoken = require('jsonwebtoken');
 const keys = require('../../config/keys');
 
+// pre-assign errors as empty hash.
+let errors = {};
 // route for signing up.
 router.post('/register', (req, res) => {
     User.findOne({username: req.body.username}).then(user => {
         // if the user already exists in the database, return 400 level error
         if (user) {
-            let errors = {};
             errors.name = 'User already exists';
             return res.status(400).json(errors)
         } else {
@@ -29,14 +30,47 @@ router.post('/register', (req, res) => {
                     if(err) throw err;
                     // if no errors, save the user to the database with generated hash
                     newUser.password = hash;
-                    // if user successfully saves, pass payload as response to server
+                    // if user successfully saves, sign jsonwebtoken
                     newUser.save()
-                        .then(user => res.json(user))
-                        .catch(err => console.log(err));
+                    .then(user => {
+                        const payload = {id: user.id, name: user.username};
+                        jsonwebtoken.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                            res.json({
+                                success: true,
+                                token: 'Bearer ' + token
+                            })
+                        })
+                    })
                 })
             })
         }
     })
+})
+
+router.post('/login', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    User.findOne({email})
+        .then(user => {
+            if(!user) {
+                errors.email = "This user doesn't exist";
+                return res.status(400).json(errors);
+            }
+            bcrypt.compare(password, user.password).then(isMatch => {
+                if (isMatch) {
+                    const payload = { id: user.id, name: user.username }
+                    jsonwebtoken.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
+                        res.json({
+                            success: true,
+                            token: 'Bearer ' + token
+                        })
+                    })
+                } else {
+                    errors.password = "incorrect password"
+                    return status(400).json(errors)
+                }
+            })
+        })
 })
 router.get("/test", (req, res) => res.json({msg: "this is the user's router"}));
 
