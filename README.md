@@ -26,6 +26,12 @@ We will need to:
 
 ## Functionality & MVP
 
+
+
+## WireFrames
+
+![alt text](https://github.com/georgec12104531/Testing/blob/master/Screen%20Shot%202018-10-20%20at%205.49.18%20PM.png)
+
 ## Technologies & Challenges
 
 ## Things Accomplished Over The Weekend
