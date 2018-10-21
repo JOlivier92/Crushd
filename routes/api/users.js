@@ -4,11 +4,27 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const jsonwebtoken = require('jsonwebtoken');
 const keys = require('../../config/keys');
-
-// pre-assign errors as empty hash.
+const passport = require('passport');
+const validateRegistrationInput = require('../../validations/register');
+const validateLoginInput = require('../../validations/login');
 let errors = {};
-// route for signing up.
+
+
+
+router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+    res.json({
+        id: req.user.id,
+        username: req.user.username,
+        email: req.user.email
+    });
+})
+
+//sign up route
 router.post('/register', (req, res) => {
+    const { errors, isValid } = validateRegistrationInput(req.body);
+    if (!isValid) {
+        return res.status(400).json(errors)
+    }
     User.findOne({username: req.body.username}).then(user => {
         // if the user already exists in the database, return 400 level error
         if (user) {
@@ -47,7 +63,12 @@ router.post('/register', (req, res) => {
     })
 })
 
+// sign in route
 router.post('/login', (req, res) => {
+    const { errors, isValid } = validateLoginInput(req.body);
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({email})
@@ -72,7 +93,5 @@ router.post('/login', (req, res) => {
             })
         })
 })
-router.get("/test", (req, res) => res.json({msg: "this is the user's router"}));
-
 
 module.exports = router;

@@ -1,6 +1,17 @@
+// Imports section
 const express = require('express');
 const app = express();
+const dbURI = require('./config/keys');
 const mongoose = require("mongoose");
+const passport = require('passport');
+require("./models/User")
+app.use(passport.initialize());
+require ('./config/passport')(passport);
+
+// Set up body parser so we can parse json to our frontend
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // creates connection to mongo db, sets default port to 5000
 // unless we are using a server
@@ -13,13 +24,8 @@ mongoose.connect(
   .catch(err => console.log(err));
   
 const port = process.env.PORT || 5000
-// // 
+// End Imports Section // // // // // // // //
 
-// Set up body parser so we can parse json to our frontend
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-// //
 
 app.get('/', (req, res) => {
     res.send("Hello world!");
