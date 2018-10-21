@@ -51,31 +51,37 @@ We will need to:
 * 
 
 ### October 22nd
-* 
-* 
-* 
+* New account creation, login, and guest/demo login - 
+* Users can sign up, sign, and log out -
+* Users can use a demo login to try the site -
+* Users can't use certain features (video submission) without logging in -
 
-### October 23rd
-* 
-* 
-* 
-
-### October 24th
-* 
-* 
-* 
+### October 23rd - 24th
+* "Bachelor/Bachelorette" Video Submission  -
+* User can upload bachelor/bachelorette video -
+* Video is compressed and stored in db (associated with user) -
 
 ### October 25th
-* 
-* 
-* 
+* User has a home page -
+* Home page has index of featured profiles -
+* Home page has index of bachelor/bachelorettes in the area -
+* Links to account page, video submission, and logout -
+* Video Submission Page -
+* User can respond to other video profiles -
+* Video response is uploaded and compressed to db -
 
 ### October 26th
-* 
-* 
-* 
+* Response Index Page -
+* User can view video responses from other users - 
+* Notify user when new responses are uploaded - 
+* 24 hour timer set to reset all current video responses - 
+* Link to messaging page - 
+* Refine design/CSS - **George and Domonic**
 
 ### October 27th
+* User can select one video response and send message to profile - 
+* All other video responses are removed - 
 * Complete production README.md - 
 * Refine design/CSS - **George and Domonic**
 * Finish testing and debugging - **All team members**
+* hosting on Heroku - 
