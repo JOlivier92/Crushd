@@ -30,7 +30,7 @@ We will need to:
 
 ## WireFrames
 
-![alt text](https://drive.google.com/open?id=12YDjWSxEGMMtFQWMd4tSf1SAYb6SDpCv)
+![alt text](https://github.com/georgec12104531/Testing/blob/master/Screen%20Shot%202018-10-20%20at%205.49.18%20PM.png)
 
 ## Technologies & Challenges
 
