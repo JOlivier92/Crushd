@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/JOlivier92/Crushd#readme",
   "dependencies": {
-    "bcrypt": "^3.0.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
