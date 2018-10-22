@@ -36,6 +36,9 @@ We will need to:
 
 ## Technologies & Challenges
 
+* Our team will be using the MERN stack (React, Redux, Node, Express & MongoDB) for this application, which allows us to use Javascript in both the front as well as the back end. 
+* A few challenges that we will encounter includes learning how to compress video after submission for storage and decompression upon retrieval. We will also need to learn how to use Socket.io to recreate instant messaging between matches.
+
 ## Things Accomplished Over The Weekend
 
 * All members of the team read the Chrome and MERN tutorials
