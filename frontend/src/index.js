@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -7,6 +8,8 @@ import * as serviceWorker from "./serviceWorker";
 import * as APIUtil from "./util/session_api_util";
 import configureStore from "./store/store";
 import Root from "./components/root";
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -35,3 +38,5 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
   serviceWorker.register();
 });
+
+serviceWorker.unregister();
