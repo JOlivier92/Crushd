@@ -70,6 +70,17 @@ module.exports = function validateRegistrationInput(data) {
     error.zipcode = "Please enter a valid 5 digit zipcode."
   }
 
+  if (!Validator.isNumeric(data.zipcode)) {
+    errors.zipcode = "Zipcode must be must 5 numeric digits.";
+  }
+
+  if (!Validator.isIn(data.gender,["M","F","O"])) {
+    errors.gender = "A valid gender was not sent from the frontend."
+  }
+  if (!Validator.isIn(data.sexual_preference,["M","F","O"])) {
+    errors.sexual_preference = "A valid sexual preference was not sent from the frontend."
+  }
+
   // // // // // // // // // // // // // // // // // // // // //
   // custom validations
   return {
