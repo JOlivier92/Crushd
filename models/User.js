@@ -23,7 +23,24 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
+    zipcode: {
+        type: Number,
+        required: true
+    },
+    sexual_preference: {
+        type: String,
+        required: true
     }
+
+
 })
 
 module.exports = User = mongoose.model('users',UserSchema);
+
+
+// age range to be defined in search, by default searches own age +/- 3 years
