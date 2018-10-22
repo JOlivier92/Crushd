@@ -42,7 +42,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -95,6 +94,17 @@ class SignupForm extends React.Component {
             <br />
 
             <label>
+              Zipcode:
+              <input
+                type="text"
+                value={this.state.zipcode}
+                onChange={this.update("zipcode")}
+                className="login-input"
+              />
+            </label>
+            <br />
+
+            <label>
               Gender:
               <br />
               <input
@@ -129,7 +139,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="radio"
-                name="gender"
+                name="sexual_preference"
                 value="M"
                 onClick={this.update("sexual_preference")}
               />
@@ -137,7 +147,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="radio"
-                name="gender"
+                name="sexual_preference"
                 value="F"
                 onClick={this.update("sexual_preference")}
               />
@@ -145,7 +155,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 type="radio"
-                name="gender"
+                name="sexual_preference"
                 value="O"
                 onClick={this.update("sexual_preference")}
               />
