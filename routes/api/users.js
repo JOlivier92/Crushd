@@ -34,7 +34,10 @@ exports.register = function(req,res){
                 email: req.body.email,
                 phone_number: req.body.phone_number,
                 birthdate: req.body.birthdate,
-                password: req.body.password
+                password: req.body.password,
+                gender: req.body.password,
+                zipcode: req.body.zipcode,
+                sexual_preference: req.body.sexual_preference
             })
             // generate salt with 10 iterations, pass errors / generated salt to CB
             bcrypt.genSalt(10, (err, salt) => {
