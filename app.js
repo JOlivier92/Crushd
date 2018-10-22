@@ -36,7 +36,13 @@ app.get('/test', (req, res) => {
 });
 
 // Routes
-const users = require('./routes/api/users')
-app.use('/api/users', users)
+/*const users = require('./routes/api/users')
+app.use('/api/users', users)*/
+const users = require('./routes/api/users');
+// Authentication modules
+const jsonwebtoken = require('jsonwebtoken');
+app.use('/api/users/current', passport.authenticate('jwt', {session: false}), users.current);
+app.use('/api/users/register', users.register);
+app.use('/api/users/login', users.login);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
