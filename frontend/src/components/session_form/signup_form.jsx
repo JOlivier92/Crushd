@@ -10,7 +10,10 @@ class SignupForm extends React.Component {
       birthdate: "",
       phone_number: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      gender: "",
+      sexual_preference: "",
+      zipcode: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,6 +42,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -87,6 +91,65 @@ class SignupForm extends React.Component {
                 onChange={this.update("birthdate")}
                 className="login-input"
               />
+            </label>
+            <br />
+
+            <label>
+              Gender:
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="M"
+                placeholder="M"
+                onClick={this.update("gender")}
+              />
+              <label htmlFor="M"> Male</label>
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="F"
+                onClick={this.update("gender")}
+              />
+              <label htmlFor="F"> Female</label>
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="O"
+                onClick={this.update("gender")}
+              />
+              <label htmlFor="O"> Other</label>
+            </label>
+            <br />
+            <br />
+            <label>
+              Sexual Preference:
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="M"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="M"> Male</label>
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="F"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="F"> Female</label>
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="O"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="O"> Other</label>
             </label>
             <br />
             <label>
