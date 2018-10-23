@@ -1,4 +1,5 @@
 // Imports section
+const path = require('path');
 const express = require('express');
 const app = express();
 const dbURI = require('./config/keys');
@@ -26,15 +27,6 @@ mongoose.connect(
 const port = process.env.PORT || 5000
 // End Imports Section // // // // // // // //
 
-
-app.get('/', (req, res) => {
-    res.send("Hello world!");
-});
-
-app.get('/test', (req, res) => {
-    res.send("Hello tes2t!");
-});
-
 // Routes
 /*const users = require('./routes/api/users')
 app.use('/api/users', users)*/
@@ -46,3 +38,13 @@ app.use('/api/users/register', users.register);
 app.use('/api/users/login', users.login);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', '', 'index.html'));
+    })
+}
+
+//test
