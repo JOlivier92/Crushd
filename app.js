@@ -1,18 +1,7 @@
 // Imports section
 const path = require('path');
-
-
-
 const express = require('express');
 const app = express();
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
 const dbURI = require('./config/keys');
 const mongoose = require("mongoose");
 const passport = require('passport');
@@ -24,6 +13,13 @@ require ('./config/passport')(passport);
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 // creates connection to mongo db, sets default port to 5000
 // unless we are using a server
