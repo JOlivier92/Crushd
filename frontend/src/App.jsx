@@ -12,6 +12,7 @@ import HomeContainer from "./components/home/home_container";
 import { AuthRoute, ProtectedRoute } from "./util/route_util";
 import Modal from "./components/modal/modal";
 
+// random comment
 class App extends Component {
   render() {
     return (
