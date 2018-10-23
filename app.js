@@ -28,13 +28,7 @@ const port = process.env.PORT || 5000
 // End Imports Section // // // // // // // //
 
 
-app.get('/', (req, res) => {
-    res.send("Hello world!");
-});
 
-app.get('/test', (req, res) => {
-    res.send("Hello tes2t!");
-});
 
 // Routes
 /*const users = require('./routes/api/users')
