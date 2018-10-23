@@ -27,9 +27,6 @@ mongoose.connect(
 const port = process.env.PORT || 5000
 // End Imports Section // // // // // // // //
 
-
-
-
 // Routes
 /*const users = require('./routes/api/users')
 app.use('/api/users', users)*/
