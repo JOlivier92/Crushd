@@ -19,11 +19,11 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
       </hgroup>
     );
 
-    if(false) {
+    if(currentUser.id) {
       closeModal();
       return nav();
     } else {
-      openModal({ modal: "ShowSignup" });
+      openModal({ modal: "ShowLogin" });
       return sessionLinks();
     }
 }
