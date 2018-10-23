@@ -1,4 +1,6 @@
 import React from "react";
+import "./home.css";
+
 const videoType = "video/webm";
 
 class Home extends React.Component {
