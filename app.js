@@ -14,13 +14,6 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'));
-    app.get('/', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    })
-}
-
 // creates connection to mongo db, sets default port to 5000
 // unless we are using a server
 const db = require('./config/keys').mongoURI;
@@ -42,6 +35,13 @@ app.get('/', (req, res) => {
 app.get('/test', (req, res) => {
     res.send("Hello tes2t!");
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 // Routes
 /*const users = require('./routes/api/users')
