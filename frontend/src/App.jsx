@@ -6,8 +6,6 @@ import { Provider } from "react-redux";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
 import HeaderContainer from "./components/header/header_container";
-import SignUpFormContainer from "./components/session_form/signup_form_container";
-import LogInFormContainer from "./components/session_form/login_form_container";
 import HomeContainer from "./components/home/home_container";
 import { AuthRoute, ProtectedRoute } from "./util/route_util";
 import Modal from "./components/modal/modal";
@@ -17,9 +15,9 @@ class App extends Component {
     return (
       <div className="App">
         <Modal />
+        <Route path="/" component={HeaderContainer} />
         <Switch>
-          <ProtectedRoute exact path="/home" component={HomeContainer} />
-          <AuthRoute exact path="/" component={HeaderContainer} />
+          <ProtectedRoute exact path="/" component={HomeContainer} />
         </Switch>
       </div>
     );

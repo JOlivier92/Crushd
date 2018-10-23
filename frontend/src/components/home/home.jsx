@@ -84,12 +84,6 @@ class Home extends React.Component {
     const { recording, videos } = this.state;
     return (
       <div className="home-content-section">
-        <hgroup className="header-group">
-          <h2 className="header-name">Hi, {this.props.currentUser.name}!</h2>
-          <button className="header-button" onClick={this.props.logout}>
-            Log Out
-          </button>
-        </hgroup>
 
         <div className="camera">
           <video
