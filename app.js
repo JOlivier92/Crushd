@@ -10,6 +10,15 @@ if (process.env.NODE_ENV === 'production') {
 
 const express = require('express');
 const app = express();
+
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
+
 const dbURI = require('./config/keys');
 const mongoose = require("mongoose");
 const passport = require('passport');
@@ -34,12 +43,7 @@ mongoose.connect(
   
 const port = process.env.PORT || 5000
 // End Imports Section // // // // // // // //
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  })
-}
+
 
 app.get('/', (req, res) => {
     res.send("Hello world!");
