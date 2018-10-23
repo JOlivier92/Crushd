@@ -36,13 +36,6 @@ app.get('/test', (req, res) => {
     res.send("Hello tes2t!");
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
 // Routes
 /*const users = require('./routes/api/users')
 app.use('/api/users', users)*/
@@ -54,3 +47,11 @@ app.use('/api/users/register', users.register);
 app.use('/api/users/login', users.login);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend/build"));
+    app.get("/", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    });
+}
