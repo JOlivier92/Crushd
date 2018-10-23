@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 const videoType = "video/webm";
@@ -91,6 +92,21 @@ class Home extends React.Component {
           <button className="header-button" onClick={this.props.logout}>
             Log Out
           </button>
+          <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">My Profile</Link></li>
+              <li><Link to="/">Matches</Link></li>
+              <li><Link to="/">Messages</Link></li>
+            <button className="mobile-header-button" onClick={this.props.logout}>
+                Log Out
+            </button>
+            </ul>
+          </div>
         </hgroup>
 
         <div className="camera">

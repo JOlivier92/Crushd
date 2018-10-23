@@ -1,0 +1,119 @@
+.home-content-section {
+    background-color: #e8e8e8;
+    background-image: url("https://transparenttextures.com/patterns/brushed-alum.png");
+    height: 100vh;
+    width: 100vw;
+    padding-top: 200px;
+}
+
+@media all and (min-width: 769px) {
+    .camera {
+        margin-left: 30%;
+    }
+
+    #menuToggle {
+        display: none;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .camera {
+        margin: auto;
+    }
+
+    #menu a {
+        text-decoration: none;
+        color: #232323;
+        transition: color 0.3s ease;
+    }
+
+    #menu a:hover {
+        color: #C33764;
+    }
+
+    #menuToggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        right: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+        -webkit-touch-callout: none;
+    }
+
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #e8e8e8;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    #menuToggle input:checked~span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+    }
+
+    #menuToggle input:checked~span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    #menuToggle input:checked~span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    #menu {
+        position: absolute;
+        width: 300px;
+        height: 100vh;
+        margin: -100px 0 0 -300px;
+        padding-left: 0px;
+        padding-right: 60px;
+        padding-top: 125px;
+        background: #e8e8e8;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+
+    #menu li {
+        padding: 10px 0;
+        font-size: 22px;
+    }
+
+    #menuToggle input:checked~ul {
+        transform: none;
+    }
+}
