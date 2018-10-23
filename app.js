@@ -49,7 +49,9 @@ app.use('/api/users/login', users.login);
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 
-app.use(express.static("frontend"));
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
