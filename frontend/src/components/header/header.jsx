@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SplashContainer from '../splash/splash_container';
 
 const Header = ({ currentUser, logout, openModal, closeModal }) => {
   
     const sessionLinks = () => (
       <div>
-        {/* <splashPageContainer /> */}
+        <SplashContainer />
       </div>
     );
 
@@ -18,7 +19,7 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
       </hgroup>
     );
 
-    if(currentUser) {
+    if(false) {
       closeModal();
       return nav();
     } else {

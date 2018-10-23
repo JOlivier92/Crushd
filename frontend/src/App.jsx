@@ -10,7 +10,7 @@ import SignUpFormContainer from "./components/session_form/signup_form_container
 import LogInFormContainer from "./components/session_form/login_form_container";
 import HomeContainer from "./components/home/home_container";
 import { AuthRoute, ProtectedRoute } from "./util/route_util";
-import Modal from "./modal/modal";
+import Modal from "./components/modal/modal";
 
 class App extends Component {
   render() {
