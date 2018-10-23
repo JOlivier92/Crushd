@@ -49,7 +49,7 @@ app.use('/api/users/login', users.login);
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 
-app.use(express.static("public"));
+app.use('/frontend', express.static("public"));
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "public", "index.html"));
+    res.sendFile(path.resolve(__dirname, "/frontend/public", "index.html"));
 });
