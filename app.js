@@ -8,7 +8,6 @@ const passport = require('passport');
 require("./models/User")
 app.use(passport.initialize());
 require ('./config/passport')(passport);
-
 // Set up body parser so we can parse json to our frontend
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,6 +44,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('/', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', '', 'index.html'));
     })
+    console.log("im somehow here")
 }
 
 //test
