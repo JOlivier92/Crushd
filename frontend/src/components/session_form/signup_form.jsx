@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
       zipcode: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   update(field) {
@@ -33,6 +34,11 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
   }
 
+  handleOpenModal(e) {
+    e.preventDefault();
+    this.props.openModal({ modal: "ShowLogin" })
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -44,94 +50,54 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    return (
-      <div className="login-form-container">
+    return <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           Welcome to Crush'd!
           <br />
-          Please {this.props.formType} or {this.props.navLink}
+          Please {this.props.formType} or <div
+            onClick={this.handleOpenModal}> LOGIN
+          </div>
           {this.renderErrors()}
           <div className="login-form">
             <label>
               Email:
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="login-input"
-              />
+              <input type="text" value={this.state.email} onChange={this.update("email")} className="login-input" />
             </label>
 
             <br />
 
             <label>
               Username:
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                className="login-input"
-              />
+              <input type="text" value={this.state.username} onChange={this.update("username")} className="login-input" />
             </label>
             <br />
             <label>
               Phone Number:
-              <input
-                type="text"
-                value={this.state.phone_number}
-                onChange={this.update("phone_number")}
-                className="login-input"
-              />
+              <input type="text" value={this.state.phone_number} onChange={this.update("phone_number")} className="login-input" />
             </label>
             <br />
             <label>
               Birthdate:
-              <input
-                type="date"
-                value={this.state.birthdate}
-                onChange={this.update("birthdate")}
-                className="login-input"
-              />
+              <input type="date" value={this.state.birthdate} onChange={this.update("birthdate")} className="login-input" />
             </label>
             <br />
 
             <label>
               Zipcode:
-              <input
-                type="text"
-                value={this.state.zipcode}
-                onChange={this.update("zipcode")}
-                className="login-input"
-              />
+              <input type="text" value={this.state.zipcode} onChange={this.update("zipcode")} className="login-input" />
             </label>
             <br />
 
             <label>
               Gender:
               <br />
-              <input
-                type="radio"
-                name="gender"
-                value="M"
-                placeholder="M"
-                onClick={this.update("gender")}
-              />
+              <input type="radio" name="gender" value="M" placeholder="M" onClick={this.update("gender")} />
               <label htmlFor="M"> Male</label>
               <br />
-              <input
-                type="radio"
-                name="gender"
-                value="F"
-                onClick={this.update("gender")}
-              />
+              <input type="radio" name="gender" value="F" onClick={this.update("gender")} />
               <label htmlFor="F"> Female</label>
               <br />
-              <input
-                type="radio"
-                name="gender"
-                value="O"
-                onClick={this.update("gender")}
-              />
+              <input type="radio" name="gender" value="O" onClick={this.update("gender")} />
               <label htmlFor="O"> Other</label>
             </label>
             <br />
@@ -139,63 +105,33 @@ class SignupForm extends React.Component {
             <label>
               Sexual Preference:
               <br />
-              <input
-                type="radio"
-                name="sexual_preference"
-                value="M"
-                onClick={this.update("sexual_preference")}
-              />
+              <input type="radio" name="sexual_preference" value="M" onClick={this.update("sexual_preference")} />
               <label htmlFor="M"> Male</label>
               <br />
-              <input
-                type="radio"
-                name="sexual_preference"
-                value="F"
-                onClick={this.update("sexual_preference")}
-              />
+              <input type="radio" name="sexual_preference" value="F" onClick={this.update("sexual_preference")} />
               <label htmlFor="F"> Female</label>
               <br />
-              <input
-                type="radio"
-                name="sexual_preference"
-                value="O"
-                onClick={this.update("sexual_preference")}
-              />
+              <input type="radio" name="sexual_preference" value="O" onClick={this.update("sexual_preference")} />
               <label htmlFor="O"> Other</label>
             </label>
             <br />
             <label>
               Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
+              <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" />
             </label>
 
             <br />
 
             <label>
               Confirm Password:
-              <input
-                type="password"
-                value={this.state.confirmPassword}
-                onChange={this.update("confirmPassword")}
-                className="login-input"
-              />
+              <input type="password" value={this.state.confirmPassword} onChange={this.update("confirmPassword")} className="login-input" />
             </label>
 
             <br />
-            <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            />
+            <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
-      </div>
-    );
+      </div>;
   }
 }
 

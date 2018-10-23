@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
   update(field) {
@@ -23,6 +24,11 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  handleOpenModal(e) {
+    e.preventDefault();
+    this.props.openModal({ modal: "ShowSignup" }); 
   }
 
   renderErrors() {
@@ -41,7 +47,7 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           Welcome to Crush'd
           <br />
-          Please {this.props.formType} or {this.props.navLink}
+          Please {this.props.formType} or <div onClick={this.handleOpenModal}>SIGN UP</div>
           {this.renderErrors()}
           <div className="login-form">
             <label>
