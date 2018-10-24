@@ -8,7 +8,7 @@ import { openModal } from '../../actions/modal_actions'
 const mapStateToProps = ({ errors }) => {
   return {
     errors: Object.values(errors.session),
-    formType: "login",
+    formType: "LOGIN",
     navLink: <Link to="/signup">signup in instead</Link>
   };
 };
@@ -16,7 +16,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(loginUser(user)),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./header.css";
 
 const Header = ({ currentUser, logout, openModal, closeModal }) => {
+
   const sessionLinks = () =>
     <div>
       <nav className="splash-btns">
@@ -28,6 +29,7 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
       </nav>
       <SplashContainer />
     </div>;
+
 
   const nav = () => 
  
@@ -56,6 +58,7 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
       </div>;
 
 
+
   if (currentUser.id) {
     closeModal();
     return nav();
@@ -63,5 +66,6 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
     return sessionLinks();
   }
 };
+
 
 export default Header;

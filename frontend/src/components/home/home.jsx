@@ -87,7 +87,7 @@ class Home extends React.Component {
     const { recording, videos } = this.state;
     return (
       <div className="home-content-section">
-        
+
         <div className="camera">
           <video
             style={{ width: 400 }}
