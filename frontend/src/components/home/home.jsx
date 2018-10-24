@@ -88,7 +88,7 @@ class Home extends React.Component {
     this.setState({ videos });
   }
 
-  async uploadVideo() {
+  async uploadVideo(index) {
     firebase.initializeApp({
       apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
       authDomain: "crushd-efd3f.firebaseapp.com",
@@ -99,14 +99,14 @@ class Home extends React.Component {
     // Initialize Cloud Firestore through Firebase
     let db = firebase.firestore();
     let storageRef = firebase.storage().ref();
-    let ref = storageRef.child(`test.mp4`);
+    let ref = storageRef.child(`userVideo_${this.props.currentUser.id}.mp4`);
 
     // Disable deprecated features
     db.settings({
       timestampsInSnapshots: true
     });
 
-    let video = this.state.videos[0];
+    let video = this.state.videos[index];
 
     let blob = await fetch(video).then(r => {
       var blob = null;
@@ -160,7 +160,7 @@ class Home extends React.Component {
                     Delete
                   </button>
                   <a href={videoURL}>Download</a>
-                  <button onClick={() => this.uploadVideo()}>
+                  <button onClick={() => this.uploadVideo(i)}>
                     Upload Video
                   </button>
                 </div>
