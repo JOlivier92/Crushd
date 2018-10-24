@@ -43,6 +43,7 @@ class LoginForm extends React.Component {
   }
 
   loginAsGuest(e) {
+    console.log(e);
     e.preventDefault();
 
     const email = 'x@gmail.com'.split("");
@@ -74,8 +75,8 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <button onClick={this.loginAsGuest}>Login As Guest</button>
         <form onSubmit={this.handleSubmit} className="login-form-box">
+          <button onClick={this.loginAsGuest}>Login As Guest</button>
         <h2 className="login-signup-message">WELCOME BACK!</h2>
           <br />
           {this.renderErrors()}
@@ -104,7 +105,8 @@ class LoginForm extends React.Component {
             />
           </div>
         </form>
-      </div>;
+      </div>
+    )
   }
 }
 
