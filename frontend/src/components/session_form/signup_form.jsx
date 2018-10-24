@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./login_signup_form.css";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -52,11 +53,9 @@ class SignupForm extends React.Component {
   render() {
     return <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Crush'd!
+          <h2 className="login-signup-message">GET STARTED!</h2>
           <br />
-          Please {this.props.formType} or <div
-            onClick={this.handleOpenModal}> LOGIN
-          </div>
+          
           {this.renderErrors()}
           <div className="login-form">
             <label>
@@ -129,6 +128,12 @@ class SignupForm extends React.Component {
 
             <br />
             <input className="session-submit" type="submit" value={this.props.formType} />
+          </div>
+        Please {this.props.formType} or <div
+          onClick={this.handleOpenModal}
+        >
+          {" "}
+          LOGIN
           </div>
         </form>
       </div>;

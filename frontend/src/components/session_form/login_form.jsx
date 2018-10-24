@@ -1,12 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./login_signup_form.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,46 +42,34 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    return (
-      <div className="login-form-container">
+    return <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Crush'd
+        <h2 className="login-signup-message">WELCOME BACK!</h2>
           <br />
-          Please {this.props.formType} or <div onClick={this.handleOpenModal}>SIGN UP</div>
           {this.renderErrors()}
           <div className="login-form">
             <label>
               Email:
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="login-input"
-              />
+              <br/>
+              <input type="text" value={this.state.email} onChange={this.update("email")} className="login-input" />
             </label>
-
             <br />
-
+            <br />
             <label>
               Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
+              <br/>
+              
+              <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" />
             </label>
 
             <br />
-            <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            />
+            <input className="session-submit" type="submit" value={this.props.formType} />
+          </div>
+          <div onClick={this.handleOpenModal}>
+            SIGN UP instead
           </div>
         </form>
-      </div>
-    );
+      </div>;
   }
 }
 

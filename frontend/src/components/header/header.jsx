@@ -6,6 +6,18 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
   
     const sessionLinks = () => (
       <div>
+        <nav className="splash-btns">
+          <div className="signup-btn" onClick={() => openModal({
+            modal: "ShowSignup"
+          })}>
+            <p>Sign up</p>
+          </div>
+          <div className="login-btn" onClick={() => openModal({
+            modal: "ShowLogin"
+          })}>
+            <p>Log in</p>
+          </div>
+        </nav>
         <SplashContainer />
       </div>
     );
@@ -19,13 +31,7 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
       </hgroup>
     );
 
-    if(currentUser.id) {
-      closeModal();
-      return nav();
-    } else {
-      openModal({ modal: "ShowLogin" });
-      return sessionLinks();
-    }
+  return (currentUser.id) ? nav() : sessionLinks();
 }
 
 export default Header;
