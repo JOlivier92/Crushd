@@ -1,5 +1,4 @@
 import React from 'react'
-import { Slide } from "react-slideshow-image";
 import "./splash.css";
 
 const slideImages = [
