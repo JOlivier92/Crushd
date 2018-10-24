@@ -8,7 +8,9 @@
 
 @media all and (min-width: 769px) {
     .camera {
-        margin-left: 30%;
+        margin-left: 50%;
+        background-color: #000;
+        width: 425px;
     }
 
     #menuToggle {

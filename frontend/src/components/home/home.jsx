@@ -108,7 +108,7 @@ class Home extends React.Component {
             </ul>
           </div>
         </hgroup>
-
+        
         <div className="camera">
           <video
             style={{ width: 400 }}
