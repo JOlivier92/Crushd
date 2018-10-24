@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
 
   handleOpenModal(e) {
     e.preventDefault();
-    this.props.openModal({ modal: "ShowSignup" }); 
+    this.props.openModal({ modal: "ShowSignup" });
   }
 
   renderErrors() {
@@ -45,34 +45,41 @@ class LoginForm extends React.Component {
   loginAsGuest(e) {
     e.preventDefault();
 
-    const email = 'x@gmail.com'.split("");
+    const email = "x@gmail.com".split("");
     const password = "password".split("");
     const button = document.getElementById("session-submit");
     debugger;
-    this.setState({ email: '', password: '' },
-      () => this.fillForm(email, password, button))
+    this.setState({ email: "", password: "" }, () =>
+      this.fillForm(email, password, button)
+    );
   }
 
   fillForm(email, password, button) {
     if (email.length > 0) {
-      this.setState(
-        { email: this.state.email + email.shift() }, () => {
-          window.setTimeout(() =>
-            this.fillForm(email, password, button), Math.floor(Math.random() * 50) + 45);
-        }
-      );
+      this.setState({ email: this.state.email + email.shift() }, () => {
+        window.setTimeout(
+          () => this.fillForm(email, password, button),
+          Math.floor(Math.random() * 50) + 45
+        );
+      });
     } else if (password.length > 0) {
       this.setState(
-        { password: this.state.password + password.shift() }, () => {
-          window.setTimeout(() =>
-            this.fillForm(email, password, button), Math.floor(Math.random() * 50) + 45);
+        { password: this.state.password + password.shift() },
+        () => {
+          window.setTimeout(
+            () => this.fillForm(email, password, button),
+            Math.floor(Math.random() * 50) + 45
+          );
         }
       );
-    } else { button.click(); }
+    } else {
+      button.click();
+    }
   }
 
   render() {
-    return <div className="login-form-container">
+    return (
+      <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h2 className="login-message">WELCOME BACK!</h2>
           <br />
@@ -81,23 +88,41 @@ class LoginForm extends React.Component {
             <label>
               Email:
               <br />
-              <input type="text" value={this.state.email} onChange={this.update("email")} className="login-input" />
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="login-input"
+              />
             </label>
             <br />
             <br />
             <label>
               Password:
               <br />
-              <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="login-input"
+              />
             </label>
 
             <br />
 
-            <input className="session-submit" id="session-submit" type="submit" value={this.props.formType} />
-            <button className="guest-submit" onClick={this.loginAsGuest}>Login As Guest</button>
+            <input
+              className="session-submit"
+              id="session-submit"
+              type="submit"
+              value={this.props.formType}
+            />
+            <button className="guest-submit" onClick={this.loginAsGuest}>
+              Login As Guest
+            </button>
           </div>
         </form>
-      </div>;
+      </div>
+    );
   }
 }
 
