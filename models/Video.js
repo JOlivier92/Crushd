@@ -12,7 +12,21 @@ const VideoSchema = new Schema({
     content: {
         type: String,
         required: true
-    }
+    },
+    // array if video IDs
+    // that have responded to
+    // the current video
+    respondent_ids: {
+        type: Array,
+        "default": []
+    },
+    // id of video that current video
+    // is replying to
+    response_to_id: {
+        type: Number,
+        required: false
+    },
+    
 
 })
 

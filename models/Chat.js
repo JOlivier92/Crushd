@@ -14,6 +14,7 @@ const ChatSchema = new Schema({
         type: Array,
         required: true
     },
+    
     // Array of objects
         // Message object
             // Sender
