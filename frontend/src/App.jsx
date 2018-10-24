@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 // import { Provider } from "react-redux";
-import {  Switch } from "react-router-dom";
+import {  Switch, Route } from "react-router-dom";
 
 import HeaderContainer from "./components/header/header_container";
 import HomeContainer from "./components/home/home_container";
@@ -15,9 +15,9 @@ class App extends Component {
     return (
       <div className="App">
         <Modal />
+          <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/home" component={HomeContainer} />
-          <AuthRoute exact path="/" component={HeaderContainer} />
         </Switch>
       </div>
     );
