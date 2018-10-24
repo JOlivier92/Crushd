@@ -1,12 +1,13 @@
 import React from 'react'
+import "./splash.css";
 
 const Splash = () => (
 
     <div>
-        <h1>Hey there</h1>
+        <div className="splash-container"></div>
+        
+    
     </div>
-
-
 
 );
 
