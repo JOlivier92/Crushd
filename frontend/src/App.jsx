@@ -17,7 +17,7 @@ class App extends Component {
         <Modal />
           <Route path="/" component={HeaderContainer} />
         <Switch>
-          <ProtectedRoute exact path="/home" component={HomeContainer} />
+          <ProtectedRoute exact path="/" component={HomeContainer} />
         </Switch>
       </div>
     );
