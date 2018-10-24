@@ -1,4 +1,7 @@
 import React from "react";
+// import { Link } from "react-router-dom";
+import "./home.css";
+
 const videoType = "video/webm";
 
 class Home extends React.Component {

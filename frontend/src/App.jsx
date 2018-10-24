@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
-import { Provider } from "react-redux";
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
+// import { Provider } from "react-redux";
+import {  Switch, Route } from "react-router-dom";
 
 import HeaderContainer from "./components/header/header_container";
 import HomeContainer from "./components/home/home_container";
@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Modal />
-        <Route path="/" component={HeaderContainer} />
+          <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/" component={HomeContainer} />
         </Switch>

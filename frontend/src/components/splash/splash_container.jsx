@@ -1,11 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Splash from './splash';
+import { connect } from "react-redux";
+import Splash from "./splash";
 
-import {
-  openModal,
-  closeModal
-} from '../../actions/modal_actions';
+import { openModal} from "../../actions/modal_actions";
+
 
 const msp = ({ session }) => ({
   currentUser: session
@@ -17,3 +14,4 @@ const mdp = (dispatch) => ({
 })
 
 export default connect(msp, mdp)(Splash);
+
