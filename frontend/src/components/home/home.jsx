@@ -4,6 +4,10 @@ import "./home.css";
 
 const videoType = "video/webm";
 
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +15,7 @@ class Home extends React.Component {
       recording: false,
       videos: []
     };
+    this.uploadVideo = this.uploadVideo.bind(this);
   }
 
   async componentDidMount() {
@@ -83,11 +88,50 @@ class Home extends React.Component {
     this.setState({ videos });
   }
 
+  async uploadVideo(index) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+      authDomain: "crushd-efd3f.firebaseapp.com",
+      projectId: "crushd-efd3f",
+      storageBucket: "crushd-efd3f.appspot.com"
+    });
+
+    // Initialize Cloud Firestore through Firebase
+    let db = firebase.firestore();
+    let storageRef = firebase.storage().ref();
+    let ref = storageRef.child(`userVideo_${this.props.currentUser.id}.mp4`);
+
+    // Disable deprecated features
+    db.settings({
+      timestampsInSnapshots: true
+    });
+
+    let video = this.state.videos[index];
+
+    let blob = await fetch(video).then(r => {
+      var blob = null;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", r.url);
+      xhr.responseType = "blob"; //force the HTTP response, response-type header to be blob
+      xhr.onload = function() {
+        blob = xhr.response;
+        console.log("Created blob");
+        console.log(blob);
+        //xhr.response is now a blob object
+        ref.put(blob).then(function(snapshot) {
+          console.log("Uploaded a blob!");
+        });
+      };
+      xhr.send();
+
+      console.log(blob);
+    });
+  }
+
   render() {
     const { recording, videos } = this.state;
     return (
       <div className="home-content-section">
-
         <div className="camera">
           <video
             style={{ width: 400 }}
@@ -116,6 +160,9 @@ class Home extends React.Component {
                     Delete
                   </button>
                   <a href={videoURL}>Download</a>
+                  <button onClick={() => this.uploadVideo(i)}>
+                    Upload Video
+                  </button>
                 </div>
               </div>
             ))}
