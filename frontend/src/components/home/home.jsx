@@ -91,6 +91,7 @@ class Home extends React.Component {
     this.setState({
       videos
     });
+    this.props.createNewVideo(videoURL);
   }
 
   deleteVideo(videoURL) {

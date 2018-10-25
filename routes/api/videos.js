@@ -10,17 +10,22 @@ exports.upload = function(req,res) {
     if (!isValid) {
         return res.status(400).json(errors)
     }
-    res.json({
-        username: req.user.username,
-        content: req.data
-    });
-
-    User.findOne({ username: req.body.username }).then(user => {
-        // if the user already has a video, must delete video
-        // and all associated data
-        return nil
+    const newVideo = new Video({
+        user_id: req.body.user_id,
+        videoURL: req.body.videoURL
+    })
+    newVideo.save().then(video => {
+        const payload = {user_id: video.user_id, videoURL: video.videoURL}
+        res.json({
+            user_id: req.body.user_id,
+            videoURL: req.body.videoURL
+        });
     })
 };
+
+
+
+
 
 
 exports.delete = function (req, res) {
