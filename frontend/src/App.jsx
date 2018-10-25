@@ -16,9 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <Modal />
-          <Route path="/" component={HeaderContainer} />
+        <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/" component={HomeContainer} />
+          {/* Protected Matches Route */}
+          {/* Protected Messages Route */}
         </Switch>
       </div>
     );

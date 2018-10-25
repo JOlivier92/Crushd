@@ -1,5 +1,8 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+
+import HomeNavContainer from "./home_nav/home_nav_container";
+
 import "./home.css";
 
 const videoType = "video/webm";
@@ -132,6 +135,9 @@ class Home extends React.Component {
     const { recording, videos } = this.state;
     return (
       <div className="home-content-section">
+          {/* Home Navigation Component Lives here */}
+          <HomeNavContainer/>
+          
         <div className="camera">
           <video
             style={{ width: 400 }}
