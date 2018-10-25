@@ -1,5 +1,54 @@
-.splash-container {
-    background-image:url(https://images.unsplash.com/photo-1506426235353-205ad887bb38?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=51055b4d22b6289e9c1a95daefde0894&auto=format&fit=crop&w=1500&q=80);
-    height: 100vh;
-    width: 100vw;
+.legend {
+    display: none;
+}
+
+@media all and (min-width: 941px) {
+    .splash-container {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .splash-container::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100vw;
+        overflow: hidden;
+        height: 100vh;
+        max-height: 100vh;
+        display: block;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-splash-container {
+        display: none;
+    }
+}
+
+@media all and (max-width: 940px) {
+    .splash-container {
+        display: none;
+    }
+
+    .mobile-splash-container {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        z-index: -1;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('https://bit.ly/2Sh3fUi');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }

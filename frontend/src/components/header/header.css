@@ -28,6 +28,7 @@
     background-color: transparent;
 }
 
+
 @media all and (min-width: 769px) {
     .header-group {
         position: absolute;
