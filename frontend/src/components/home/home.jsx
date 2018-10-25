@@ -3,6 +3,8 @@ import React from "react";
 import "./home.css";
 import Loader from "react-loader-spinner";
 
+import { createNewVideo } from "../../util/video_api_util";
+
 const videoType = "video/webm";
 
 const firebase = require("firebase");
@@ -117,7 +119,7 @@ class Home extends React.Component {
     });
 
     let video = this.state.videos[index];
-
+    let currentUser = this.props.currentUser;
     let blob = await fetch(video).then(r => {
       var blob = null;
       var xhr = new XMLHttpRequest();
@@ -130,9 +132,9 @@ class Home extends React.Component {
         //xhr.response is now a blob object
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
-          this.props.createNewVideo({
-            user_id: this.props.currentUser.id,
-            videoURL: `userVideo_${this.props.currentUser.id}.mp4`
+          createNewVideo({
+            user_id: currentUser.id,
+            videoURL: `userVideo_${currentUser.id}.mp4`
           });
         });
       };
