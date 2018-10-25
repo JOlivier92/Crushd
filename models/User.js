@@ -43,8 +43,8 @@ const UserSchema = new Schema({
         required: false
     },
 
-    // array of videos posted by user 
-    // in reply to other user videos
+    // array of videos that are responses
+    // to user video
     video_reply_ids: {
         type: Array,
         "default": []
