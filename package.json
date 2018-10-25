@@ -28,6 +28,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
+    "firebase": "^5.5.5",
     "graphql-yoga": "^1.16.7",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
