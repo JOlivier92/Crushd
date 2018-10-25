@@ -21,13 +21,13 @@ class Home extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({loading: true})
-    
+    this.setState({ loading: true });
+
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
     });
-    
+
     console.log(this.state);
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
@@ -44,7 +44,7 @@ class Home extends React.Component {
       }
     };
     await this.sleep(1500);
-    this.setState({ loading: false});
+    this.setState({ loading: false });
     // Show video recorder to user
     this.video.src = window.URL.createObjectURL(stream);
     this.video.play();
@@ -130,6 +130,10 @@ class Home extends React.Component {
         //xhr.response is now a blob object
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
+          this.props.createNewVideo({
+            user_id: this.props.currentUser.id,
+            videoURL: `userVideo_${this.props.currentUser.id}.mp4`
+          });
         });
       };
       xhr.send();
@@ -145,7 +149,7 @@ class Home extends React.Component {
         <div className="loader-container">
           <Loader className="spinner" type="Hearts" height="250" width="250" />;
         </div>
-      )  
+      );
     }
     return (
       <div className="home-content-section">
