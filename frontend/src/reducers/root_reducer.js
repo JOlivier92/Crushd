@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   session,
   errors,
   ui,
-  videos
+  userVideo: videos
 });
 
 export default rootReducer;

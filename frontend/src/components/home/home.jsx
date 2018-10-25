@@ -30,7 +30,13 @@ class Home extends React.Component {
       audio: true
     });
 
-    console.log(this.state);
+    firebase.initializeApp({
+      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+      authDomain: "crushd-efd3f.firebaseapp.com",
+      projectId: "crushd-efd3f",
+      storageBucket: "crushd-efd3f.appspot.com"
+    });
+
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
@@ -93,7 +99,6 @@ class Home extends React.Component {
     this.setState({
       videos
     });
-    this.props.createNewVideo(videoURL);
   }
 
   deleteVideo(videoURL) {
@@ -102,13 +107,6 @@ class Home extends React.Component {
   }
 
   async uploadVideo(index) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
-
     // Initialize Cloud Firestore through Firebase
     let db = firebase.firestore();
     let storageRef = firebase.storage().ref();
