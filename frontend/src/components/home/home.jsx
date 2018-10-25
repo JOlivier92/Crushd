@@ -29,14 +29,6 @@ class Home extends React.Component {
     });
     
     console.log(this.state);
-
-    // Show video recorder to user
-    if (!this.state.loading) {
-      this.video.src = window.URL.createObjectURL(stream);
-      this.video.play();
-    }
-    
-
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
@@ -52,7 +44,10 @@ class Home extends React.Component {
       }
     };
     await this.sleep(1500);
-    this.setState({ loading: false}); 
+    this.setState({ loading: false});
+    // Show video recorder to user
+    this.video.src = window.URL.createObjectURL(stream);
+    this.video.play();
   }
 
   sleep(ms) {
