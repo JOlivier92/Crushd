@@ -39,6 +39,7 @@ app.use('/api/users/register', users.register);
 app.use('/api/users/login', users.login);
 
 // Video modules
+// not sure if we're  going to use these
 app.use("/api/videos/", videos.upload);
 app.use("/api/videos/", videos.delete);
 

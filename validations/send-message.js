@@ -3,7 +3,6 @@ const isEmpty = require("./is-empty");
 
 module.exports = function validateMessageRequest(data) {
     let errors = {};
-    debugger;
     // sanitize inputs
     data.sender_id = !isEmpty(data.sender_id) ? data.sender_id : "";
     data.receiver_id = !isEmpty(data.receiver_id) ? data.receiver_id : "";

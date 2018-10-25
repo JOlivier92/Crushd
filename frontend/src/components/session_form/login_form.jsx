@@ -35,9 +35,11 @@ class LoginForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
+        {this.props.errors.map((error, i) =>
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        )}
       </ul>
     );
   }
@@ -82,8 +84,15 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <button onClick={this.loginAsGuest}>Login As Guest</button>
-        <h2 className="login-signup-message">WELCOME BACK!</h2>
+          <div className="close">
+            <span
+              className="close-modal"
+              onClick={() => this.props.closeModal()}
+            >
+              <i className="fas fa-times" />
+            </span>
+          </div>
+          <h2 className="login-message">WELCOME BACK!</h2>
           <br />
           {this.renderErrors()}
           <div className="login-form">
