@@ -32,8 +32,6 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.history.push("/home");
-
     this.props.processForm(user);
   }
 
@@ -56,15 +54,12 @@ class SignupForm extends React.Component {
 
   selectedComponent(e) {
     e.preventDefault();
-    const {idx} = this.state;
+    const { idx } = this.state;
     const components = ["signupItem2", "signupItem3"];
     const selected = components[idx];
     const newIdx = idx + 1;
-    return (
-    this.setState({ component: selected, idx: newIdx })
-    );
+    return this.setState({ component: selected, idx: newIdx });
   }
-
 
   signupItem1() {
     return (
@@ -259,26 +254,39 @@ class SignupForm extends React.Component {
       signupItem3: this.signupItem3()
     };
 
-
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
+          <div className="close">
+            <span
+              className="close-modal"
+              onClick={() => this.props.closeModal()}
+            >
+              <i className="fas fa-times" />
+            </span>
+          </div>
           <h2 className="signup-message">GET STARTED!</h2>
           <br />
           {this.renderErrors()}
           <div className="signup-form">
             {selection[component]}
-            {component === "signupItem3" ? <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            /> : ""}
+            {component === "signupItem3"
+              ? <input
+                  className="session-submit"
+                  type="submit"
+                  value={this.props.formType}
+                />
+              : ""}
           </div>
-        {component !== "signup-form" ? <button className="session-continue" onClick={this.selectedComponent.bind(this)}>
-          Continue
-        </button> : ""}
+          {component !== "signupItem3"
+            ? <button
+                className="session-continue"
+                onClick={this.selectedComponent.bind(this)}
+              >
+                Continue
+              </button>
+            : ""}
         </form>
-
       </div>
     );
   }

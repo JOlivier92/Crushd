@@ -4,7 +4,8 @@
 
 @media all and (min-width: 941px) {
     .splash-container {
-        position: absolute;
+        /* position: absolute; */
+        position: relative;
         top: 0;
         height: 100vh;
         max-height: 100vh;
@@ -15,6 +16,7 @@
 
     .splash-container::before {
         position: absolute;
+        /* position: relative; */
         content: "";
         top: 0;
         left: 0;
@@ -25,6 +27,24 @@
         display: block;
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+    }
+
+    .logo img {
+        width: 40%;
+    }
+
+    .logo h2 {
+        font-size: 40px;
+        color: #fff;
     }
 
     .mobile-splash-container {
