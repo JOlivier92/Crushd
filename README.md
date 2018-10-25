@@ -4,7 +4,7 @@
 
 Crush'd is an online dating application like no other. Users can go on Crush'd and create a short introduction video...'like' and instant message each other, and spark a love connection.
 
-[Live Site](https://www.google.com/)
+[Live Site](https://crushd.herokuapp.com/#/)
 
 ## Background and Overview
 
