@@ -35,6 +35,33 @@ const UserSchema = new Schema({
     sexual_preference: {
         type: String,
         required: true
+    },
+
+    // current video posted by user
+    posted_video_id: {
+        type: Number,
+        required: false
+    },
+
+    // array of videos posted by user 
+    // in reply to other user videos
+    video_reply_ids: {
+        type: Array,
+        "default": []
+    },
+
+    // array of individuals
+    // who user is trying to match with
+    likes: {
+        type: Array,
+        "default": []
+    },
+
+    // array of individuals
+    // who user has matched with
+    matches: {
+        type: Array,
+        "default": []
     }
 
 

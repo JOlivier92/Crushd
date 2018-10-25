@@ -27,14 +27,30 @@ const port = process.env.PORT || 5000
 // End Imports Section // // // // // // // //
 
 // Routes
-/*const users = require('./routes/api/users')
-app.use('/api/users', users)*/
 const users = require('./routes/api/users');
+const videos = require('./routes/api/videos');
+const chats = require('./routes/api/chats');
+const messages = require('./routes/api/messages');
+
 // Authentication modules
 const jsonwebtoken = require('jsonwebtoken');
 app.use('/api/users/current', passport.authenticate('jwt', {session: false}), users.current);
 app.use('/api/users/register', users.register);
 app.use('/api/users/login', users.login);
+
+// Video modules
+// not sure if we're  going to use these
+app.use("/api/videos/", videos.upload);
+app.use("/api/videos/", videos.delete);
+
+// Messaging modules
+
+
+
+
+
+
+
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 

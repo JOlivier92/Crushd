@@ -45,6 +45,7 @@ class LoginForm extends React.Component {
   }
 
   loginAsGuest(e) {
+    console.log(e);
     e.preventDefault();
 
     const email = "x@gmail.com".split("");
@@ -132,7 +133,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
