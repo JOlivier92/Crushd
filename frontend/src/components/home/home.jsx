@@ -130,46 +130,40 @@ class Home extends React.Component {
 
   render() {
     const { recording, videos } = this.state;
-    return (
-      <div className="home-content-section">
+    return <div className="home-content-section">
+        <div className="recorded-videos-section">
+        <div className="recorded-video-box">
+          <h3>Recorded Videos</h3>
+          {videos.map((videoURL, i) => <div key={`video_${i}`}>
+              <video className="recorded-inner" src={videoURL} autoPlay loop />
+              <div className="video-options-section">
+                <button onClick={() => this.deleteVideo(videoURL)}>
+                  Delete
+                </button>
+              <button><a href={videoURL}>Download</a></button>
+                <button onClick={() => this.uploadVideo(i)}>
+                  Upload Video
+                </button>
+              </div>
+            </div>)}
+        </div>
+        </div>
         <div className="camera">
-          <video
-            style={{ width: 400 }}
-            ref={v => {
+          <video style={{ width: 400 }} ref={v => {
               this.video = v;
-            }}
-          >
+            }}>
             Video stream not available
           </video>
           <div className="recording-options-section">
-            {!recording && (
-              <button onClick={e => this.startRecording(e)}>Record</button>
-            )}
-            {recording && (
-              <button onClick={e => this.stopRecording(e)}>Stop</button>
-            )}
-          </div>
-
-          <div className="recorded-videos-section">
-            <h3>Recorded Videos:</h3>
-            {videos.map((videoURL, i) => (
-              <div key={`video_${i}`}>
-                <video style={{ width: 200 }} src={videoURL} autoPlay loop />
-                <div className="video-options-section">
-                  <button onClick={() => this.deleteVideo(videoURL)}>
-                    Delete
-                  </button>
-                  <a href={videoURL}>Download</a>
-                  <button onClick={() => this.uploadVideo(i)}>
-                    Upload Video
-                  </button>
-                </div>
-              </div>
-            ))}
+            {!recording && <div className="button" onClick={e => this.startRecording(e)}>
+                <div className="inner" />
+              </div>}
+            {recording && <div className="button active" onClick={e => this.stopRecording(e)}>
+                <div className="inner" />
+              </div>}
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
