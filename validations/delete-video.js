@@ -3,7 +3,6 @@ const isEmpty = require("./is-empty");
 
 module.exports = function validateDeleteRequest(data) {
     let errors = {};
-    debugger;
     // sanitize inputs
     data.username = !isEmpty(data.username) ? data.username : "";
     data.response_to_id = !isEmpty(data.response_to_id) ? data.response_to_id : "";
