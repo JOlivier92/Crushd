@@ -1,6 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import "./home.css";
+import Loader from "react-loader-spinner";
 
 const videoType = "video/webm";
 
@@ -13,9 +14,12 @@ class Home extends React.Component {
     super(props);
     this.state = {
       recording: false,
+
       recorded: false,
       videos: [],
-      seconds: "30"
+      seconds: "30",
+      loading: true
+
     };
     this.secondsRemaining = null;
     this.intervalHandle = null;
@@ -26,15 +30,14 @@ class Home extends React.Component {
   }
 
   async componentDidMount() {
+    this.setState({loading: true})
+    
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
     });
-
-    // Show video recorder to user
-    this.video.src = window.URL.createObjectURL(stream);
-    this.video.play();
-
+    
+    console.log(this.state);
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
@@ -49,6 +52,15 @@ class Home extends React.Component {
         this.chunks.push(e.data);
       }
     };
+    await this.sleep(1500);
+    this.setState({ loading: false});
+    // Show video recorder to user
+    this.video.src = window.URL.createObjectURL(stream);
+    this.video.play();
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   startRecording(e) {
@@ -177,7 +189,15 @@ class Home extends React.Component {
   }
 
   render() {
-    const { recording, recorded, videos } = this.state;
+
+    const { recording, videos, loading } = this.state;
+    if (this.state.loading) {
+      return (
+        <div className="loader-container">
+          <Loader className="spinner" type="Hearts" height="250" width="250" />;
+        </div>
+      )  
+    }
 
     return (
       <div className="home-content-section">
