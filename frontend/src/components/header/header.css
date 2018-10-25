@@ -21,10 +21,12 @@
     color: #232323;
     cursor: pointer;
     transition: background-color 0.5s ease;
+    transition: color 0.2s ease;
 }
 
 .splash-btns .btns:hover {
     background-color: transparent;
+    color: #fff;
 }
 
 

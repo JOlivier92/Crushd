@@ -3,13 +3,150 @@
     background-image: url("https://transparenttextures.com/patterns/brushed-alum.png");
     height: 100vh;
     width: 100vw;
-    padding-top: 200px;
+    padding-top: 50px;
+}
+
+.button {
+    margin: 10px auto 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.inner {
+    background-color: #9e1919;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    transform: scale(0.94);
+}
+
+.button.active .inner {
+    transform: scale(0.5);
+    border-radius: 12%;
+}
+
+.timer {
+    color: #fff;
+}
+
+.recorded-videos-section {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 150px;
+    height: 80vh;
+    padding-top: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@-webkit-keyframes slide-out {
+    0% {
+        -webkit-transform: translateX(0%);
+    }
+
+    100% {
+        -webkit-transform: translateX(100%);
+    }
+}
+
+.recorded-videos-section h3 {
+    font-size: 18px;
+    color: lightgray;
+}
+
+.recorded-inner {
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.video-options-section button {
+    background-color: #C33764;
+    border: 1px solid #C33764;
+    padding: 2px;
+    border-radius: 3px;
+    width: 80px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.video-options-section a {
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.video-options-section button:hover,
+a:hover {
+    background-color: #fff;
+    color: #C33764;
+}
+
+.close-recorded {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+}
+
+.close-recorded p {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    font-size: 16px;
+    color: lightgray;
 }
 
 @media all and (min-width: 769px) {
     .camera {
-        margin-left: 50%;
-        background-color: #000;
+        position: absolute;
+        top: 150px;
+        margin-left: 43%;
+        background-color: #232323;
+        border-radius: 5px;
+        padding: 10px 0;
         width: 425px;
     }
 
@@ -134,3 +271,4 @@
   100% { opacity: 1;
          fill: rgb(206, 20, 75); }
 } 
+
