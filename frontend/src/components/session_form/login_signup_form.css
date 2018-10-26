@@ -153,6 +153,11 @@ input[type=date] {
   border-radius: 50%;
 }
 
+.close-modal:hover {
+  color: #c33764;
+  border-color: #c33764;
+}
+
 @media all and (max-width: 640px) {
   .login-form-box {
     max-width: 100vw;
