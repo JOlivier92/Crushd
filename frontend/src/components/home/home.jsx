@@ -46,8 +46,8 @@ class Home extends React.Component {
   }
 
   render() {
-    const { recording, videos, recorded, loading } = this.state;
-
+    const { navOption, mainScreen, recording, videos, recorded, loading } = this.state;
+    
     if (this.state.loading) {
       return (
         <div className="loader-container">
@@ -56,26 +56,35 @@ class Home extends React.Component {
       );
     }
 
+    let buttonOne = null;
+    let buttonTwo = null;
+    if (navOption) {
+      buttonOne = "nav-chosen-button active";
+      buttonTwo = "nav-chosen-button";
+    } else {
+      buttonOne = "nav-chosen-button";
+      buttonTwo = "nav-chosen-button active";
+    }
+
     return (
       <div className="home-content-section">
-        {/* Home Navigation Component Lives here */}
         <div className="home-nav-container">
           <div className="home-nav">
-            <button className="messages-button" onClick={this.homeNavClicked}>
+            <button className={buttonOne} onClick={this.homeNavClicked}>
               Responses
             </button>
-            <button className="matches-button" onClick={this.homeNavClicked}>
+            <button className={buttonTwo} onClick={this.homeNavClicked}>
               Matches
             </button>
           </div>
 
-          {this.state.navOption ? (
+          {navOption ? (
             <ResponsesIndexContainer />
           ) : (
             <MessagesIndexContainer />
           )}
         </div>
-        {this.state.mainScreen === "videosIndex" ? (
+        {mainScreen === "videosIndex" ? (
           <VideosIndexContainer />
         ) : (
           <UploadVideoContainer />

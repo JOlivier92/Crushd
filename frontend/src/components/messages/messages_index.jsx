@@ -1,4 +1,5 @@
 import React from "react";
+import './messages_index.css';
 
 class MessagesIndex extends React.Component {
   render() {
