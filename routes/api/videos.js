@@ -39,9 +39,12 @@ exports.upload = function(req, res) {
 };
 
 exports.getIndex = function(req, res) {
-  Video.find({}).then(idx => {
+  User.findById(req.params.userid).then(user => {
+    Video.find({gender: user._doc.sexual_preference, sexual_preference: user._doc.gender}).then(idx => {
+      idx = idx.map(video => video._doc);
       res.json({
         videos: idx
-          });
-        });
-    };
+      });
+    });
+  });
+};
