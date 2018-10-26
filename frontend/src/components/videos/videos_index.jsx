@@ -13,8 +13,11 @@ class VideosIndex extends React.Component {
           src={FIREBASE_VIDEO_URL}
           height="600px"
           width="600px"
-          controls
           autoplay
+          controls
+          muted
+          loop
+          play="true"
         >
           {" "}
         </video>
