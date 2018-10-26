@@ -1,6 +1,6 @@
 import React from "react";
 import Heart from "./like-heart.svg";
-import './videos_index.css';
+import "./videos_index.css";
 
 import VideosIndexItem from "./videos_index_item";
 import "./animate.css";
@@ -13,14 +13,43 @@ class VideosIndex extends React.Component {
     super(props);
     this.state = {
       videos: []
-    }
+    };
 
     this.checkKey = this.checkKey.bind(this);
+    this.filterVideos = this.filterVideos.bind(this);
   }
 
   async componentDidMount() {
     document.onkeydown = this.checkKey;
-    await this.props.fetchVideos();
+    this.props.fetchVideos();
+    if (this.props.videos.length > 0) {
+      this.filterVideos();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.videos.length > 0) {
+      this.filterVideos(nextProps.videos);
+    }
+  }
+
+  filterVideos(videos) {
+    let filteredVideos = [];
+
+    for (let i = 0; i < videos.length; i++) {
+      if (
+        videos[i].gender === this.props.currentUser.sexual_preference &&
+        videos[i].sexual_preference === this.props.currentUser.gender
+      ) {
+        filteredVideos.push(videos[i]);
+      }
+    }
+
+    console.log(filteredVideos);
+
+    this.setState({
+      videos: filteredVideos
+    });
   }
 
   checkKey(e) {
@@ -48,6 +77,5 @@ class VideosIndex extends React.Component {
     );
   }
 }
-
 
 export default VideosIndex;
