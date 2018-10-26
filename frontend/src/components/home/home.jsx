@@ -200,8 +200,10 @@ class Home extends React.Component {
     });
   }
 
+
   render() {
-    const { recording, videos, loading } = this.state;
+    const { recording, videos, recorded, loading } = this.state;
+
     if (this.state.loading) {
       return (
         <div className="loader-container">
