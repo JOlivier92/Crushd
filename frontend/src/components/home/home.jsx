@@ -7,6 +7,8 @@ import MessagesIndexContainer from "./../messages/messages_index_container";
 import "./home.css";
 import Loader from "react-loader-spinner";
 
+import { createNewVideo } from "../../util/video_api_util";
+
 const videoType = "video/webm";
 
 const firebase = require("firebase");
@@ -43,7 +45,16 @@ class Home extends React.Component {
       audio: true
     });
 
-    console.log(this.state);
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+        authDomain: "crushd-efd3f.firebaseapp.com",
+        projectId: "crushd-efd3f",
+        storageBucket: "crushd-efd3f.appspot.com"
+      });
+    };
+    
+
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
@@ -94,9 +105,9 @@ class Home extends React.Component {
     });
 
     // Save the video to memory
+    this.popOffVideo();
     this.saveVideo();
     this.stopCountDown();
-    this.popOffVideo();
   }
 
   saveVideo() {
@@ -155,13 +166,6 @@ class Home extends React.Component {
   }
 
   async uploadVideo(index) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
-
     // Initialize Cloud Firestore through Firebase
     let db = firebase.firestore();
     let storageRef = firebase.storage().ref();
@@ -173,7 +177,7 @@ class Home extends React.Component {
     });
 
     let video = this.state.videos[index];
-
+    let currentUser = this.props.currentUser;
     let blob = await fetch(video).then(r => {
       var blob = null;
       var xhr = new XMLHttpRequest();
@@ -186,6 +190,10 @@ class Home extends React.Component {
         //xhr.response is now a blob object
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
+          createNewVideo({
+            user_id: currentUser.id,
+            videoURL: `userVideo_${currentUser.id}.mp4`
+          });
         });
       };
       xhr.send();

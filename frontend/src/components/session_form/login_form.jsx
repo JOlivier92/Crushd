@@ -35,11 +35,9 @@ class LoginForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) =>
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        )}
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
       </ul>
     );
   }
@@ -51,7 +49,6 @@ class LoginForm extends React.Component {
     const email = "x@gmail.com".split("");
     const password = "password".split("");
     const button = document.getElementById("session-submit");
-    debugger;
     this.setState({ email: "", password: "" }, () =>
       this.fillForm(email, password, button)
     );
@@ -133,7 +130,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
