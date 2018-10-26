@@ -1,4 +1,6 @@
 import React from "react";
+import Heart from "./like-heart.svg";
+import './videos_index.css';
 
 import VideosIndexItem from "./videos_index_item";
 import "./animate.css";
@@ -9,12 +11,17 @@ const FIREBASE_VIDEO_URL =
 class VideosIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      videos: []
+    }
 
     this.checkKey = this.checkKey.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     document.onkeydown = this.checkKey;
+    await this.props.fetchVideos();
+    debugger;
   }
 
   checkKey(e) {
@@ -42,5 +49,6 @@ class VideosIndex extends React.Component {
     );
   }
 }
+
 
 export default VideosIndex;

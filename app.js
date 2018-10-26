@@ -43,9 +43,9 @@ app.use(
 );
 app.use("/api/users/register", users.register);
 app.use("/api/users/login", users.login);
-app.use("/api/videos", videos.upload);
+app.post("/api/videos", videos.upload);
+app.get("/api/videos/",videos.getIndex);
 app.use("/api/response_videos", responseVideos.upload);
-
 // Messaging modules
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
@@ -56,7 +56,4 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "", "index.html"));
   });
-  console.log("im somehow here");
 }
-
-//test

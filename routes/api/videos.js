@@ -38,3 +38,11 @@ exports.upload = function(req, res) {
   })
   
 };
+
+exports.getIndex = function(req, res) {
+  Video.find({}).then(idx => {
+      res.json({
+        videos: idx
+          });
+        });
+    };

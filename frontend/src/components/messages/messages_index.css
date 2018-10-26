@@ -1,9 +1,14 @@
 .messages-index-view {
-    position: absolute;
-    top: 160px;
-    left: 0;
-    width: 25%;
-    padding: 30px 20px;
-    height: 100vh;
-    background-color: #fff;
+   position: absolute;
+   top: 160px;
+   left: 0;
+   bottom: 0;
+   width: 25%;
+   padding: 20px;
+   max-height: 100vh;
+   overflow: hidden;
+   background-color: #fff;
+   -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+   -moz-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
 }

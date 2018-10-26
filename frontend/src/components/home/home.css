@@ -10,10 +10,11 @@
     position: absolute;
     top: 85px;
     left: 0;
-    z-index: 0;
+    z-index: 1;
     background-color: #fff;
     width: 25%;
     padding: 30px 20px;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
 }
 
 .nav-chosen-button:first-child {
@@ -341,7 +342,7 @@ a:hover {
     position: absolute;
     top: 150px;
     margin-left: 43%;
-    background-color: #232323;
+    background-color: #fff;
     border-radius: 5px;
     padding: 10px 0;
     width: 425px;
