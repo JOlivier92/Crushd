@@ -30,6 +30,7 @@ const port = process.env.PORT || 5000;
 // Routes
 const users = require("./routes/api/users");
 const videos = require("./routes/api/videos");
+const responseVideos = require("./routes/api/response_videos");
 const chats = require("./routes/api/chats");
 const messages = require("./routes/api/messages");
 
@@ -42,10 +43,8 @@ app.use(
 );
 app.use("/api/users/register", users.register);
 app.use("/api/users/login", users.login);
-
-// Video modules
-// not sure if we're  going to use these
-app.use("/api/videos/", videos.upload);
+app.use("/api/videos", videos.upload);
+app.use("/api/response_videos", responseVideos.upload);
 
 // Messaging modules
 

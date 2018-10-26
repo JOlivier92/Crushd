@@ -12,10 +12,19 @@ const VideoSchema = new Schema({
   videoURL: {
     type: String,
     required: true
+  },
+
+  // gender of poster
+  gender: {
+    type: String,
+    required: true
+  },
+
+  // preference of poster
+  preference: {
+    type: String,
+    required: true
   }
-  // array if video IDs
-  // that have responded to
-  // the current video
 });
 
 module.exports = Video = mongoose.model("videos", VideoSchema);
