@@ -5,33 +5,11 @@ import { withRouter } from "react-router-dom";
 import "./header.css";
 
 const Header = ({ currentUser, logout, openModal, closeModal }) => {
-  const sessionLinks = () => (
+
+  const sessionLinks = () =>
     <div>
-      <nav className="splash-btns">
-        <div
-          className="signup-btn btns"
-          onClick={() =>
-            openModal({
-              modal: "ShowSignup"
-            })
-          }
-        >
-          <p>Sign up</p>
-        </div>
-        <div
-          className="login-btn btns"
-          onClick={() =>
-            openModal({
-              modal: "ShowLogin"
-            })
-          }
-        >
-          <p>Log in</p>
-        </div>
-      </nav>
       <SplashContainer />
-    </div>
-  );
+    </div>;
 
   const nav = () => (
     <div>
@@ -40,6 +18,7 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
         <Link to="/" className="header-button" onClick={logout}>
           Log Out
         </Link>
+
         <div id="menuToggle">
           <input type="checkbox" />
           <span />
@@ -58,14 +37,17 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
             <li>
               <Link to="/">Messages</Link>
             </li>
+
             <Link to="/" className="mobile-header-button" onClick={logout}>
               Log Out
             </Link>
           </ul>
         </div>
       </hgroup>
+
     </div>
   );
+
 
   if (currentUser.id) {
     closeModal();

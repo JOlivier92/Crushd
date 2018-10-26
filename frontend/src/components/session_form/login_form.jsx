@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.loginAsGuest = this.loginAsGuest.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -39,9 +40,11 @@ class LoginForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
+        {this.props.errors.map((error, i) =>
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        )}
       </ul>
     );
   }
@@ -86,6 +89,11 @@ class LoginForm extends React.Component {
     }
   }
 
+  handleCloseModal() {
+    this.props.showLogo();
+    this.props.closeModal();
+  }
+
   render() {
     return (
       <div className="login-form-container">
@@ -93,7 +101,7 @@ class LoginForm extends React.Component {
           <div className="close">
             <span
               className="close-modal"
-              onClick={() => this.props.closeModal()}
+              onClick={() => this.handleCloseModal()}
             >
               <i className="fas fa-times" />
             </span>

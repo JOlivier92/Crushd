@@ -1,17 +1,18 @@
 import { connect } from "react-redux";
 import Splash from "./splash";
+import { hideLogo } from "../../actions/logo_actions";
+import { openModal } from "../../actions/modal_actions";
 
-import { openModal} from "../../actions/modal_actions";
+const msp = ({ session, ui }) => {
+  return {
+    currentUser: session,
+    ui: ui.logo
+  };
+};
 
-
-const msp = ({ session }) => ({
-  currentUser: session
+const mdp = dispatch => ({
+  openModal: modal => dispatch(openModal(modal)),
+  hideLogo: () => dispatch(hideLogo())
 });
 
-const mdp = (dispatch) => ({
-  openModal: (modal) => dispatch(openModal(modal))
-  
-})
-
 export default connect(msp, mdp)(Splash);
-
