@@ -16,9 +16,11 @@ class App extends Component {
       <div className="App">
         <Favicon url="./favicon.ico" />
         <Modal />
-          <Route path="/" component={HeaderContainer} />
+        <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/" component={HomeContainer} />
+          {/* Protected Matches Route */}
+          {/* Protected Messages Route */}
         </Switch>
       </div>
     );
