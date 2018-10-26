@@ -45,17 +45,16 @@ class Home extends React.Component {
       audio: true
     });
 
-<<<<<<< HEAD
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+        authDomain: "crushd-efd3f.firebaseapp.com",
+        projectId: "crushd-efd3f",
+        storageBucket: "crushd-efd3f.appspot.com"
+      });
+    };
+    
 
-=======
-    console.log(this.state);
->>>>>>> b8d829b742eed937d1b2c578ad7910e959e1830d
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
