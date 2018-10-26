@@ -107,88 +107,92 @@ class SignupForm extends React.Component {
         <label>
           Gender:
           <br />
-          <div className="radio">
-            <input
-              id="radio-1"
-              type="radio"
-              name="gender"
-              value="M"
-              onClick={this.update("gender")}
-            />
-            <label htmlFor="radio-1" className="radio-label">
-              Male
-            </label>
-            <br />
-          </div>
-          <div className="radio">
-            <input
-              id="radio-2"
-              type="radio"
-              name="gender"
-              value="F"
-              onClick={this.update("gender")}
-            />
-            <label htmlFor="radio-2" className="radio-label">
-              Female
-            </label>
-            <br />
-          </div>
-          <div className="radio">
-            <input
-              id="radio-3"
-              type="radio"
-              name="gender"
-              value="O"
-              onClick={this.update("gender")}
-            />
-            <label htmlFor="radio-3" className="radio-label">
-              Other
-            </label>
-          </div>
+          <fieldset id="genderClass">
+            <div className="radio">
+              <input
+                id="radio-1"
+                type="radio"
+                value="M"
+                onClick={this.update("gender")}
+                name="genderClass"
+              />
+              <label htmlFor="radio-1" className="radio-label" >
+                Male
+              </label>
+              <br />
+            </div>
+            <div className="radio">
+              <input
+                id="radio-2"
+                type="radio"
+                value="F"
+                onClick={this.update("gender")}
+                name="genderClass"
+              />
+              <label htmlFor="radio-2" className="radio-label" >
+                Female
+              </label>
+              <br />
+            </div>
+            <div className="radio">
+              <input
+                id="radio-3"
+                type="radio"
+                value="O"
+                onClick={this.update("gender")}
+                name="genderClass"
+              />
+              <label htmlFor="radio-3" className="radio-label">
+                Other
+              </label>
+            </div>
+          </fieldset>
         </label>
         <br />
         <br />
         <label>
           Sexual Preference:
           <br />
-          <div className="radio">
-            <input
-              id="radio-4"
-              type="radio"
-              name="gender"
-              value="M"
-              onClick={this.update("sexual_preference")}
-            />
-            <label htmlFor="radio-4" className="radio-label">
-              Male
-            </label>
-            <br />
-          </div>
-          <div className="radio">
-            <input
-              id="radio-5"
-              type="radio"
-              name="gender"
-              value="F"
-              onClick={this.update("sexual_preference")}
-            />
-            <label htmlFor="radio-5" className="radio-label">
-              Female
-            </label>
-            <br />
-          </div>
-          <div className="radio">
-            <input
-              id="radio-6"
-              type="radio"
-              name="gender"
-              value="O"
-              onClick={this.update("sexual_preference")}
-            />
-            <label htmlFor="radio-6" className="radio-label">
-              Other
-            </label>
-          </div>
+          <fieldset id="sexualPreferenceClass">
+            <div className="radio">
+              <input
+                id="radio-4"
+                type="radio"
+                name="sexualPreferenceClass"
+                value="M"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="radio-4" className="radio-label">
+                Male
+              </label>
+              <br />
+            </div>
+            <div className="radio">
+              <input
+                id="radio-5"
+                type="radio"
+                name="sexualPreferenceClass"
+                value="F"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="radio-5" className="radio-label">
+                Female
+              </label>
+              <br />
+            </div>
+            <div className="radio">
+              <input
+                id="radio-6"
+                type="radio"
+                name="sexualPreferenceClass"
+                value="O"
+                onClick={this.update("sexual_preference")}
+              />
+              <label htmlFor="radio-6" className="radio-label" name="sexualPreferenceClass">
+                Other
+              </label>
+            </div>
+          </fieldset>
         </label>
       </div>
     );

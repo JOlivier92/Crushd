@@ -4,16 +4,24 @@ const isEmpty = require("./is-empty");
 module.exports = function validateVideoCreateRequest(data) {
   let errors = {};
   // sanitize inputs
-  data.username = !isEmpty(data.username) ? data.username : "";
-  data.response_to_id = !isEmpty(data.response_to_id) ? data.response_to_id : "";
-  data.content = !isEmpty(data.content) ? data.content : "";
+
+  data.user_id = !isEmpty(data.user_id) ? data.user_id : "";
+  data.videoURL = !isEmpty(data.videoURL) ? data.videoURL : "";
+  data.gender = !isEmpty(data.gender) ? data.gender : "";
+  data.preference = !isEmpty(data.preference) ? data.preference : "";
 
   // check to make sure each field is filled in. // // // // // // //
-  if (Validator.isEmpty(data.username)) {
+  if (Validator.isEmpty(data.user_id)) {
     errors.username = "User is required to create a video";
   }
-  if (Validator.isEmpty(data.content)) {
+  if (Validator.isEmpty(data.videoURL)) {
     errors.content = "You must upload a video";
+  }
+  if (Validator.isEmpty(data.gender)) {
+    errors.content = "Invalid user";
+  }
+  if (Validator.isEmpty(data.preference)) {
+    errors.content = "Invalid preferences";
   }
 
   // // // // // // // // // // // // // // // // // // // // //

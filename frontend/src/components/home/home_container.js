@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import { logoutUser } from "../../util/session_api_util";
+import { createNewVideo } from "../../util/video_api_util";
 import Home from "./home";
 
 const mapStateToProps = ({ session }) => {
@@ -10,7 +11,8 @@ const mapStateToProps = ({ session }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutUser())
+  logout: () => dispatch(logoutUser()),
+  createNewVideo: video => dispatch(createNewVideo(video))
 });
 
 export default connect(

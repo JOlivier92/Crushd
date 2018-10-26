@@ -1,41 +1,40 @@
-const Video = require('../../models/Video');
+const Video = require("../../models/Video");
+const validateVideoUpload = require("../../validations/create-video");
 
+exports.upload = function(req, res) {
 
-const validateVideoUpload = require('../../validations/create-video');
-const validateVideoDelete = require('../../validations/delete-video');
-let errors = {};
+  const newVideo = new Video({
+    user_id: req.body.user_id,
+    videoURL: req.body.videoURL,
+    gender: req.body.gender,
+    preference: req.body.preference
+  });
+  const { errors, isValid } = validateVideoUpload(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors)
+  };
 
-exports.upload = function(req,res) {
-    const { errors, isValid } = validateVideoUpload(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors)
+  Video.findOne({user_id: req.body.user_id}).then(video => {
+    if (video) {
+      Video.update({ user_id: req.body.user_id },
+        { $set: { videoURL: req.body.videoURL } }).then(video => {
+          res.json({
+            user_id: req.body.user_id,
+            videoURL: req.body.videoURL,
+            gender: req.body.gender,
+            preference: req.body.preference
+          });
+        });
+    } else {
+      newVideo.save().then(video => {
+        res.json({
+          user_id: req.body.user_id,
+          videoURL: req.body.videoURL,
+          gender: req.body.gender,
+          preference: req.body.preference
+        });
+      });
     }
-    res.json({
-        username: req.user.username,
-        content: req.data
-    });
-
-    User.findOne({ username: req.body.username }).then(user => {
-        // if the user already has a video, must delete video
-        // and all associated data
-        return nil
-    })
-};
-
-
-exports.delete = function (req, res) {
-    const { errors, isValid } = validateVideoDelete(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
-    res.json({
-        username: req.user.username,
-        content: req.data
-    });
-
-    User.findOne({ username: req.body.username }).then(user => {
-        // if the user already has a video, must delete video
-        // and all associated data
-        return nil
-    })
+  })
+  
 };

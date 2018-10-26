@@ -10,6 +10,8 @@ import UploadVideoContainer from "./../upload_video/upload_video_container";
 import "./home.css";
 import Loader from "react-loader-spinner";
 
+import { createNewVideo } from "../../util/video_api_util";
+
 const videoType = "video/webm";
 
 const firebase = require("firebase");
