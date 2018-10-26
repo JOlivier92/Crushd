@@ -69,6 +69,7 @@ class Home extends React.Component {
         this.chunks.push(e.data);
       }
     };
+
     await this.sleep(1500);
     this.setState({ loading: false });
     // Show video recorder to user
@@ -208,7 +209,6 @@ class Home extends React.Component {
     });
   }
 
-
   render() {
     const { recording, videos, recorded, loading } = this.state;
 
@@ -281,6 +281,8 @@ class Home extends React.Component {
 
         <div className="camera">
           <video
+            muted
+            className="camera-view"
             style={{ width: 400 }}
             ref={v => {
               this.video = v;
