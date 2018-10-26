@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (decoded.exp < currentTime) {
       // Logout user
       store.dispatch(APIUtil.logoutUser());
-      // Redirect to login
-      window.location.href = "/login";
+
     }
   }
   const root = document.getElementById("root");
