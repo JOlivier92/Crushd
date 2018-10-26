@@ -2,6 +2,9 @@ import React from "react";
 
 import "./../home/home.css";
 import Loader from "react-loader-spinner";
+import HomeNavContainer from "./../home/home_nav/home_nav_container";
+import ResponsesIndexContainer from "./../responses/responses_index_container";
+import MessagesIndexContainer from "./../messages/messages_index_container";
 
 const videoType = "video/webm";
 const firebase = require("firebase");
@@ -14,7 +17,9 @@ class UploadVideo extends React.Component {
       recording: false,
       videos: [],
       navOption: true,
+      mainScreen: "videosIndex",
       recorded: false,
+      videos: [],
       seconds: "30",
       loading: true
     };
@@ -23,6 +28,7 @@ class UploadVideo extends React.Component {
     this.startCountDown = this.startCountDown.bind(this);
     this.uploadVideo = this.uploadVideo.bind(this);
     this.tick = this.tick.bind(this);
+    this.homeNavClicked = this.homeNavClicked.bind(this);
   }
 
   async componentDidMount() {
@@ -57,6 +63,12 @@ class UploadVideo extends React.Component {
 
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  homeNavClicked() {
+    this.setState({
+      navOption: !this.state.navOption
+    });
   }
 
   startRecording(e) {
@@ -180,7 +192,7 @@ class UploadVideo extends React.Component {
   }
 
   render() {
-    const { recording, videos, recorded, loading } = this.state;
+    const { navOption, recording, videos, recorded, loading } = this.state;
     if (this.state.loading) {
       return (
         <div className="loader-container">
@@ -188,8 +200,30 @@ class UploadVideo extends React.Component {
         </div>
       );
     }
+
+    let buttonOne = null;
+    let buttonTwo = null;
+    if (navOption) {
+      buttonOne = "nav-chosen-button active";
+      buttonTwo = "nav-chosen-button";
+    } else {
+      buttonOne = "nav-chosen-button";
+      buttonTwo = "nav-chosen-button active";
+    }
     return (
       <div className="home-content-section">
+        <div className="home-nav-container">
+          <div className="home-nav">
+            <button className={buttonOne} onClick={this.homeNavClicked}>
+              Responses
+            </button>
+            <button className={buttonTwo} onClick={this.homeNavClicked}>
+              Matches
+            </button>
+          </div>
+
+          {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
+        </div>
         {!this.state.recorded ? (
           <div className="recorded-videos-section slide-out" />
         ) : (

@@ -46,8 +46,15 @@ class Home extends React.Component {
   }
 
   render() {
-    const { navOption, mainScreen, recording, videos, recorded, loading } = this.state;
-    
+    const {
+      navOption,
+      mainScreen,
+      recording,
+      videos,
+      recorded,
+      loading
+    } = this.state;
+
     if (this.state.loading) {
       return (
         <div className="loader-container">
@@ -78,11 +85,7 @@ class Home extends React.Component {
             </button>
           </div>
 
-          {navOption ? (
-            <ResponsesIndexContainer />
-          ) : (
-            <MessagesIndexContainer />
-          )}
+          {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
         {mainScreen === "videosIndex" ? (
           <VideosIndexContainer />
