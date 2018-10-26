@@ -9,12 +9,17 @@ const FIREBASE_VIDEO_URL =
 class VideosIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      videos: []
+    }
 
     this.checkKey = this.checkKey.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     document.onkeydown = this.checkKey;
+    await this.props.fetchVideos();
+    debugger;
   }
 
   checkKey(e) {
