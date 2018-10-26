@@ -186,7 +186,6 @@ class UploadVideo extends React.Component {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", r.url);
       xhr.responseType = "blob";
-      debugger;
       xhr.onload = function() {
         blob = xhr.response;
         ref.put(blob).then(function(snapshot) {

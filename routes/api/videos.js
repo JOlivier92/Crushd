@@ -2,7 +2,6 @@ const Video = require("../../models/Video");
 const validateVideoUpload = require("../../validations/create-video");
 
 exports.upload = function(req, res) {
-  debugger;
   const newVideo = new Video({
     user_id: req.body.user_id,
     videoURL: req.body.videoURL,

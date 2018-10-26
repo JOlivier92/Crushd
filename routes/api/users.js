@@ -84,7 +84,6 @@ exports.login = function(req,res) {
         }
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                debugger;
                 const payload = {
                     id: user.id,
                     username: user.username,
