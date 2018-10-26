@@ -15,6 +15,10 @@ class LoginForm extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  componentDidMount() {
+    this.demoCount = 0 
+  }
+
   update(field) {
     return e =>
       this.setState({
@@ -49,12 +53,17 @@ class LoginForm extends React.Component {
     console.log(e);
     e.preventDefault();
 
-    const email = "x@gmail.com".split("");
-    const password = "password".split("");
-    const button = document.getElementById("session-submit");
-    this.setState({ email: "", password: "" }, () =>
-      this.fillForm(email, password, button)
-    );
+    if (this.demoCount === 0) {
+      
+      const email = "x@gmail.com".split("");
+      const password = "123123".split("");
+      const button = document.getElementById("session-submit");
+      this.setState({ email: "", password: "" }, () =>
+        this.fillForm(email, password, button)
+      );
+    }
+    this.demoCount++;
+
   }
 
   fillForm(email, password, button) {

@@ -1,23 +1,24 @@
 import React from "react";
 import SplashContainer from "../splash/splash_container";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./header.css";
 
 const Header = ({ currentUser, logout, openModal, closeModal }) => {
+
   const sessionLinks = () =>
     <div>
       <SplashContainer />
     </div>;
 
-  const nav = () =>
+  const nav = () => (
     <div>
       <hgroup className="header-group">
-        <h2 className="header-name">
-          Hi, {currentUser.name}!
-        </h2>
-        <button className="header-button" onClick={logout}>
+        <h2 className="header-name">Hi, {currentUser.name}!</h2>
+        <Link to="/" className="header-button" onClick={logout}>
           Log Out
-        </button>
+        </Link>
+
         <div id="menuToggle">
           <input type="checkbox" />
           <span />
@@ -36,13 +37,17 @@ const Header = ({ currentUser, logout, openModal, closeModal }) => {
             <li>
               <Link to="/">Messages</Link>
             </li>
-            <button className="mobile-header-button" onClick={logout}>
+
+            <Link to="/" className="mobile-header-button" onClick={logout}>
               Log Out
-            </button>
+            </Link>
           </ul>
         </div>
       </hgroup>
-    </div>;
+
+    </div>
+  );
+
 
   if (currentUser.id) {
     closeModal();
