@@ -4,6 +4,8 @@ import React from "react";
 import HomeNavContainer from "./home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
+import VideosIndexContainer from "./../videos/videos_index_container";
+
 import "./home.css";
 import Loader from "react-loader-spinner";
 
@@ -200,7 +202,6 @@ class Home extends React.Component {
     });
   }
 
-
   render() {
     const { recording, videos, recorded, loading } = this.state;
 
@@ -297,6 +298,7 @@ class Home extends React.Component {
             <div className="timer">{this.state.seconds}</div>
           </div>
         </div>
+        <VideosIndexContainer />
       </div>
     );
   }
