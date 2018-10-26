@@ -1,5 +1,6 @@
 import React from "react";
 import "./animate.css";
+import Heart from './like-heart.svg'
 
 const VideosIndexItem = ({ firebaseURL }) => {
   return (

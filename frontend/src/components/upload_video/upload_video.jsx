@@ -29,6 +29,7 @@ class UploadVideo extends React.Component {
     this.uploadVideo = this.uploadVideo.bind(this);
     this.tick = this.tick.bind(this);
     this.homeNavClicked = this.homeNavClicked.bind(this);
+    this.closeRecorder = this.closeRecorder.bind(this);
   }
 
   async componentDidMount() {
@@ -256,7 +257,7 @@ class UploadVideo extends React.Component {
             <div className="close-recorded">
               <span
                 className="close-modal"
-                onClick={() => this.closeRecorded()}
+                onClick={() => this.closeRecorder()}
               >
                 <i className="fas fa-times" />
               </span>
