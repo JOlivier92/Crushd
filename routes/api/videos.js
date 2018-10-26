@@ -16,7 +16,6 @@ exports.upload = function(req, res) {
     if (video) {
       Video.update({ user_id: req.body.user_id },
         { $set: { videoURL: req.body.videoURL } }).then(video => {
-          const payload = { user_id: video.user_id, videoURL: video.videoURL };
           res.json({
             user_id: req.body.user_id,
             videoURL: req.body.videoURL
@@ -24,7 +23,6 @@ exports.upload = function(req, res) {
         });
     } else {
       newVideo.save().then(video => {
-        const payload = { user_id: video.user_id, videoURL: video.videoURL };
         res.json({
           user_id: req.body.user_id,
           videoURL: req.body.videoURL
