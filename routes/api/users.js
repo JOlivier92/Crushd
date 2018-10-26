@@ -11,9 +11,10 @@ let errors = {};
 
 exports.current = function(req,res) {
     res.json({
-        id: req.user.id,
-        username: req.user.username,
-        email: req.user.email
+        id: user.id,
+        username: user.username,
+        gender: user.gender,
+        sexual_preference: user.sexual_preference
     });
 }
 
@@ -35,7 +36,7 @@ exports.register = function(req,res){
                 phone_number: req.body.phone_number,
                 birthdate: req.body.birthdate,
                 password: req.body.password,
-                gender: req.body.password,
+                gender: req.body.gender,
                 zipcode: req.body.zipcode,
                 sexual_preference: req.body.sexual_preference
             })
@@ -49,7 +50,12 @@ exports.register = function(req,res){
                     // if user successfully saves, sign jsonwebtoken
                     newUser.save()
                     .then(user => {
-                        const payload = {id: user.id, name: user.username};
+                        const payload = {
+                            id: user.id,
+                            username: user.username,
+                            gender: user.gender,
+                            sexual_preference: user.sexual_preference
+                        };
                         jsonwebtoken.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                             res.json({
                                 success: true,
@@ -78,7 +84,13 @@ exports.login = function(req,res) {
         }
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, name: user.username }
+                debugger;
+                const payload = {
+                    id: user.id,
+                    username: user.username,
+                    gender: user.gender,
+                    sexual_preference: user.sexual_preference
+                };
                 jsonwebtoken.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
                     res.json({
                         success: true,

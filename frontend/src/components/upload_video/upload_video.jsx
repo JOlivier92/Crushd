@@ -179,19 +179,23 @@ class UploadVideo extends React.Component {
     });
 
     let video = this.state.videos[index];
+    let currentUser = this.props.currentUser
 
     let blob = await fetch(video).then(r => {
       var blob = null;
       var xhr = new XMLHttpRequest();
       xhr.open("GET", r.url);
       xhr.responseType = "blob";
+      debugger;
       xhr.onload = function() {
         blob = xhr.response;
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
           createNewVideo({
             user_id: currentUser.id,
-            videoURL: `userVideo_${currentUser.id}.mp4`
+            videoURL: `userVideo_${currentUser.id}.mp4`,
+            sexual_preference: currentUser.sexual_preference,
+            gender: currentUser.gender 
           });
         });
       };
