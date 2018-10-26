@@ -7,7 +7,7 @@ const videosReducer = (state = {}, action) => {
     case RECEIVE_POSTED_VIDEO:
       return action.video;
     case RETRIEVE_POSTED_VIDEOS:
-      return action.video;
+      return action.videos;
     default:
       return state;
   }
