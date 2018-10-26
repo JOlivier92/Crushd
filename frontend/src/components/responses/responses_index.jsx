@@ -16,7 +16,7 @@ class ResponsesIndex extends React.Component {
     return (
       <div className="responses-index-view">
         <div className="response-outer">
-          <div className="response-inner">
+          {/* <div className="response-inner">
             <div className="image-thumbnail">
               <img
                 className="profile-img"
@@ -25,7 +25,7 @@ class ResponsesIndex extends React.Component {
               />
               <p>Andrea</p>
             </div>
-          </div>
+          </div> */}
           {uploadVideo()}
         </div>
       </div>
