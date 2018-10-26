@@ -5,6 +5,7 @@ import Loader from "react-loader-spinner";
 import HomeNavContainer from "./../home/home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
+import { createNewVideo } from "./../../util/video_api_util";
 
 const videoType = "video/webm";
 const firebase = require("firebase");
@@ -29,10 +30,20 @@ class UploadVideo extends React.Component {
     this.uploadVideo = this.uploadVideo.bind(this);
     this.tick = this.tick.bind(this);
     this.homeNavClicked = this.homeNavClicked.bind(this);
+    this.closeRecorder = this.closeRecorder.bind(this);
   }
 
   async componentDidMount() {
     this.setState({ loading: true });
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+        authDomain: "crushd-efd3f.firebaseapp.com",
+        projectId: "crushd-efd3f",
+        storageBucket: "crushd-efd3f.appspot.com"
+      });
+    }
 
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
@@ -157,13 +168,6 @@ class UploadVideo extends React.Component {
   }
 
   async uploadVideo(index) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
-
     // Initialize Cloud Firestore through firebase
     let db = firebase.firestore();
     let storageRef = firebase.storage().ref();
@@ -175,6 +179,7 @@ class UploadVideo extends React.Component {
     });
 
     let video = this.state.videos[index];
+    let currentUser = this.props.currentUser
 
     let blob = await fetch(video).then(r => {
       var blob = null;
@@ -185,6 +190,12 @@ class UploadVideo extends React.Component {
         blob = xhr.response;
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
+          createNewVideo({
+            user_id: currentUser.id,
+            videoURL: `userVideo_${currentUser.id}.mp4`,
+            sexual_preference: currentUser.sexual_preference,
+            gender: currentUser.gender 
+          });
         });
       };
       xhr.send();
@@ -256,7 +267,7 @@ class UploadVideo extends React.Component {
             <div className="close-recorded">
               <span
                 className="close-modal"
-                onClick={() => this.closeRecorded()}
+                onClick={() => this.closeRecorder()}
               >
                 <i className="fas fa-times" />
               </span>
