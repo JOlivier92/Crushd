@@ -1,4 +1,6 @@
 import React from "react";
+import Heart from "./like-heart.svg";
+import './videos_index.css';
 
 import VideosIndexItem from "./videos_index_item";
 import "./animate.css";
@@ -42,5 +44,6 @@ class VideosIndex extends React.Component {
     );
   }
 }
+
 
 export default VideosIndex;
