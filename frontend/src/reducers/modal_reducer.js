@@ -4,7 +4,6 @@ import {
 } from '../actions/modal_actions';
 
 const modalsReducer = (state = {}, action) => {
-    Object.freeze(state);
     switch (action.type) {
         case OPEN_MODAL:
             return {

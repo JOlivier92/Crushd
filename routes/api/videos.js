@@ -5,7 +5,9 @@ exports.upload = function(req, res) {
 
   const newVideo = new Video({
     user_id: req.body.user_id,
-    videoURL: req.body.videoURL
+    videoURL: req.body.videoURL,
+    gender: req.body.gender,
+    preference: req.body.preference
   });
   const { errors, isValid } = validateVideoUpload(req.body);
   if (!isValid) {
@@ -18,14 +20,18 @@ exports.upload = function(req, res) {
         { $set: { videoURL: req.body.videoURL } }).then(video => {
           res.json({
             user_id: req.body.user_id,
-            videoURL: req.body.videoURL
+            videoURL: req.body.videoURL,
+            gender: req.body.gender,
+            preference: req.body.preference
           });
         });
     } else {
       newVideo.save().then(video => {
         res.json({
           user_id: req.body.user_id,
-          videoURL: req.body.videoURL
+          videoURL: req.body.videoURL,
+          gender: req.body.gender,
+          preference: req.body.preference
         });
       });
     }
