@@ -35,6 +35,13 @@ class UploadVideo extends React.Component {
   async componentDidMount() {
     this.setState({ loading: true });
 
+    firebase.initializeApp({
+      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+      authDomain: "crushd-efd3f.firebaseapp.com",
+      projectId: "crushd-efd3f",
+      storageBucket: "crushd-efd3f.appspot.com"
+    });
+
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
@@ -158,13 +165,6 @@ class UploadVideo extends React.Component {
   }
 
   async uploadVideo(index) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
-
     // Initialize Cloud Firestore through firebase
     let db = firebase.firestore();
     let storageRef = firebase.storage().ref();
