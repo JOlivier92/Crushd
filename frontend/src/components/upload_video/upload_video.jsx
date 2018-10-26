@@ -5,6 +5,7 @@ import Loader from "react-loader-spinner";
 import HomeNavContainer from "./../home/home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
+import { createNewVideo } from "./../../util/video_api_util";
 
 const videoType = "video/webm";
 const firebase = require("firebase");
@@ -35,12 +36,14 @@ class UploadVideo extends React.Component {
   async componentDidMount() {
     this.setState({ loading: true });
 
-    firebase.initializeApp({
-      apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
-      authDomain: "crushd-efd3f.firebaseapp.com",
-      projectId: "crushd-efd3f",
-      storageBucket: "crushd-efd3f.appspot.com"
-    });
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
+        authDomain: "crushd-efd3f.firebaseapp.com",
+        projectId: "crushd-efd3f",
+        storageBucket: "crushd-efd3f.appspot.com"
+      });
+    }
 
     const stream = await navigator.mediaDevices.getUserMedia({
       video: true,
@@ -186,6 +189,10 @@ class UploadVideo extends React.Component {
         blob = xhr.response;
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
+          createNewVideo({
+            user_id: currentUser.id,
+            videoURL: `userVideo_${currentUser.id}.mp4`
+          });
         });
       };
       xhr.send();
