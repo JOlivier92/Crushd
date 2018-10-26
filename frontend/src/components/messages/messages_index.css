@@ -1,0 +1,9 @@
+.messages-index-view {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    width: 25%;
+    padding: 30px 20px;
+    height: 100vh;
+    background-color: #fff;
+}
