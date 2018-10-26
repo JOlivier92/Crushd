@@ -105,9 +105,9 @@ class Home extends React.Component {
     });
 
     // Save the video to memory
+    this.popOffVideo();
     this.saveVideo();
     this.stopCountDown();
-    this.popOffVideo();
   }
 
   saveVideo() {
