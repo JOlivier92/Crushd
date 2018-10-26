@@ -1,0 +1,62 @@
+.videos-index-view h1 {
+    font-size: 25px;
+    color: lightgray;
+    margin-bottom: 10px;
+}
+
+.video-view-btns {
+    position: relative;
+    width: 400px;
+    height: 80px;
+}
+
+.btn-outer-one {
+    position: absolute;
+    padding: 4px;
+    top: 20px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+    box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+}
+
+.btn-outer-two {
+    position: absolute;
+    padding: 4px;
+    top: 20px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+    box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+}
+
+.btn-inner-one {
+    margin-top: 5px;
+    color: red;
+    font-size: 25px;
+}
+
+.btn-inner-two {
+    margin-top: 2px;
+    width: 40px;
+}
+
+.btn-outer-one:hover,
+.btn-inner-one:hover {
+    background-color: red;
+    color: #fff;
+}
+
+.btn-outer-two:hover {
+    background-color: lightseagreen;
+}
