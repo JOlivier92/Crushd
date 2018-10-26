@@ -1,4 +1,6 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+
 import "./responses_index.css";
 
 class ResponsesIndex extends React.Component {
@@ -6,7 +8,9 @@ class ResponsesIndex extends React.Component {
     const uploadVideo = () => (
       <div className="upload-video-option-container">
         <h3>No responses yet...</h3>
-        <button>Upload a new video</button>
+        <button onClick={() => this.props.history.push("/upload")}>
+          Upload a new video
+        </button>
       </div>
     );
     return (
@@ -29,4 +33,4 @@ class ResponsesIndex extends React.Component {
   }
 }
 
-export default ResponsesIndex;
+export default withRouter(ResponsesIndex);
