@@ -2,7 +2,8 @@ import React from "react";
 // import { Link } from "react-router-dom";
 
 import HomeNavContainer from "./home_nav/home_nav_container";
-
+import ResponsesIndexContainer from "./../responses/responses_index_container";
+import MessagesIndexContainer from "./../messages/messages_index_container";
 import "./home.css";
 
 const videoType = "video/webm";
@@ -16,9 +17,11 @@ class Home extends React.Component {
     super(props);
     this.state = {
       recording: false,
-      videos: []
+      videos: [],
+      navOption: true
     };
     this.uploadVideo = this.uploadVideo.bind(this);
+    this.homeNavClicked = this.homeNavClicked.bind(this);
   }
 
   async componentDidMount() {
@@ -131,13 +134,34 @@ class Home extends React.Component {
     });
   }
 
+  homeNavClicked() {
+    this.setState({
+      navOption: !this.state.navOption
+    });
+  }
+
   render() {
     const { recording, videos } = this.state;
     return (
       <div className="home-content-section">
-          {/* Home Navigation Component Lives here */}
-          <HomeNavContainer/>
-          
+        {/* Home Navigation Component Lives here */}
+        <div className="home-nav-container">
+          <div className="home-nav">
+            <button className="messages-button" onClick={this.homeNavClicked}>
+              Responses
+            </button>
+            <button className="matches-button" onClick={this.homeNavClicked}>
+              Matches
+            </button>
+          </div>
+
+          {this.state.navOption ? (
+            <ResponsesIndexContainer />
+          ) : (
+            <MessagesIndexContainer />
+          )}
+        </div>
+
         <div className="camera">
           <video
             style={{ width: 400 }}
