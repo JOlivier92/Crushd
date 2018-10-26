@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
+import Favicon from "react-favicon";
 import "./App.css";
-
 // import { Provider } from "react-redux";
 import {  Switch, Route } from "react-router-dom";
 
@@ -15,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Favicon url="./favicon.ico" />
         <Modal />
         <Route path="/" component={HeaderContainer} />
         <Switch>

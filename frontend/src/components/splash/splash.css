@@ -4,7 +4,6 @@
 
 @media all and (min-width: 941px) {
     .splash-container {
-        /* position: absolute; */
         position: relative;
         top: 0;
         height: 100vh;
@@ -16,7 +15,6 @@
 
     .splash-container::before {
         position: absolute;
-        /* position: relative; */
         content: "";
         top: 0;
         left: 0;
@@ -35,7 +33,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 3;
+        z-index: 1;
     }
 
     .logo img {
@@ -43,7 +41,7 @@
     }
 
     .logo h2 {
-        font-size: 40px;
+        font-size: 3.2vw;
         color: #fff;
     }
 
@@ -71,4 +69,21 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+       .logo {
+           position: absolute;
+           top: 30%;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           z-index: 1;
+       }
+
+       .logo img {
+           width: 50%;
+       }
+
+       .logo h2 {
+           font-size: 3.2vw;
+           color: #fff;
+       }
 }
