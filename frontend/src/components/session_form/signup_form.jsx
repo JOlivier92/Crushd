@@ -20,6 +20,7 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   update(field) {
@@ -116,7 +117,7 @@ class SignupForm extends React.Component {
                 onClick={this.update("gender")}
                 name="genderClass"
               />
-              <label htmlFor="radio-1" className="radio-label" >
+              <label htmlFor="radio-1" className="radio-label">
                 Male
               </label>
               <br />
@@ -129,7 +130,7 @@ class SignupForm extends React.Component {
                 onClick={this.update("gender")}
                 name="genderClass"
               />
-              <label htmlFor="radio-2" className="radio-label" >
+              <label htmlFor="radio-2" className="radio-label">
                 Female
               </label>
               <br />
@@ -188,7 +189,11 @@ class SignupForm extends React.Component {
                 value="O"
                 onClick={this.update("sexual_preference")}
               />
-              <label htmlFor="radio-6" className="radio-label" name="sexualPreferenceClass">
+              <label
+                htmlFor="radio-6"
+                className="radio-label"
+                name="sexualPreferenceClass"
+              >
                 Other
               </label>
             </div>
@@ -250,6 +255,11 @@ class SignupForm extends React.Component {
     );
   }
 
+  handleCloseModal() {
+    this.props.showLogo();
+    this.props.closeModal();
+  }
+
   render() {
     const { component } = this.state;
     const selection = {
@@ -264,7 +274,7 @@ class SignupForm extends React.Component {
           <div className="close">
             <span
               className="close-modal"
-              onClick={() => this.props.closeModal()}
+              onClick={() => this.handleCloseModal()}
             >
               <i className="fas fa-times" />
             </span>
