@@ -21,7 +21,6 @@ class VideosIndex extends React.Component {
   async componentDidMount() {
     document.onkeydown = this.checkKey;
     await this.props.fetchVideos();
-    debugger;
   }
 
   checkKey(e) {

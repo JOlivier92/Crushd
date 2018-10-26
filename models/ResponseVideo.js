@@ -21,7 +21,7 @@ const ResponseVideoSchema = new Schema({
     },
 
     // preference of poster
-    preference: {
+    sexual_preference: {
         type: String,
         required: true
     },

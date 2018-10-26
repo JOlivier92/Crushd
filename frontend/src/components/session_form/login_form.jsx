@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     const email = "x@gmail.com".split("");
-    const password = "password".split("");
+    const password = "123123".split("");
     const button = document.getElementById("session-submit");
     this.setState({ email: "", password: "" }, () =>
       this.fillForm(email, password, button)

@@ -13,7 +13,7 @@ const mSP = ({ session }) => {
 
 const mDP = dispatch => ({
   logout: () => dispatch(logoutUser()),
-  createNewVideo: video => dispatch(createNewVideo)
+  createNewVideo: video => dispatch(createNewVideo(video))
 });
 
 export default connect(

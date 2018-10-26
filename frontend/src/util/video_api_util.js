@@ -28,6 +28,5 @@ export const setRetrievedVideos = payload => {
 
 // retrieving video index
 export const fetchVideos = () => dispatch => {
-  debugger;
   axios.get("/api/videos").then(res => dispatch(setRetrievedVideos(res)));
 };

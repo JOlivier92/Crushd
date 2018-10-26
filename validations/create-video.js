@@ -8,7 +8,7 @@ module.exports = function validateVideoCreateRequest(data) {
   data.user_id = !isEmpty(data.user_id) ? data.user_id : "";
   data.videoURL = !isEmpty(data.videoURL) ? data.videoURL : "";
   data.gender = !isEmpty(data.gender) ? data.gender : "";
-  data.preference = !isEmpty(data.preference) ? data.preference : "";
+  data.sexual_preference = !isEmpty(data.sexual_preference) ? data.sexual_preference : "";
 
   // check to make sure each field is filled in. // // // // // // //
   if (Validator.isEmpty(data.user_id)) {
@@ -20,8 +20,8 @@ module.exports = function validateVideoCreateRequest(data) {
   if (Validator.isEmpty(data.gender)) {
     errors.content = "Invalid user";
   }
-  if (Validator.isEmpty(data.preference)) {
-    errors.content = "Invalid preferences";
+  if (Validator.isEmpty(data.sexual_preference)) {
+    errors.content = "Invalid sexual_preference";
   }
 
   // // // // // // // // // // // // // // // // // // // // //
