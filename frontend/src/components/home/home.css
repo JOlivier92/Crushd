@@ -1,136 +1,293 @@
 .home-content-section {
-    background-color: #e8e8e8;
-    background-image: url("https://transparenttextures.com/patterns/brushed-alum.png");
-    height: 100vh;
-    width: 100vw;
-    padding-top: 200px;
+  background-color: #e8e8e8;
+  background-image: url("https://transparenttextures.com/patterns/brushed-alum.png");
+  height: 100vh;
+  width: 100vw;
+  padding-top: 50px;
+}
+
+.button {
+  margin: 10px auto 0;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.inner {
+  background-color: #9e1919;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  transform: scale(0.94);
+}
+
+.button.active .inner {
+  transform: scale(0.5);
+  border-radius: 12%;
+}
+
+.timer {
+  color: #fff;
+}
+
+.recorded-videos-section {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 150px;
+  height: 80vh;
+  padding-top: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
+.slide-in {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%);
+  }
+}
+
+.recorded-videos-section h3 {
+  font-size: 18px;
+  color: lightgray;
+}
+
+.recorded-inner {
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.video-options-section button {
+  background-color: #c33764;
+  border: 1px solid #c33764;
+  padding: 2px;
+  border-radius: 3px;
+  width: 80px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.video-options-section a {
+  text-decoration: none;
+  font-size: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.video-options-section button:hover,
+a:hover {
+  background-color: #fff;
+  color: #c33764;
+}
+
+.close-recorded {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.close-recorded p {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  font-size: 16px;
+  color: lightgray;
 }
 
 @media all and (min-width: 769px) {
-    .camera {
-        margin-left: 50%;
-        background-color: #000;
-        width: 425px;
-    }
+  .camera {
+    position: absolute;
+    top: 150px;
+    margin-left: 43%;
+    background-color: #232323;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 425px;
+  }
 
-    #menuToggle {
-        display: none;
-    }
+  #menuToggle {
+    display: none;
+  }
 }
 
 @media all and (max-width: 768px) {
-    .camera {
-        margin: auto;
-    }
+  .camera {
+    margin: auto;
+  }
 
-    #menu a {
-        text-decoration: none;
-        color: #232323;
-        transition: color 0.3s ease;
-    }
+  #menu a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+  }
 
-    #menu a:hover {
-        color: #C33764;
-    }
+  #menu a:hover {
+    color: #c33764;
+  }
 
-    #menuToggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 3;
-        -webkit-user-select: none;
-        user-select: none;
-    }
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 
-    #menuToggle input {
-        display: block;
-        width: 40px;
-        height: 32px;
-        position: absolute;
-        top: -7px;
-        right: -5px;
-        cursor: pointer;
-        opacity: 0;
-        z-index: 4;
-        -webkit-touch-callout: none;
-    }
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 4;
+    -webkit-touch-callout: none;
+  }
 
-    #menuToggle span {
-        display: block;
-        width: 33px;
-        height: 4px;
-        margin-bottom: 5px;
-        position: relative;
-        background: #e8e8e8;
-        border-radius: 3px;
-        z-index: 3;
-        transform-origin: 4px 0px;
-        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-            opacity 0.55s ease;
-    }
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #e8e8e8;
+    border-radius: 3px;
+    z-index: 3;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
 
-    #menuToggle span:first-child {
-        transform-origin: 0% 0%;
-    }
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
 
-    #menuToggle span:nth-last-child(2) {
-        transform-origin: 0% 100%;
-    }
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
 
-    #menuToggle input:checked~span {
-        opacity: 1;
-        transform: rotate(45deg) translate(-2px, -1px);
-        background: #232323;
-    }
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
 
-    #menuToggle input:checked~span:nth-last-child(3) {
-        opacity: 0;
-        transform: rotate(0deg) scale(0.2, 0.2);
-    }
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
 
-    #menuToggle input:checked~span:nth-last-child(2) {
-        transform: rotate(-45deg) translate(0, -1px);
-    }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
 
-    #menu {
-        position: absolute;
-        width: 300px;
-        height: 100vh;
-        margin: -100px 0 0 -300px;
-        padding-left: 0px;
-        padding-right: 60px;
-        padding-top: 125px;
-        background: #e8e8e8;
-        list-style-type: none;
-        -webkit-font-smoothing: antialiased;
-        transform-origin: 0% 0%;
-        transform: translate(100%, 0);
-        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-        z-index: 2;
-    }
+  #menu {
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    margin: -100px 0 0 -300px;
+    padding-left: 0px;
+    padding-right: 60px;
+    padding-top: 125px;
+    background: #e8e8e8;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 2;
+  }
 
-    #menu li {
-        padding: 10px 0;
-        font-size: 22px;
-    }
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
 
-    #menuToggle input:checked~ul {
-        transform: none;
-    }
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+}
+
+.loader-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #232323;
+    z-index: 10;
 }
 
 .loader-container svg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
     transition: fill 0.5s ease;
     fill: rgb(206, 20, 75);
     animation: hideshow 3s ease infinite;
-    
 }
 
 @keyframes hideshow {
-  50% { opacity: 1;
-        fill: #1D2671; }
-  100% { opacity: 1;
-         fill: rgb(206, 20, 75); }
-} 
+    50% {
+        opacity: 1;
+        fill: #1D2671;
+    }
+
+    100% {
+        opacity: 1;
+        fill: rgb(206, 20, 75);
+    }
+}
+

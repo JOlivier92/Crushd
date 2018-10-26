@@ -1,5 +1,9 @@
 import React from "react";
 // import { Link } from "react-router-dom";
+
+import HomeNavContainer from "./home_nav/home_nav_container";
+import ResponsesIndexContainer from "./../responses/responses_index_container";
+import MessagesIndexContainer from "./../messages/messages_index_container";
 import "./home.css";
 import Loader from "react-loader-spinner";
 
@@ -17,9 +21,20 @@ class Home extends React.Component {
     this.state = {
       recording: false,
       videos: [],
+      navOption: true,
+
+      recorded: false,
+      videos: [],
+      seconds: "30",
       loading: true
     };
+    this.secondsRemaining = null;
+    this.intervalHandle = null;
+    this.startCountDown = this.startCountDown.bind(this);
     this.uploadVideo = this.uploadVideo.bind(this);
+    this.homeNavClicked = this.homeNavClicked.bind(this);
+    this.tick = this.tick.bind(this);
+    // this.popOffVideo = this.popOffVideo.bind(this);
   }
 
   async componentDidMount() {
@@ -30,6 +45,7 @@ class Home extends React.Component {
       audio: true
     });
 
+<<<<<<< HEAD
     firebase.initializeApp({
       apiKey: "AIzaSyDsZyTtsdAELZyX9Q6QeNwvw1aOrFmE81o",
       authDomain: "crushd-efd3f.firebaseapp.com",
@@ -37,6 +53,9 @@ class Home extends React.Component {
       storageBucket: "crushd-efd3f.appspot.com"
     });
 
+=======
+    console.log(this.state);
+>>>>>>> b8d829b742eed937d1b2c578ad7910e959e1830d
     //Initialize recording
     this.mediaRecorder = new MediaRecorder(stream, {
       mimeType: videoType
@@ -73,6 +92,7 @@ class Home extends React.Component {
 
     // Set state to recording
     this.setState({ recording: true });
+    this.startCountDown();
   }
 
   stopRecording(e) {
@@ -81,11 +101,14 @@ class Home extends React.Component {
     // Stop the recorder
     this.mediaRecorder.stop();
     this.setState({
-      recording: false
+      recording: false,
+      recorded: true
     });
 
     // Save the video to memory
     this.saveVideo();
+    this.stopCountDown();
+    this.popOffVideo();
   }
 
   saveVideo() {
@@ -101,9 +124,46 @@ class Home extends React.Component {
     });
   }
 
+  popOffVideo() {
+    const { videos } = this.state;
+    if (videos.length > 2) {
+      const newVids = videos;
+      newVids.shift();
+      this.setState({ videos: newVids });
+    }
+    return null;
+  }
+
   deleteVideo(videoURL) {
     const videos = this.state.videos.filter(v => v !== videoURL);
     this.setState({ videos });
+  }
+
+  closeRecorded() {
+    this.setState({ videos: [], recorded: false });
+  }
+
+  tick() {
+    let sec = this.secondsRemaining;
+    this.setState({ seconds: sec });
+    if (sec < 10) {
+      this.setState({ seconds: `0${this.state.seconds}` });
+    }
+    if (sec === 0) {
+      this.stopCountDown();
+    }
+    this.secondsRemaining--;
+  }
+
+  startCountDown() {
+    this.intervalHandle = setInterval(this.tick, 1000);
+    this.secondsRemaining = this.state.seconds;
+  }
+
+  stopCountDown() {
+    clearInterval(this.intervalHandle);
+    this.secondsRemaining = null;
+    this.setState({ seconds: "30" });
   }
 
   async uploadVideo(index) {
@@ -143,8 +203,16 @@ class Home extends React.Component {
     });
   }
 
+  homeNavClicked() {
+    this.setState({
+      navOption: !this.state.navOption
+    });
+  }
+
+
   render() {
-    const { recording, videos, loading } = this.state;
+    const { recording, videos, recorded, loading } = this.state;
+
     if (this.state.loading) {
       return (
         <div className="loader-container">
@@ -152,8 +220,66 @@ class Home extends React.Component {
         </div>
       );
     }
+
     return (
       <div className="home-content-section">
+        {/* Home Navigation Component Lives here */}
+        <div className="home-nav-container">
+          <div className="home-nav">
+            <button className="messages-button" onClick={this.homeNavClicked}>
+              Responses
+            </button>
+            <button className="matches-button" onClick={this.homeNavClicked}>
+              Matches
+            </button>
+          </div>
+
+          {this.state.navOption ? (
+            <ResponsesIndexContainer />
+          ) : (
+            <MessagesIndexContainer />
+          )}
+        </div>
+        {!this.state.recorded ? (
+          <div className="recorded-videos-section slide-out" />
+        ) : (
+          <div className="recorded-videos-section slide-in">
+            <div className="recorded-video-box">
+              <h3>Recorded Videos</h3>
+              {videos.map((videoURL, i) => (
+                <div key={`video_${i}`}>
+                  <video
+                    className="recorded-inner"
+                    src={videoURL}
+                    autoPlay
+                    loop
+                  />
+                  <div className="video-options-section">
+                    <button onClick={() => this.deleteVideo(videoURL)}>
+                      Delete
+                    </button>
+                    <button>
+                      <a href={videoURL}>Download</a>
+                    </button>
+                    <button onClick={() => this.uploadVideo(i)}>
+                      Upload Video
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="close-recorded">
+              <span
+                className="close-modal"
+                onClick={() => this.closeRecorded()}
+              >
+                <i className="fas fa-times" />
+              </span>
+              <p>CLOSE</p>
+            </div>
+          </div>
+        )}
+
         <div className="camera">
           <video
             style={{ width: 400 }}
@@ -165,29 +291,19 @@ class Home extends React.Component {
           </video>
           <div className="recording-options-section">
             {!recording && (
-              <button onClick={e => this.startRecording(e)}>Record</button>
+              <div className="button" onClick={e => this.startRecording(e)}>
+                <div className="inner" />
+              </div>
             )}
             {recording && (
-              <button onClick={e => this.stopRecording(e)}>Stop</button>
-            )}
-          </div>
-
-          <div className="recorded-videos-section">
-            <h3>Recorded Videos:</h3>
-            {videos.map((videoURL, i) => (
-              <div key={`video_${i}`}>
-                <video style={{ width: 200 }} src={videoURL} autoPlay loop />
-                <div className="video-options-section">
-                  <button onClick={() => this.deleteVideo(videoURL)}>
-                    Delete
-                  </button>
-                  <a href={videoURL}>Download</a>
-                  <button onClick={() => this.uploadVideo(i)}>
-                    Upload Video
-                  </button>
-                </div>
+              <div
+                className="button active"
+                onClick={e => this.stopRecording(e)}
+              >
+                <div className="inner" />
               </div>
-            ))}
+            )}
+            <div className="timer">{this.state.seconds}</div>
           </div>
         </div>
       </div>
