@@ -27,7 +27,6 @@ class Splash extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     if (this.firstClick === true) {
       this.firstClick = !this.firstClick;
       this.setState({ logoHidden: !nextProps.ui.type });
