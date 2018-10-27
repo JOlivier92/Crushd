@@ -136,6 +136,9 @@ class UploadVideo extends React.Component {
 
   deleteVideo(videoURL) {
     const videos = this.state.videos.filter(v => v !== videoURL);
+    if (videos.length === 0) {
+      this.setState({ recorded: false });
+    }
     this.setState({ videos });
   }
 
