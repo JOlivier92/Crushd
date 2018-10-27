@@ -92,6 +92,8 @@ class Home extends React.Component {
         {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
         <div className="arrow-keys">
           <div className="arrow">
+            <p className="arrow-text">ARROW KEYS</p>
+            &emsp;
             <img className="arrow-key" src={LeftArrow} />
             <p className="arrow-text">NEXT PROFILE</p>
             &emsp;
@@ -99,7 +101,7 @@ class Home extends React.Component {
             <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
         </div>
-      </div>
+      </div>;
   }
 }
 
