@@ -1,7 +1,7 @@
 import React from "react";
 import Heart from "./like-heart.svg";
 import './videos_index.css';
-
+import Loader from "react-loader-spinner";
 import VideosIndexItem from "./videos_index_item";
 import "./animate.css";
 
@@ -12,15 +12,23 @@ class VideosIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: []
+      videos: [],
+      loading: true
     }
 
     this.checkKey = this.checkKey.bind(this);
   }
 
   async componentDidMount() {
+    this.setState({ loading: true });
     document.onkeydown = this.checkKey;
-    await this.props.fetchVideos(this.props.currentUser.id);
+    await this.props.fetchVideos();
+    await this.sleep(1000);
+    this.setState({ loading: false });
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   checkKey(e) {
@@ -41,6 +49,14 @@ class VideosIndex extends React.Component {
   }
 
   render() {
+    const {loading} = this.state;
+    if (loading) {
+      return (
+        <div className="loader-container">
+          <Loader className="spinner" type="Hearts" height="200" width="200" />;
+        </div>
+      );
+    }
     return (
       <div className="videos-index-container">
         <VideosIndexItem firebaseURL={FIREBASE_VIDEO_URL} />

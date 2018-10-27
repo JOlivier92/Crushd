@@ -5,14 +5,14 @@ import "./responses_index.css";
 
 class ResponsesIndex extends React.Component {
   render() {
-    const uploadVideo = () => (
-      <div className="upload-video-option-container">
+    const uploadVideo = () => <div className="upload-video-option-container">
         <h3>No responses yet...</h3>
-        <button onClick={() => this.props.history.push("/upload")}>
-          Upload a new video
+        <div className="upload-inner">
+        <button className="add-btn" onClick={() => this.props.history.push("/upload")}>
+          <i className="fa fa-plus fa-lg" />
         </button>
       </div>
-    );
+      </div>;
     return (
       <div className="responses-index-view">
         <div className="response-outer">

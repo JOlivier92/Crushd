@@ -1,12 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-
-import HomeNavContainer from "./home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import VideosIndexContainer from "./../videos/videos_index_container";
 import UploadVideoContainer from "./../upload_video/upload_video_container";
-
 import "./home.css";
 import Loader from "react-loader-spinner";
 
@@ -37,6 +33,12 @@ class Home extends React.Component {
 
   async componentDidMount() {
     this.setState({ loading: false });
+    await this.sleep(1000);
+    this.setState({ loading: false });
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   homeNavClicked() {
@@ -55,10 +57,10 @@ class Home extends React.Component {
       loading
     } = this.state;
 
-    if (this.state.loading) {
+    if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="250" width="250" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />;
         </div>
       );
     }
