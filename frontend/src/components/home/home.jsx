@@ -91,7 +91,8 @@ class Home extends React.Component {
             <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
         </div>
-      </div>;
+      </div>
+    </div>
   }
 }
 
