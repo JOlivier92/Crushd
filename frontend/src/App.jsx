@@ -9,6 +9,7 @@ import HomeContainer from "./components/home/home_container";
 import { AuthRoute, ProtectedRoute } from "./util/route_util";
 import Modal from "./components/modal/modal";
 import UploadVideoContainer from "./components/upload_video/upload_video_container";
+import ChatRoomContainer from "./components/chatroom/chatroom_container";
 
 // random comment
 class App extends Component {
@@ -26,7 +27,11 @@ class App extends Component {
             component={UploadVideoContainer}
           />
           {/* Protected Matches Route */}
-          {/* Protected Messages Route */}
+          <ProtectedRoute
+            exact
+            patch="/chatroom"
+            component={ChatRoomContainer}
+          />
         </Switch>
       </div>
     );
