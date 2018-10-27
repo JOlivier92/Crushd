@@ -8,6 +8,8 @@ import VideosIndexContainer from "./../videos/videos_index_container";
 import UploadVideoContainer from "./../upload_video/upload_video_container";
 
 import "./home.css";
+import RightArrow from "./right-arrow.png";
+import LeftArrow from "./left-arrow.png";
 import Loader from "react-loader-spinner";
 
 import { createNewVideo } from "../../util/video_api_util";
@@ -73,8 +75,7 @@ class Home extends React.Component {
       buttonTwo = "nav-chosen-button active";
     }
 
-    return (
-      <div className="home-content-section">
+    return <div className="home-content-section">
         <div className="home-nav-container">
           <div className="home-nav">
             <button className={buttonOne} onClick={this.homeNavClicked}>
@@ -84,16 +85,19 @@ class Home extends React.Component {
               Matches
             </button>
           </div>
-
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {mainScreen === "videosIndex" ? (
-          <VideosIndexContainer />
-        ) : (
-          <UploadVideoContainer />
-        )}
+        {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
+        <div className="arrow-keys">
+          <div className="arrow">
+            <img className="arrow-key" src={LeftArrow} />
+            <p className="arrow-text">NAH</p>
+            &emsp;
+            <img className="arrow-key" src={RightArrow} />
+            <p className="arrow-text">START RECORDING</p>
+          </div>
+        </div>
       </div>
-    );
   }
 }
 
