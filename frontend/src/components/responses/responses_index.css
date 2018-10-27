@@ -66,3 +66,9 @@
         outline: 0;
     }
 }
+
+@media all and (max-width: 768px) {
+    .responses-index-view {
+        display: none;
+    }
+}
