@@ -233,54 +233,57 @@ class UploadVideo extends React.Component {
 
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {!recorded
-          ? <div className="recorded-videos-section slide-out">
+        {!recorded ? (
+          <div className="recorded-videos-section slide-out">
             <h3>Recorded Videos</h3>
             <div className="recorded-video-box black" />
             <div className="recorded-video-box black" />
             <div className="recorded-video-box black" />
           </div>
-          : <div className="recorded-videos-section slide-in">
-                <h3>Recorded Videos</h3>
-              <div>
-                {videos.map((videoURL, i) =>
-                  <div className="recorded-video-box">
-                    <div key={`video_${i}`}>
-                      <video
-                        className="recorded-inner"
-                        src={videoURL}
-                        autoPlay
-                        loop
-                        muted
-                      />
-                      <div className="video-options-section">
-                        <button onClick={() => this.deleteVideo(videoURL)}>
-                          Delete
-                        </button>
-                        <button>
-                          <a href={videoURL}>Download</a>
-                        </button>
-                        <button onClick={() => this.uploadVideo(i)}>
-                          Upload Video
-                        </button>
-                      </div>
+        ) : (
+          <div className="recorded-videos-section slide-in">
+            <h3>Recorded Videos</h3>
+            <div>
+              {videos.map((videoURL, i) => (
+                <div className="recorded-video-box">
+                  <div key={`video_${i}`}>
+                    <video
+                      className="recorded-inner"
+                      src={videoURL}
+                      autoPlay
+                      loop
+                      muted
+                    />
+                    <div className="video-options-section">
+                      <button onClick={() => this.deleteVideo(videoURL)}>
+                        Delete
+                      </button>
+                      <button>
+                        <a href={videoURL}>Download</a>
+                      </button>
+                      <button onClick={() => this.uploadVideo(i)}>
+                        Upload Video
+                      </button>
                     </div>
                   </div>
-                )}
-              </div>
-              <div className="close-recorded">
-                <span
-                  className="close-modal"
-                  onClick={() => this.closeRecorder()}
-                >
-                  <i className="fas fa-times" />
-                </span>
-                <p>CLEAR</p>
-              </div>
-            </div>}
+                </div>
+              ))}
+            </div>
+            <div className="close-recorded">
+              <span
+                className="close-modal"
+                onClick={() => this.closeRecorder()}
+              >
+                <i className="fas fa-times" />
+              </span>
+              <p>CLEAR</p>
+            </div>
+          </div>
+        )}
 
         <div className="camera">
           <video
+            muted
             style={{ width: 400 }}
             ref={v => {
               this.video = v;
@@ -289,20 +292,20 @@ class UploadVideo extends React.Component {
             Video stream not available
           </video>
           <div className="recording-options-section">
-            {!recording &&
+            {!recording && (
               <div className="button" onClick={e => this.startRecording(e)}>
                 <div className="inner" />
-              </div>}
-            {recording &&
+              </div>
+            )}
+            {recording && (
               <div
                 className="button active"
                 onClick={e => this.stopRecording(e)}
               >
                 <div className="inner" />
-              </div>}
-            <div className="timer">
-              {this.state.seconds}
-            </div>
+              </div>
+            )}
+            <div className="timer">{this.state.seconds}</div>
           </div>
         </div>
       </div>
