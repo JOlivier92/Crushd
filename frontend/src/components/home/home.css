@@ -354,7 +354,7 @@ a:hover {
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 85%;
     color: rgb(160, 160, 160)
 }
 
@@ -364,5 +364,5 @@ a:hover {
 }
 
 .arrow-text {
-    padding-top: 5px;
+    padding-top: 7px;
 }
