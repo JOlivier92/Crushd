@@ -13,6 +13,7 @@ class ChatRoom extends React.Component {
     };
 
     this.updateMessage = this.updateMessage.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
   }
 
   updateMessage(event) {
@@ -23,6 +24,17 @@ class ChatRoom extends React.Component {
 
   submitMessage(event) {
     event.preventDefault();
+    console.log(this.state.message);
+    const nextMessage = {
+      id: this.state.messages.length,
+      text: this.state.message
+    };
+    let list = Object.assign([], this.state.messages);
+    list.push(nextMessage);
+    console.log(list);
+    this.setState({
+      messages: list
+    });
   }
 
   render() {
