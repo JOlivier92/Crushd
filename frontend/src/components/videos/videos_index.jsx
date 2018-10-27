@@ -17,6 +17,7 @@ class VideosIndex extends React.Component {
     };
 
     this.checkKey = this.checkKey.bind(this);
+    this.shuffle = this.shuffle.bind(this);
   }
 
   async componentDidMount() {
@@ -24,14 +25,27 @@ class VideosIndex extends React.Component {
     document.onkeydown = this.checkKey;
     await this.props.fetchVideos(this.props.currentUser.id);
     await this.sleep(1000);
-    this.setState(
-      { loading: false },
-      () => (this.videoIndexCount = this.props.videos.length)
-    );
+    this.setState({ loading: false }, () => {
+      this.setState(
+        {
+          videos: this.shuffle(this.props.videos)
+        },
+        () => (this.videoIndexCount = this.props.videos.length)
+      );
+    });
   }
 
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+
+    return a;
   }
 
   checkKey(e) {
