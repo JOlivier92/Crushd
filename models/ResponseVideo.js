@@ -14,18 +14,6 @@ const ResponseVideoSchema = new Schema({
         required: true
     },
 
-  // gender of poster
-    gender: {
-        type: String,
-        required: true
-    },
-
-    // preference of poster
-    sexual_preference: {
-        type: String,
-        required: true
-    },
-
     response_to_id: {
         type: String,
         required: true
