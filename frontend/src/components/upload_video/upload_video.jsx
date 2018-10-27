@@ -104,9 +104,10 @@ class UploadVideo extends React.Component {
       recorded: true
     });
 
+    this.popOffVideo();
+
     this.saveVideo();
     this.stopCountDown();
-    this.popOffVideo();
   }
 
   saveVideo() {
