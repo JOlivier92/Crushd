@@ -22,7 +22,7 @@ class VideosIndex extends React.Component {
   async componentDidMount() {
     this.setState({ loading: true });
     document.onkeydown = this.checkKey;
-    await this.props.fetchVideos();
+    await this.props.fetchVideos(this.props.currentUser.id);
     await this.sleep(1000);
     this.setState({ loading: false });
   }
