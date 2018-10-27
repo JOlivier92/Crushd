@@ -1,49 +1,74 @@
-.responses-index-view {
-    position: absolute;
-    top: 160px;
-    left: 0;
-    bottom: 0;
-    width: 25%;
-    padding: 20px;
-    max-height: 100vh;
-    overflow: hidden;
-    background-color: #fff;
-    -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+@media all and (min-width: 769px) {
+    .responses-index-view {
+        position: absolute;
+        top: 160px;
+        left: 0;
+        bottom: 0;
+        width: 25%;
+        padding: 20px;
+        max-height: 100vh;
+        overflow: hidden;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+        box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .response-outer {
+        width: 100%;
+        overflow-y: scroll;
+        height: 500px;
+        margin-right: -50px;
+        padding-right: 50px;
+    }
+
+    .response-outer::-webkit-scrollbar {
+        display: none;
+    }
+
+    .response-inner {
+        position: relative;
+        width: 95%;
+        height: 80px;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+    .response-inner p {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 1.5px;
+    }
+
+    .profile-img {
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        width: 90px;
+        border-radius: 50%;
+    }
+
+    .upload-inner {
+        padding-top: 175px;
+    }
+
+    .add-btn {
+        width: 44px;
+        height: 44px;
+        background-color: #c33764;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    button:focus {
+        outline: 0;
+    }
 }
 
-.response-outer {
-    width: 100%;
-    overflow-y: scroll;
-    height: 500px;
-    margin-right: -50px;
-    padding-right: 50px;
-}
-
-.response-outer::-webkit-scrollbar {
-    display: none;
-}
-
-.response-inner {
-    position: relative;
-    width: 95%;
-    height: 80px;
-    margin: 0 auto;
-    padding-top: 30px;
-}
-
-.response-inner p {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 1.5px;
-}
-
-.profile-img {
-    position: absolute;
-    top: 6px;
-    left: 10px;
-    width: 90px;
-    border-radius: 50%;
+@media all and (max-width: 768px) {
+    .responses-index-view {
+        display: none;
+    }
 }

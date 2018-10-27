@@ -6,7 +6,10 @@ import LoginForm from "./login_form";
 import {
   openModal,
   closeModal
-} from '../../actions/modal_actions'
+} from '../../actions/modal_actions';
+import {
+  showLogo
+} from '../../actions/logo_actions';
 
 const mapStateToProps = ({ errors }) => {
   return {
@@ -20,7 +23,8 @@ const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(loginUser(user)),
     openModal: modal => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    showLogo: () => dispatch(showLogo())
   };
 };
 

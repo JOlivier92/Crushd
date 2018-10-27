@@ -7,8 +7,7 @@ const modalsReducer = (state = {}, action) => {
     switch (action.type) {
         case OPEN_MODAL:
             return {
-                modal: action.modal,
-                pin: action.pin
+                modal: action.modal
             };
         case CLOSE_MODAL:
             return null;

@@ -1,8 +1,6 @@
 import React from "react";
-
 import "./../home/home.css";
 import Loader from "react-loader-spinner";
-import HomeNavContainer from "./../home/home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import { createNewVideo } from "./../../util/video_api_util";
@@ -64,7 +62,7 @@ class UploadVideo extends React.Component {
         this.chunks.push(e.data);
       }
     };
-    await this.sleep(1500);
+    await this.sleep(1000);
     this.setState({ loading: false });
 
     // Show video recorder to user
@@ -106,9 +104,10 @@ class UploadVideo extends React.Component {
       recorded: true
     });
 
+    this.popOffVideo();
+
     this.saveVideo();
     this.stopCountDown();
-    this.popOffVideo();
   }
 
   saveVideo() {
@@ -137,6 +136,9 @@ class UploadVideo extends React.Component {
 
   deleteVideo(videoURL) {
     const videos = this.state.videos.filter(v => v !== videoURL);
+    if (videos.length === 0) {
+      this.setState({ recorded: false });
+    }
     this.setState({ videos });
   }
 
@@ -179,7 +181,7 @@ class UploadVideo extends React.Component {
     });
 
     let video = this.state.videos[index];
-    let currentUser = this.props.currentUser
+    let currentUser = this.props.currentUser;
 
     let blob = await fetch(video).then(r => {
       var blob = null;
@@ -194,7 +196,7 @@ class UploadVideo extends React.Component {
             user_id: currentUser.id,
             videoURL: `userVideo_${currentUser.id}.mp4`,
             sexual_preference: currentUser.sexual_preference,
-            gender: currentUser.gender 
+            gender: currentUser.gender
           });
         });
       };
@@ -204,10 +206,10 @@ class UploadVideo extends React.Component {
 
   render() {
     const { navOption, recording, videos, recorded, loading } = this.state;
-    if (this.state.loading) {
+    if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="250" width="250" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />;
         </div>
       );
     }
@@ -235,31 +237,38 @@ class UploadVideo extends React.Component {
 
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {!this.state.recorded ? (
-          <div className="recorded-videos-section slide-out" />
+        {!recorded ? (
+          <div className="recorded-videos-section slide-out">
+            <h3>Recorded Videos</h3>
+            <div className="recorded-video-box black" />
+            <div className="recorded-video-box black" />
+            <div className="recorded-video-box black" />
+          </div>
         ) : (
           <div className="recorded-videos-section slide-in">
-            <div className="recorded-video-box">
-              <h3>Recorded Videos</h3>
+            <h3>Recorded Videos</h3>
+            <div>
               {videos.map((videoURL, i) => (
-                <div key={`video_${i}`}>
-                  <video
-                    className="recorded-inner"
-                    src={videoURL}
-                    autoPlay
-                    loop
-                    muted
-                  />
-                  <div className="video-options-section">
-                    <button onClick={() => this.deleteVideo(videoURL)}>
-                      Delete
-                    </button>
-                    <button>
-                      <a href={videoURL}>Download</a>
-                    </button>
-                    <button onClick={() => this.uploadVideo(i)}>
-                      Upload Video
-                    </button>
+                <div className="recorded-video-box">
+                  <div key={`video_${i}`}>
+                    <video
+                      className="recorded-inner"
+                      src={videoURL}
+                      autoPlay
+                      loop
+                      muted
+                    />
+                    <div className="video-options-section">
+                      <button onClick={() => this.deleteVideo(videoURL)}>
+                        Delete
+                      </button>
+                      <button>
+                        <a href={videoURL}>Download</a>
+                      </button>
+                      <button onClick={() => this.uploadVideo(i)}>
+                        Upload Video
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -271,13 +280,14 @@ class UploadVideo extends React.Component {
               >
                 <i className="fas fa-times" />
               </span>
-              <p>CLOSE</p>
+              <p>CLEAR</p>
             </div>
           </div>
         )}
 
         <div className="camera">
           <video
+            muted
             style={{ width: 400 }}
             ref={v => {
               this.video = v;

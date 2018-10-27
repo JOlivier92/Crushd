@@ -43,9 +43,14 @@ app.use(
 );
 app.use("/api/users/register", users.register);
 app.use("/api/users/login", users.login);
+
+// video modules
 app.post("/api/videos", videos.upload);
-app.get("/api/videos/",videos.getIndex);
-app.use("/api/response_videos", responseVideos.upload);
+app.get("/api/videos/:userid", videos.getIndex);
+
+// response video modules
+app.get("/api/response_videos/:userid", responseVideos.getIndex);
+app.post("/api/response_videos", responseVideos.upload);
 // Messaging modules
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

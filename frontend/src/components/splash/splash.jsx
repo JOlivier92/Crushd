@@ -7,13 +7,64 @@ import "./splash.css";
 import Logo from "./crushd_logo_gradient.png";
 
 class Splash extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logoHidden: false
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.firstClick = true;
+  }
+
+  handleClick(type) {
+    this.props.hideLogo();
+
+    this.props.openModal({ modal: type });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.firstClick === true) {
+      this.firstClick = !this.firstClick;
+      this.setState({ logoHidden: !nextProps.ui.type });
+    }
+    if (nextProps.ui.type !== this.props.ui.type) {
+      this.setState({ logoHidden: !nextProps.ui.type });
+    }
+  }
   render() {
+    const { logoHidden } = this.state;
+
     return (
       <div>
+        <div className="header-logo">
+          {logoHidden ? <img src={Logo} alt="logo" /> : <div />}
+        </div>
+        <nav className="splash-btns">
+          <div
+            className="signup-btn btns"
+            onClick={() => this.handleClick("ShowSignup")}
+          >
+            <p>Sign up</p>
+          </div>
+          <div
+            className="login-btn btns"
+            onClick={() => this.handleClick("ShowLogin")}
+          >
+            <p>Log in</p>
+          </div>
+        </nav>
         <div className="splash-container">
           <div className="logo">
-            <img src={Logo} />
-            <h2>A video revolution in online dating.</h2>
+            {!logoHidden ? <img src={Logo} alt="logo" /> : <div />}
+            {!logoHidden ? (
+              <h2>A video revolution in online dating.</h2>
+            ) : (
+              <h2 />
+            )}
           </div>
           <Carousel
             showArrows={false}
@@ -64,10 +115,11 @@ class Splash extends Component {
             </div>
           </Carousel>
         </div>
-        <div className="mobile-splash-container" />
-        <div className="logo">
-          <img src={Logo} />
-          <h2>A video revolution in online dating.</h2>
+        <div className="mobile-splash-container">
+          <div className="logo">
+            <img src={Logo} />
+            <h2>A video revolution in online dating.</h2>
+          </div>
         </div>
       </div>
     );
