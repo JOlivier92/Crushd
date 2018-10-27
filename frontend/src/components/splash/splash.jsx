@@ -16,17 +16,26 @@ class Splash extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.firstClick = true;
+  }
+
   handleClick(type) {
     this.props.hideLogo();
+
     this.props.openModal({ modal: type });
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger;
+    if (this.firstClick === true) {
+      this.firstClick = !this.firstClick;
+      this.setState({ logoHidden: !nextProps.ui.type });
+    }
     if (nextProps.ui.type !== this.props.ui.type) {
       this.setState({ logoHidden: !nextProps.ui.type });
     }
   }
-
   render() {
     const { logoHidden } = this.state;
 
@@ -52,9 +61,11 @@ class Splash extends Component {
         <div className="splash-container">
           <div className="logo">
             {!logoHidden ? <img src={Logo} alt="logo" /> : <div />}
-            {!logoHidden
-              ? <h2>A video revolution in online dating.</h2>
-              : <h2 />}
+            {!logoHidden ? (
+              <h2>A video revolution in online dating.</h2>
+            ) : (
+              <h2 />
+            )}
           </div>
           <Carousel
             showArrows={false}
