@@ -10,10 +10,10 @@ exports.upload = function (req, res) {
         sexual_preference: req.body.sexual_preference,
         response_to_id: req.body.response_to_id
     });
-    // const { errors, isValid } = validateResponseVideoUpload(req.body);
-    // if (!isValid) {
-    //     return res.status(400).json(errors)
-    // };
+    const { errors, isValid } = validateResponseVideoUpload(req.body);
+    if (!isValid) {
+        return res.status(400).json(errors)
+    };
 
     ResponseVideo.findOne({ user_id: req.body.user_id, response_to_id: req.body.response_to_id })
         .then(responseVideo => {
