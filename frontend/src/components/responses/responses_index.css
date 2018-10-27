@@ -62,6 +62,15 @@
         cursor: pointer;
     }
 
+    .add-btn:hover {
+        -webkit-box-shadow: 0 3px 18px rgba(0, 0, 0, 0.26),
+        0 3px 11px rgba(0, 0, 0, 0.22);
+        -moz-box-shadow: 0 3px 18px rgba(0, 0, 0, 0.26),
+        0 3px 11px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 3px 18px rgba(0, 0, 0, 0.26),
+        0 3px 11px rgba(0, 0, 0, 0.22);
+    }
+
     button:focus {
         outline: 0;
     }

@@ -117,8 +117,9 @@ class Splash extends Component {
         </div>
         <div className="mobile-splash-container">
           <div className="logo">
-            <img src={Logo} />
-            <h2>A video revolution in online dating.</h2>
+            {!logoHidden ? <img src={Logo} /> : <div />}
+            {!logoHidden ? <h2>A video revolution in online dating.</h2> : <div />}
+            
           </div>
         </div>
       </div>

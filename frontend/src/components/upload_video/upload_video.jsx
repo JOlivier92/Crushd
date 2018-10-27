@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import { createNewVideo } from "./../../util/video_api_util";
-
+import HomeNavContainer from "../home/home_nav/home_nav_container";
 const videoType = "video/webm";
 const firebase = require("firebase");
 require("firebase/firestore");
@@ -27,7 +27,6 @@ class UploadVideo extends React.Component {
     this.startCountDown = this.startCountDown.bind(this);
     this.uploadVideo = this.uploadVideo.bind(this);
     this.tick = this.tick.bind(this);
-    this.homeNavClicked = this.homeNavClicked.bind(this);
     this.closeRecorder = this.closeRecorder.bind(this);
   }
 
@@ -74,10 +73,11 @@ class UploadVideo extends React.Component {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  homeNavClicked() {
-    this.setState({
-      navOption: !this.state.navOption
-    });
+  componentWillReceiveProps(nextProps) {
+    const { ui } = this.props
+    if (nextProps.ui !== ui) {
+      this.setState({ navOption: nextProps.ui });
+    }
   }
 
   startRecording(e) {
@@ -225,15 +225,8 @@ class UploadVideo extends React.Component {
     }
     return (
       <div className="home-content-section">
-        <div className="home-nav-container">
-          <div className="home-nav">
-            <button className={buttonOne} onClick={this.homeNavClicked}>
-              Responses
-            </button>
-            <button className={buttonTwo} onClick={this.homeNavClicked}>
-              Matches
-            </button>
-          </div>
+        {<HomeNavContainer />}
+          <div>
 
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>

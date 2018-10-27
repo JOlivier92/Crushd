@@ -3,6 +3,7 @@ import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import VideosIndexContainer from "./../videos/videos_index_container";
 import UploadVideoContainer from "./../upload_video/upload_video_container";
+import HomeNavContainer from "./home_nav/home_nav_container";
 import "./home.css";
 import Loader from "react-loader-spinner";
 
@@ -27,8 +28,6 @@ class Home extends React.Component {
       seconds: "30",
       loading: true
     };
-
-    this.homeNavClicked = this.homeNavClicked.bind(this);
   }
 
   async componentDidMount() {
@@ -41,22 +40,20 @@ class Home extends React.Component {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  homeNavClicked() {
-    this.setState({
-      navOption: !this.state.navOption
-    });
+  componentWillReceiveProps(nextProps) {
+    const {ui} = this.props
+    if (nextProps.ui !== ui) {
+      this.setState({ navOption: nextProps.ui });
+    }
   }
 
   render() {
     const {
       navOption,
       mainScreen,
-      recording,
-      videos,
-      recorded,
       loading
     } = this.state;
-
+  
     if (loading) {
       return (
         <div className="loader-container">
@@ -77,23 +74,13 @@ class Home extends React.Component {
 
     return (
       <div className="home-content-section">
-        <div className="home-nav-container">
-          <div className="home-nav">
-            <button className={buttonOne} onClick={this.homeNavClicked}>
-              Responses
-            </button>
-            <button className={buttonTwo} onClick={this.homeNavClicked}>
-              Matches
-            </button>
-          </div>
-
+       {<HomeNavContainer />}
+        <div>
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {mainScreen === "videosIndex" ? (
-          <VideosIndexContainer />
-        ) : (
-          <UploadVideoContainer />
-        )}
+        {mainScreen === "videosIndex"
+          ? <VideosIndexContainer />
+          : <UploadVideoContainer />}
       </div>
     );
   }

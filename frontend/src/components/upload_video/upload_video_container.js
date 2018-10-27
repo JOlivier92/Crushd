@@ -5,9 +5,10 @@ import { createNewVideo } from "../../util/video_api_util";
 
 import UploadVideo from "./upload_video";
 
-const mSP = ({ session }) => {
+const mSP = ({ session, ui }) => {
   return {
-    currentUser: session
+    currentUser: session,
+    ui: ui.nav.type
   };
 };
 
