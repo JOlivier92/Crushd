@@ -44,7 +44,8 @@ app.use(
 app.use("/api/users/register", users.register);
 app.use("/api/users/login", users.login);
 app.post("/api/videos", videos.upload);
-app.get("/api/videos/",videos.getIndex);
+
+app.get("/api/videos/:userid", videos.getIndex);
 app.use("/api/response_videos", responseVideos.upload);
 // Messaging modules
 

@@ -19,10 +19,10 @@ exports.current = function(req,res) {
 }
 
 exports.register = function(req,res){
-    const { errors, isValid } = validateRegistrationInput(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors)
-    }
+    // const { errors, isValid } = validateRegistrationInput(req.body);
+    // if (!isValid) {
+    //     return res.status(400).json(errors)
+    // }
     User.findOne({username: req.body.username}).then(user => {
         // if the user already exists in the database, return 400 level error
         if (user) {
@@ -70,10 +70,10 @@ exports.register = function(req,res){
 }
 
 exports.login = function(req,res) {
-    const { errors, isValid } = validateLoginInput(req.body);
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    // const { errors, isValid } = validateLoginInput(req.body);
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({email})
