@@ -271,6 +271,7 @@
         padding: 10px 0;
         width: 425px;
     }
+    
 
     /* mobile nav menu */
 
@@ -408,52 +409,34 @@
         padding-bottom: 10px;
         color: lightgray;
     }
-
-    .recorded-inner {
-        width: 100%;
-        border-radius: 5px;
-    }
-
-    .video-options-section button {
-        background-color: #c33764;
-        border: 1px solid #c33764;
-        padding: 3%;
-        margin-top: 5px;
-        border-radius: 3px;
-        width: 100%;
-        text-decoration: none;
-        color: #fff;
-        font-size: 10px;
-        cursor: pointer;
-        display: block;
-        clear: both;
-    }
-
-    .video-options-section a {
-        text-decoration: none;
-        font-size: 10px;
-        cursor: pointer;
-        color: #fff;
-    }
-
-    .video-options-section button:hover,
-    a:hover {
-        background-color: #fff;
-        color: #c33764;
-    }
-
-    .close-recorded {
-        position: absolute;
-        top: 9%;
-        left: 10px;
-        cursor: pointer;
-    }
-
-    .close-recorded p {
-        position: absolute;
-        bottom: 0;
-        left: 30px;
-        font-size: 14px;
-        color: #fff;
-    }
 }
+
+.videos-index-view {
+    position: absolute;
+    top: 150px;
+    margin-left: 43%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 425px;
+}
+
+.arrow {
+    padding-top: 604px;
+    padding-left: 224px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 85%;
+    color: rgb(160, 160, 160)
+}
+
+.arrow-key {
+    width: 3.5%;
+    height: 4%;
+}
+
+.arrow-text {
+    padding-top: 7px;
+}
+
