@@ -56,13 +56,10 @@ exports.upload = function (req, res) {
 };
 
 exports.getIndex = function (req, res) {
-    debugger;
-    User.findById(req.params.userid).then(user => {
-        ResponseVideo.find({ gender: user._doc.sexual_preference, sexual_preference: user._doc.gender }).then(idx => {
-            idx = idx.map(video => video._doc);
-            res.json({
-                videos: idx
-            });
+    ResponseVideo.find({ response_to_id: req.params.userid}).then(idx => {
+        idx = idx.map(responseVideo => responseVideo._doc);
+        res.json({
+            responseVideos: idx
         });
     });
 };

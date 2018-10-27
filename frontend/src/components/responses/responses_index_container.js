@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ResponsesIndex from "./responses_index";
-import { fetchVideos } from "../../util/response_video_api_util";
+import { fetchResponseVideos } from "../../util/response_video_api_util";
 
 const mapStateToProps = ({session, responseIndex}) => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = ({session, responseIndex}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchResponseVideos: (id) => dispatch(fetchVideos(id))
+    fetchResponseVideos: (id) => dispatch(fetchResponseVideos(id))
   }
 }
 
