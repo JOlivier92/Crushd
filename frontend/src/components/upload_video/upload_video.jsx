@@ -1,8 +1,6 @@
 import React from "react";
-
 import "./../home/home.css";
 import Loader from "react-loader-spinner";
-import HomeNavContainer from "./../home/home_nav/home_nav_container";
 import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import { createNewVideo } from "./../../util/video_api_util";
@@ -64,7 +62,7 @@ class UploadVideo extends React.Component {
         this.chunks.push(e.data);
       }
     };
-    await this.sleep(1500);
+    await this.sleep(1000);
     this.setState({ loading: false });
 
     // Show video recorder to user
@@ -204,10 +202,10 @@ class UploadVideo extends React.Component {
 
   render() {
     const { navOption, recording, videos, recorded, loading } = this.state;
-    if (this.state.loading) {
+    if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="250" width="250" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />;
         </div>
       );
     }

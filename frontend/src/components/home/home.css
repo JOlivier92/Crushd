@@ -80,112 +80,39 @@
     color: #fff;
 }
 
-.recorded-videos-section {
+.loader-container {
     position: absolute;
-    top: 50px;
-    right: 0;
-    width: 150px;
-    height: 80vh;
-    padding-top: 15px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-}
-
-.slide-in {
-    animation: slide-in 0.5s forwards;
-    -webkit-animation: slide-in 0.5s forwards;
-}
-
-.slide-out {
-    animation: slide-out 0.5s forwards;
-    -webkit-animation: slide-out 0.5s forwards;
-}
-
-@keyframes slide-in {
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-@-webkit-keyframes slide-in {
-    100% {
-        -webkit-transform: translateX(0%);
-    }
-}
-
-@keyframes slide-out {
-    0% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-@-webkit-keyframes slide-out {
-    0% {
-        -webkit-transform: translateX(0%);
-    }
-
-    100% {
-        -webkit-transform: translateX(100%);
-    }
-}
-
-.recorded-videos-section h3 {
-    font-size: 18px;
-    color: lightgray;
-}
-
-.recorded-inner {
-    width: 100px;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
-.video-options-section button {
-    background-color: #c33764;
-    border: 1px solid #c33764;
-    padding: 2px;
-    border-radius: 3px;
-    width: 80px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 10px;
-    cursor: pointer;
-}
-
-.video-options-section a {
-    text-decoration: none;
-    font-size: 10px;
-    cursor: pointer;
-    color: #fff;
-}
-
-.video-options-section button:hover,
-a:hover {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
     background-color: #fff;
-    color: #c33764;
+    z-index: 10;
 }
 
-.close-recorded {
-    position: absolute;
-    bottom: 15px;
-    left: 10px;
-    cursor: pointer;
+.loader-container svg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: fill 0.5s ease;
+    fill: rgb(206, 20, 75);
+    animation: hideshow 3s ease infinite;
 }
 
-.close-recorded p {
-    position: absolute;
-    bottom: 0;
-    left: 30px;
-    font-size: 16px;
-    color: lightgray;
+@keyframes hideshow {
+    50% {
+        opacity: 1;
+        fill: #1d2671;
+    }
+
+    100% {
+        opacity: 1;
+        fill: rgb(206, 20, 75);
+    }
 }
+
 
 @media all and (min-width: 769px) {
     .camera {
@@ -201,11 +128,127 @@ a:hover {
     #menuToggle {
         display: none;
     }
+
+    .recorded-videos-section {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 150px;
+        height: 80vh;
+        padding-top: 15px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+    }
+
+    .slide-in {
+        animation: slide-in 0.5s forwards;
+        -webkit-animation: slide-in 0.5s forwards;
+    }
+
+    .slide-out {
+        animation: slide-out 0.5s forwards;
+        -webkit-animation: slide-out 0.5s forwards;
+    }
+
+    @keyframes slide-in {
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @-webkit-keyframes slide-in {
+        100% {
+            -webkit-transform: translateX(0%);
+        }
+    }
+
+    @keyframes slide-out {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @-webkit-keyframes slide-out {
+        0% {
+            -webkit-transform: translateX(0%);
+        }
+
+        100% {
+            -webkit-transform: translateX(100%);
+        }
+    }
+
+    .recorded-videos-section h3 {
+        font-size: 18px;
+        color: lightgray;
+    }
+
+    .recorded-inner {
+        width: 100px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .video-options-section button {
+        background-color: #c33764;
+        border: 1px solid #c33764;
+        padding: 2px;
+        border-radius: 3px;
+        width: 80px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 10px;
+        cursor: pointer;
+    }
+
+    .video-options-section a {
+        text-decoration: none;
+        font-size: 10px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .video-options-section button:hover,
+    a:hover {
+        background-color: #fff;
+        color: #c33764;
+    }
+
+    .close-recorded {
+        position: absolute;
+        bottom: 15px;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    .close-recorded p {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        font-size: 16px;
+        color: lightgray;
+    }
 }
 
 @media all and (max-width: 768px) {
     .camera {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         margin: auto;
+        margin-top: 150px;
+        background-color: #232323;
+        border-radius: 5px;
+        padding: 10px 0;
+        width: 425px;
     }
 
     #menu a {
@@ -303,47 +346,113 @@ a:hover {
     #menuToggle input:checked~ul {
         transform: none;
     }
-}
 
-.loader-container {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    min-width: 100vw;
-    background-color: #232323;
-    z-index: 10;
-}
-
-.loader-container svg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    transition: fill 0.5s ease;
-    fill: rgb(206, 20, 75);
-    animation: hideshow 3s ease infinite;
-}
-
-@keyframes hideshow {
-    50% {
-        opacity: 1;
-        fill: #1d2671;
+    .recorded-videos-section {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 150px;
+        padding-top: 15px;
+        /* border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px; */
+        background-color: rgba(255, 255, 255, 0.3);
+        /* transform: translateX(100%);
+        -webkit-transform: translateX(100%); */
     }
 
-    100% {
-        opacity: 1;
-        fill: rgb(206, 20, 75);
+    /* .slide-in {
+        animation: slide-in 0.5s forwards;
+        -webkit-animation: slide-in 0.5s forwards;
     }
-}
 
-.videos-index-view {
-    position: absolute;
-    top: 150px;
-    margin-left: 43%;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 10px 0;
-    width: 425px;
+    .slide-out {
+        animation: slide-out 0.5s forwards;
+        -webkit-animation: slide-out 0.5s forwards;
+    }
+
+    @keyframes slide-in {
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @-webkit-keyframes slide-in {
+        100% {
+            -webkit-transform: translateX(0%);
+        }
+    }
+
+    @keyframes slide-out {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @-webkit-keyframes slide-out {
+        0% {
+            -webkit-transform: translateX(0%);
+        }
+
+        100% {
+            -webkit-transform: translateX(100%);
+        }
+    } */
+/* slider */
+    .recorded-videos-section h3 {
+        font-size: 18px;
+        color: lightgray;
+    }
+
+    .recorded-inner {
+        float: left;
+        width: 80px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .video-options-section button {
+        background-color: #c33764;
+        border: 1px solid #c33764;
+        padding: 2px;
+        border-radius: 3px;
+        width: 80px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 10px;
+        cursor: pointer;
+    }
+
+    .video-options-section a {
+        text-decoration: none;
+        font-size: 10px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .video-options-section button:hover,
+    a:hover {
+        background-color: #fff;
+        color: #c33764;
+    }
+
+    .close-recorded {
+        position: absolute;
+        bottom: 15px;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    .close-recorded p {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        font-size: 16px;
+        color: lightgray;
+    }
 }

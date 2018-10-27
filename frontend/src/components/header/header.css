@@ -62,6 +62,9 @@
         transition: background-color 0.5s ease;
         transition: color 0.5s ease;
     }
+    a.header-button {
+        text-decoration: none;
+    }
 
     .header-button:hover {
         background-color: #fff;
@@ -97,14 +100,22 @@
         display: none;
     }
 
-    .mobile-header-button {
+    .mobile-header-btn-group li {
+        margin-top: 12px;
+    }
+
+    .mobile-header-btn-group a {
         font-size: 22px;
-        padding-top: 8px;
         background-color: #e8e8e8;
     }
 
-    .mobile-header-button:hover {
+    .mobile-header-btn-group a {
+        text-decoration: none;
+    }
+
+    .mobile-header-btn-group a:hover {
         color: #C33764;
+        background-color: #e8e8e8;
     }
 
 }

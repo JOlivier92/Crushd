@@ -1,4 +1,13 @@
-.home-nav {
-  display: flex;
-  justify-content: flex-start
+@media all and (min-width: 769px) {
+
+  .home-nav {
+    display: flex;
+    justify-content: flex-start
+  }
+}
+
+@media all and (max-width: 768px) {
+  .home-nav {
+    display: none;
+  }
 }
