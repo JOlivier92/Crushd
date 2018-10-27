@@ -1,5 +1,6 @@
 import React from "react";
 import Heart from "./like-heart.svg";
+import { withRouter } from "react-router-dom"
 import "./videos_index.css";
 import Loader from "react-loader-spinner";
 import VideosIndexItem from "./videos_index_item";
@@ -49,33 +50,37 @@ class VideosIndex extends React.Component {
   }
 
   checkKey(e) {
+    let video ;
     e = e || window.event;
-    console.log(this.videoIndexCount);
-    if (e.keyCode == "38") {
+    if (e.keyCode === 38) {
       // up arrow
-    } else if (e.keyCode == "40") {
+    } else if (e.keyCode === 40) {
       // down arrow
-    } else if (e.keyCode == "37") {
+    } else if (e.keyCode === 37) {
       if (this.videoIndexCount - 1 >= 0) {
-        let video = document.getElementsByClassName("videos-index-view")[
-          this.videoIndexCount - 1
+        this.videoIndexCount--;
+        video = document.getElementsByClassName("videos-index-view")[
+          this.videoIndexCount
         ];
         console.log(video);
         video.classList.toggle("animated");
         video.classList.toggle("fadeOutLeft");
-        this.videoIndexCount--;
       }
       // left arrow
-    } else if (e.keyCode == "39") {
+    } else if (e.keyCode === 39) {
+      let reply_to_id ;
       // right arrow
       if (this.videoIndexCount - 1 >= 0) {
-        let video = document.getElementsByClassName("videos-index-view")[
-          this.videoIndexCount - 1
+        this.videoIndexCount--;
+        video = document.getElementsByClassName("videos-index-view")[
+          this.videoIndexCount
         ];
         console.log(video);
         video.classList.toggle("animated");
         video.classList.toggle("fadeOutRight");
-        this.videoIndexCount--;
+        reply_to_id = this.state.videos[this.videoIndexCount].user_id
+        debugger; 
+        this.props.history.push(`/${reply_to_id}/reply`)
       }
     }
   }
@@ -107,4 +112,4 @@ class VideosIndex extends React.Component {
   }
 }
 
-export default VideosIndex;
+export default withRouter(VideosIndex);

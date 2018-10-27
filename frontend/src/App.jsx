@@ -20,11 +20,8 @@ class App extends Component {
         <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/" component={HomeContainer} />
-          <ProtectedRoute
-            exact
-            path="/upload"
-            component={UploadVideoContainer}
-          />
+          <ProtectedRoute exact path="/upload" component={UploadVideoContainer} />
+          <ProtectedRoute path="/:userid/reply" component={UploadVideoContainer} />
           {/* Protected Matches Route */}
           {/* Protected Messages Route */}
         </Switch>
