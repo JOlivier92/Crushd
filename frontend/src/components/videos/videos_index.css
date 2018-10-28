@@ -151,7 +151,7 @@
 
     .btn-inner-one {
         margin-top: 5px;
-        color: red;
+        color: #e84c3d;
         font-size: 25px;
     }
 
@@ -162,12 +162,16 @@
 
     .btn-outer-one:hover,
     .btn-inner-one:hover {
+<<<<<<< HEAD
         
+=======
+        background-color: #e84c3d;
+>>>>>>> 8792f73bf50c5f1b5b5f8c5ca906b9998a2b16e5
         color: #fff;
     }
 
     .btn-outer-two:hover {
-        background-color: lightseagreen;
+        background-color: limegreen;
     }
 }
 
@@ -229,7 +233,7 @@
 
     .btn-inner-one {
         margin-top: 5px;
-        color: red;
+        color: #e84c3d;
         font-size: 25px;
     }
 
@@ -240,12 +244,12 @@
 
     .btn-outer-one:hover,
     .btn-inner-one:hover {
-        background-color: red;
+        background-color: #e84c3d;
         color: #fff;
     }
 
     .btn-outer-two:hover {
-        background-color: lightseagreen;
+        background-color: limegreen;
     }
     
     

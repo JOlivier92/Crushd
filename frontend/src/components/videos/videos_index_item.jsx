@@ -5,7 +5,7 @@ import Heart from './like-heart.svg'
 const VideosIndexItem = ({ firebaseURL }) => {
   return (
     <div className="videos-index-view">
-      <h1>This is the videos index section</h1>
+      <h1>Your bachelorettes</h1>
       <video
         id="movie"
         src={firebaseURL}

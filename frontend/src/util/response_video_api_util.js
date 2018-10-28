@@ -17,3 +17,9 @@ export const fetchResponseVideos = (id) => dispatch => {
         .get(`/api/response_videos/${id}`)
         .then(res => dispatch(setRetrievedResponseVideos(res)));
 };
+
+export const createNewResponseVideo = video => {
+    axios.post("/api/response_videos", video).then(res => {
+        return res;
+    });
+};
