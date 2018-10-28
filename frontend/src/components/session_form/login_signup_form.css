@@ -158,6 +158,11 @@ input[type=date] {
   border-radius: 50%;
 }
 
+.close-modal:hover {
+  color: #c33764;
+  border-color: #c33764;
+}
+
 @media all and (max-width: 640px) {
   .login-form-box {
     max-width: 100vw;
@@ -191,3 +196,4 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px lightgray inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
