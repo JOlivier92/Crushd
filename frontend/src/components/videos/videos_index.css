@@ -1,12 +1,8 @@
 .videos-index-container {
-    background-color: teal;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
-
-
 
 .arrow {
     padding-top: 41.5%;
@@ -34,7 +30,60 @@
     padding-top: 0.6%;
 }
 
+.btn-outer-one {
+        position: absolute;
+        padding: 0px;
+        top: 20px;
+        left: 140px;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+    }
 
+    .btn-outer-two {
+        position: absolute;
+        padding: 4px;
+        top: 20px;
+        right: 119px;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+    }
+
+    .btn-inner-one {
+        margin-top: 14px;
+        padding-top: 1px;
+        color: red;
+        font-size: 25px;
+    }
+
+    .btn-inner-two {
+        margin-top: 5px;
+        width: 40px;
+    }
+
+    .btn-outer-one:hover {
+      background-color: red;
+    }
+
+    
+    .btn-inner-one:hover {
+        color: red;
+    }
+
+    .btn-outer-two:hover {
+        background-color: lightseagreen;
+    }
 
 @media all and (min-width: 769px) {
     .videos-index-view {
@@ -163,7 +212,7 @@
         border-radius: 50%;
         cursor: pointer;
         -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 9px 3px 2px -2px rgba(0, 0, 0, 0.26);
         box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
     }
 

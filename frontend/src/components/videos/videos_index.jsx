@@ -95,7 +95,7 @@ class VideosIndex extends React.Component {
     }
     return (
       <div className="videos-index-container">
-        <div>
+        <div >
           {this.props.videos.map(video => (
             <VideosIndexItem
               className="video-index-view"
