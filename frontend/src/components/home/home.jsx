@@ -64,6 +64,7 @@ class Home extends React.Component {
         <div>
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
+
         {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
         <div className="arrow-keys">
           <div className="arrow">
@@ -75,6 +76,10 @@ class Home extends React.Component {
           </div>
         </div>
       </div>
+        <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>
+          <p>HELP</p>
+          <i class="fas fa-question" />
+        </button>
     </div>
   }
 }
