@@ -20,7 +20,6 @@ class UploadVideo extends React.Component {
       navOption: true,
       mainScreen: "videosIndex",
       recorded: false,
-      videos: [],
       seconds: "30",
       loading: true
     };
@@ -191,7 +190,7 @@ class UploadVideo extends React.Component {
       response = true;
       ref = storageRef.child(`responseVideo_${ reply_to_id }_${ currentUser.id }.mp4`);
     }
-    let blob = await fetch(video).then(r => {
+    await fetch(video).then(r => {
       var blob = null;
       var xhr = new XMLHttpRequest();
       xhr.open("GET", r.url);
@@ -228,16 +227,6 @@ class UploadVideo extends React.Component {
           <Loader className="spinner" type="Hearts" height="200" width="200" />;
         </div>
       );
-    }
-
-    let buttonOne = null;
-    let buttonTwo = null;
-    if (navOption) {
-      buttonOne = "nav-chosen-button active";
-      buttonTwo = "nav-chosen-button";
-    } else {
-      buttonOne = "nav-chosen-button";
-      buttonTwo = "nav-chosen-button active";
     }
     return (
       <div className="home-content-section">
