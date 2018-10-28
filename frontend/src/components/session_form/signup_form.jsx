@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
   selectedComponent(e) {
     e.preventDefault();
     const { idx } = this.state;
-    const components = ["signupItem2", "signupItem3"];
+    const components = ["signupItem2", "signupItem3","signupItem4","signupItem5"];
     const selected = components[idx];
     const newIdx = idx + 1;
     return this.setState({ component: selected, idx: newIdx });
@@ -229,6 +229,22 @@ class SignupForm extends React.Component {
     );
   }
 
+  onboardingItem1() {
+    return (
+      <div className="onboardingText">
+        <p>You can swipe left and right on your potential crushees videos. If you like their video, you can respond with a video.</p>
+      </div>
+    )
+  }
+
+  onboardingItem2() {
+    return (
+      <div className="onboardingText">
+        <p>You can then message those that respond to your video or get messages from people who liked your response.</p>
+      </div>
+    )
+  }
+
   handleCloseModal() {
     this.props.showLogo();
     this.props.closeModal();
@@ -237,9 +253,11 @@ class SignupForm extends React.Component {
   render() {
     const { component } = this.state;
     const selection = {
-      signupItem1: this.signupItem1(),
-      signupItem2: this.signupItem2(),
-      signupItem3: this.signupItem3()
+      signupItem1: this.onboardingItem1(),
+      signupItem2: this.onboardingItem2(),
+      signupItem3: this.signupItem1(),
+      signupItem4: this.signupItem2(),
+      signupItem5: this.signupItem3()
     };
 
     return (
@@ -258,7 +276,7 @@ class SignupForm extends React.Component {
           {this.renderErrors()}
           <div className="signup-form">
             {selection[component]}
-            {component === "signupItem3"
+            {component === "signupItem5"
               ? <input
                   className="session-submit"
                   type="submit"
@@ -266,7 +284,7 @@ class SignupForm extends React.Component {
                 />
               : ""}
           </div>
-          {component !== "signupItem3"
+          {component !== "signupItem5"
             ? <button
                 className="session-continue"
                 onClick={this.selectedComponent.bind(this)}
