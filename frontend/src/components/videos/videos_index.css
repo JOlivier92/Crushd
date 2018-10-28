@@ -1,12 +1,22 @@
 .videos-index-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;
+    height: 1227px;
 }
 
+.videos-index-view {
+    top: 150px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 425px;
+}
+
+
 .arrow {
-    padding-top: 41.5%;
-    padding-left: 15%;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -25,6 +35,7 @@
     height: 3%;
     padding-top: 4.5px;
 }
+
 
 .arrow-text {
     padding-top: 0.6%;
@@ -89,7 +100,7 @@
     .videos-index-view {
         position: absolute;
         top: 150px;
-        margin-left: 43%;
+    
         background-color: #fff;
         border-radius: 5px;
         padding: 10px 0;

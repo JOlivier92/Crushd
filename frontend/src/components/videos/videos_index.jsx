@@ -95,7 +95,6 @@ class VideosIndex extends React.Component {
     }
     return (
       <div className="videos-index-container">
-        <div >
           {this.props.videos.map(video => (
             <VideosIndexItem
               className="video-index-view"
@@ -107,8 +106,6 @@ class VideosIndex extends React.Component {
               }
             />
           ))}
-        </div>
-        <div className="arrow-keys">
           <div className="arrow">
             <img className="space-btn" src={Space} />
             &nbsp;&nbsp;
@@ -120,7 +117,6 @@ class VideosIndex extends React.Component {
             <img className="keyboard-btn" src={RightArrow} />
             <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
-        </div>
       </div>
     )
   }
