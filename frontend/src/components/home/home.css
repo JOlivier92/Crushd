@@ -431,9 +431,16 @@
     color: rgb(160, 160, 160)
 }
 
-.arrow-key {
+.space-btn {
     width: 3.5%;
     height: 4%;
+    padding-top: 1px;
+}
+
+.keyboard-btn {
+    width: 2.5%;
+    height: 3%;
+    padding-top: 4.5px;
 }
 
 .arrow-text {
