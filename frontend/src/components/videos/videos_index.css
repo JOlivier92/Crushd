@@ -71,6 +71,8 @@
         box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
     }
 
+
+
     .btn-inner-one {
         margin-top: 14px;
         padding-top: 1px;
@@ -97,6 +99,12 @@
     }
 
 @media all and (min-width: 769px) {
+    .videos-index-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
     .videos-index-view {
         position: absolute;
         top: 150px;
@@ -171,6 +179,9 @@
     .btn-outer-two:hover {
         background-color: limegreen;
     }
+
+   
+   
 }
 
 @media all and (max-width: 768px) {
@@ -195,8 +206,10 @@
 
     .video-view-btns {
         position: relative;
-        width: 400px;
+        width: 166px;
         height: 80px;
+        margin-left: 108px;
+        
     }
 
     .btn-outer-one {
@@ -250,6 +263,14 @@
         background-color: limegreen;
     }
     
+     .arrow {
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        color: rgb(160, 160, 160);
+        padding-right: 391px;
+    }
     
 
     
