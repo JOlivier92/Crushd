@@ -422,8 +422,8 @@
 }
 
 .arrow {
-    padding-top: 604px;
-    padding-left: 231px;
+    padding-top: 41.5%;
+    padding-left: 15%;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -444,6 +444,6 @@
 }
 
 .arrow-text {
-    padding-top: 7px;
+    padding-top: 0.6%;
 }
 
