@@ -1,6 +1,6 @@
 import React from "react";
 
-const firebase = require("firebase/firestore");
+const firebase = require("firebase");
 require("firebase/firestore");
 
 class ChatRoom extends React.Component {
