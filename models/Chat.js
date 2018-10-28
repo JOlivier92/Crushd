@@ -14,15 +14,9 @@ const ChatSchema = new Schema({
         type: Array,
         required: true
     },
-    
-    // Array of objects
-        // Message object
-            // Sender
-            // Recipient
-            // Message
-    messages: {
-        type: Array,
-        required: false
+    chatroomURL: {
+        type: String,
+        required: true
     }
 });
 
