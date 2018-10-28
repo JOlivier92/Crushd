@@ -20,25 +20,25 @@
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 85%;
+    font-size: 13px;
     color: rgb(160, 160, 160)
 }
 
 .space-btn {
-    width: 3.5%;
-    height: 4%;
+    width: 44px;
+    height: 27px;
     padding-top: 1px;
 }
 
 .keyboard-btn {
-    width: 2.5%;
-    height: 3%;
+    width: 28px;
+    height: 19px;
     padding-top: 4.5px;
 }
 
 
 .arrow-text {
-    padding-top: 0.6%;
+    padding-top: 6px;
 }
 
 .btn-outer-one {
