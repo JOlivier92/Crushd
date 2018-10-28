@@ -42,7 +42,7 @@ class Header extends React.Component {
     if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="200" width="200" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />
         </div>
       );
     } else {

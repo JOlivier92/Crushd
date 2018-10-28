@@ -26,7 +26,7 @@ class App extends Component {
           {/* Protected Matches Route */}
           <ProtectedRoute
             exact
-            patch="/chatroom"
+            path="/chatroom"
             component={ChatRoomContainer}
           />
         </Switch>
