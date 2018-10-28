@@ -95,7 +95,7 @@ class VideosIndex extends React.Component {
         {this.props.videos.map(video => (
           <VideosIndexItem
             className="video-index-view"
-            key={video.id}
+            key={video.videoURL}
             firebaseURL={
               "https://firebasestorage.googleapis.com/v0/b/crushd-efd3f.appspot.com/o/" +
               video.videoURL +

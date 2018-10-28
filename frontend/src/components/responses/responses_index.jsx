@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ResponseVideosIndexItem from "./responses_index_item";
+import Loader from "react-loader-spinner";
 
 import "./responses_index.css";
 
@@ -10,6 +11,7 @@ class ResponsesIndex extends React.Component {
     this.state = {
       loading: true,
     };
+    this.openResponseModal = this.openResponseModal.bind(this);
   }
 
   sleep(ms) {
@@ -22,9 +24,24 @@ class ResponsesIndex extends React.Component {
     await this.sleep(1000);
     this.setState({ loading: false });
   }
-  
 
+  openResponseModal() {
+    return ("hiii")
+  }
+  
   render() {
+    const { loading } = this.state;
+    if (loading) {
+      return (
+      <div className="responses-index-view">
+        <div className="response-outer">
+          <div className="loader-sidebar-container">
+            <Loader className="spinner" type="Hearts" height="200" width="200" />
+          </div>
+        </div>
+      </div>
+      )
+    }
     const uploadVideo = (
           <div className="upload-video-option-container">
             <h3>No responses yet...</h3>
@@ -38,7 +55,6 @@ class ResponsesIndex extends React.Component {
             </div>
           </div>
     );
-    debugger;
     const showMatches = (
       <div className="upload-video-option-container">
         <div className="upload-inner">
@@ -46,7 +62,8 @@ class ResponsesIndex extends React.Component {
             {Object.values(this.props.responseVideos).map(video => (
               <ResponseVideosIndexItem
                 className="response-video-index-view"
-                key={video.id}
+                onClick={console.log("hi")}
+                key={video.videoURL}
                 firebaseURL={
                   "https://firebasestorage.googleapis.com/v0/b/crushd-efd3f.appspot.com/o/" +
                   video.videoURL +

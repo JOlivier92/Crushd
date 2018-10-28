@@ -2,7 +2,6 @@ import React from "react";
 
 const ResponseVideosIndexItem = ({ firebaseURL }) => {
     return <div className="response-videos-index-view">
-        <h1>Your contenders</h1>
         <video id="movie" src={firebaseURL} height="" width="80%" autoPlay controls muted loop play="true">
           {" "}
         </video>

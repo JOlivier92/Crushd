@@ -1,7 +1,7 @@
 import React from "react";
 import SplashContainer from "../splash/splash_container";
 import Loader from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./header.css";
 
 class Header extends React.Component {
@@ -92,59 +92,5 @@ class Header extends React.Component {
     }
   }
 }
-// const Header = ({ currentUser, logout, closeModal }) => {
 
-//   const sessionLinks = () =>
-//     <div>
-//       <SplashContainer />
-//     </div>;
-
-//   const nav = () => <div>
-//       <hgroup className="header-group">
-//         <h2 className="header-name">
-//           Hi, {currentUser.name}!
-//         </h2>
-//         <Link to="/" className="header-button" onClick={logout}>
-//           Log Out
-//         </Link>
-
-//         <div id="menuToggle">
-//           <input type="checkbox" />
-//           <span />
-//           <span />
-//           <span />
-//           <ul id="menu" className="mobile-header-btn-group">
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="/">My Profile</Link>
-//             </li>
-//             <li>
-//               <Link to="/">Matches</Link>
-//             </li>
-//             <li>
-//               <Link to="/">Messages</Link>
-//             </li>
-//           <li>
-//             <Link to="/">Responses</Link>
-//           </li>
-//             <li>
-//               <Link to="/" className="mobile-header-button" onClick={logout}>
-//                 Log Out
-//               </Link>
-//             </li>
-//           </ul>
-//         </div>
-//       </hgroup>
-//     </div>;
-
-//   if (currentUser.id) {
-//     closeModal();
-//     return nav();
-//   } else {
-//     return sessionLinks();
-//   }
-// };
-
-export default Header;
+export default withRouter(Header);
