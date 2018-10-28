@@ -197,51 +197,34 @@ class SignupForm extends React.Component {
   signupItem3() {
     return (
       <div>
-        <label>
-          Username:
-          <br />
           <input
             type="text"
             value={this.state.username}
             onChange={this.update("username")}
             className="login-input"
+            placeholder="Username"
           />
-        </label>
-        <br />
-        <label>
-          Zipcode:
-          <br />
           <input
             type="text"
             value={this.state.zipcode}
             onChange={this.update("zipcode")}
             className="login-input"
+            placeholder="Zipcode"
           />
-        </label>
-        <br />
-        <label>
-          Password:
-          <br />
           <input
             type="password"
             value={this.state.password}
             onChange={this.update("password")}
             className="login-input"
+            placeholder="Password"
           />
-        </label>
-
-        <br />
-
-        <label>
-          Confirm Password:
-          <br />
           <input
             type="password"
             value={this.state.confirmPassword}
             onChange={this.update("confirmPassword")}
             className="login-input"
+            placeholder="Confirm Password"
           />
-        </label>
       </div>
     );
   }

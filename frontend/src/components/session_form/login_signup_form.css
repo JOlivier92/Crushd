@@ -218,12 +218,12 @@ div.signup-form > label {
   display: block;
 }
 
-div.signup-form > span {
+div.signup-form > label > span {
   display: inline-block;
   width: 20%;
 }
 
-div.signup-form > input[type="date"] {
+div.signup-form > label > input.login-input {
   width: 70%;
   display: inline-block;
   margin: unset;
