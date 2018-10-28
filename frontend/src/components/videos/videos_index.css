@@ -1,8 +1,114 @@
+.videos-index-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;
+    height: 1227px;
+}
+
+.videos-index-view {
+    top: 150px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 425px;
+}
+
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: rgb(160, 160, 160)
+}
+
+.space-btn {
+    width: 44px;
+    height: 27px;
+    padding-top: 1px;
+}
+
+.keyboard-btn {
+    width: 28px;
+    height: 19px;
+    padding-top: 4.5px;
+}
+
+
+.arrow-text {
+    padding-top: 6px;
+}
+
+.btn-outer-one {
+        position: absolute;
+        padding: 0px;
+        top: 20px;
+        left: 140px;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
+    }
+
+    .btn-outer-two {
+        position: absolute;
+        padding: 4px;
+        top: 20px;
+        right: 119px;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
+    }
+
+
+
+    .btn-inner-one {
+        margin-top: 14px;
+        padding-top: 1px;
+        color: red;
+        font-size: 25px;
+    }
+
+    .btn-inner-two {
+        margin-top: 5px;
+        width: 40px;
+    }
+
+    .btn-outer-one:hover {
+      background-color: red;
+
+    }
+
+    
+    .btn-inner-one:hover {
+    }
+
+    .btn-outer-two:hover {
+        background-color: lightseagreen;
+    }
+
 @media all and (min-width: 769px) {
+    .videos-index-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
     .videos-index-view {
         position: absolute;
         top: 150px;
-        margin-left: 43%;
+    
         background-color: #fff;
         border-radius: 5px;
         padding: 10px 0;
@@ -25,7 +131,7 @@
         position: absolute;
         padding: 4px;
         top: 20px;
-        left: 30px;
+        left: 140px;
         width: 40px;
         height: 40px;
         background-color: #fff;
@@ -33,14 +139,14 @@
         cursor: pointer;
         -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
         -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
     }
 
     .btn-outer-two {
         position: absolute;
         padding: 4px;
         top: 20px;
-        right: 0px;
+        right: 119px;
         width: 40px;
         height: 40px;
         background-color: #fff;
@@ -48,7 +154,7 @@
         cursor: pointer;
         -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
         -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
     }
 
     .btn-inner-one {
@@ -62,15 +168,20 @@
         width: 40px;
     }
 
-    .btn-outer-one:hover,
     .btn-inner-one:hover {
-        background-color: #e84c3d;
         color: #fff;
+    }
+
+    .btn-outer-one:hover {
+        color: red;
     }
 
     .btn-outer-two:hover {
         background-color: limegreen;
     }
+
+   
+   
 }
 
 @media all and (max-width: 768px) {
@@ -95,8 +206,10 @@
 
     .video-view-btns {
         position: relative;
-        width: 400px;
+        width: 166px;
         height: 80px;
+        margin-left: 108px;
+        
     }
 
     .btn-outer-one {
@@ -111,7 +224,7 @@
         cursor: pointer;
         -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
         -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
     }
 
     .btn-outer-two {
@@ -125,8 +238,8 @@
         border-radius: 50%;
         cursor: pointer;
         -webkit-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        -moz-box-shadow: 3px 3px 2px -2px rgba(0, 0, 0, 0.26);
-        box-shadow: 1px 1px 8px -1px rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 9px 3px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: 3px 3px 18px -1px rgba(0, 0, 0, 0.26)
     }
 
     .btn-inner-one {
@@ -149,4 +262,19 @@
     .btn-outer-two:hover {
         background-color: limegreen;
     }
+    
+     .arrow {
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        color: rgb(160, 160, 160);
+        padding-right: 391px;
+    }
+    
+
+    
 }
+
+
+

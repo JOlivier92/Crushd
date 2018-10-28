@@ -438,32 +438,6 @@
     }
 }
 
-.videos-index-view {
-    position: absolute;
-    top: 150px;
-    margin-left: 43%;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 10px 0;
-    width: 425px;
-}
 
-.arrow {
-    padding-top: 604px;
-    padding-left: 224px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 85%;
-    color: rgb(160, 160, 160)
-}
 
-.arrow-key {
-    width: 3.5%;
-    height: 4%;
-}
-
-.arrow-text {
-    padding-top: 7px;
-}
 
