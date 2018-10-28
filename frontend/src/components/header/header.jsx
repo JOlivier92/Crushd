@@ -10,6 +10,8 @@ class Header extends React.Component {
     this.state = {
       loading: true
     };
+
+    this.disable = this.disable.bind(this);
   }
 
   async componentDidMount() {
@@ -28,6 +30,11 @@ class Header extends React.Component {
         <SplashContainer />
       </div>
     );
+  }
+
+  disable() {
+    const hamburger = document.getElementById("hamburger");
+    hamburger.checked = false;
   }
 
   nav() {
@@ -50,12 +57,12 @@ class Header extends React.Component {
             </Link>
   
             <div id="menuToggle">
-              <input type="checkbox" />
+              <input id="hamburger" type="checkbox" />
               <span />
               <span />
               <span />
               <ul id="menu" className="mobile-header-btn-group">
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Home</Link>
                 </li>
                 <li>
@@ -92,59 +99,5 @@ class Header extends React.Component {
     }
   }
 }
-// const Header = ({ currentUser, logout, closeModal }) => {
-
-//   const sessionLinks = () =>
-//     <div>
-//       <SplashContainer />
-//     </div>;
-
-//   const nav = () => <div>
-//       <hgroup className="header-group">
-//         <h2 className="header-name">
-//           Hi, {currentUser.name}!
-//         </h2>
-//         <Link to="/" className="header-button" onClick={logout}>
-//           Log Out
-//         </Link>
-
-//         <div id="menuToggle">
-//           <input type="checkbox" />
-//           <span />
-//           <span />
-//           <span />
-//           <ul id="menu" className="mobile-header-btn-group">
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="/">My Profile</Link>
-//             </li>
-//             <li>
-//               <Link to="/">Matches</Link>
-//             </li>
-//             <li>
-//               <Link to="/">Messages</Link>
-//             </li>
-//           <li>
-//             <Link to="/">Responses</Link>
-//           </li>
-//             <li>
-//               <Link to="/" className="mobile-header-button" onClick={logout}>
-//                 Log Out
-//               </Link>
-//             </li>
-//           </ul>
-//         </div>
-//       </hgroup>
-//     </div>;
-
-//   if (currentUser.id) {
-//     closeModal();
-//     return nav();
-//   } else {
-//     return sessionLinks();
-//   }
-// };
 
 export default Header;
