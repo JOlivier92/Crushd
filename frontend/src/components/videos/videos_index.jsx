@@ -75,7 +75,6 @@ class VideosIndex extends React.Component {
         video.classList.toggle("animated");
         video.classList.toggle("fadeOutRight");
         reply_to_id = this.state.videos[this.videoIndexCount].user_id
-        debugger; 
         this.props.history.push(`/${reply_to_id}/reply`)
       }
     }

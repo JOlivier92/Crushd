@@ -20,7 +20,6 @@ class ResponsesIndex extends React.Component {
 
   async componentDidMount() {
     await this.props.fetchResponseVideos(this.props.currentUser.id);
-    debugger;
     await this.sleep(1000);
     this.setState({ loading: false });
   }
@@ -75,7 +74,6 @@ class ResponsesIndex extends React.Component {
         </div>
     </div>
     );
-    debugger;
     if (this.props.responseVideos.length > 0) {
       return (
         <div className="responses-index-view">
