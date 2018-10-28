@@ -55,6 +55,7 @@ class VideosIndex extends React.Component {
   checkKey(e) {
     let video ;
     e = e || window.event;
+
     if (e.keyCode === 38) {
       // up arrow
     } else if (e.keyCode === 40) {
@@ -72,6 +73,7 @@ class VideosIndex extends React.Component {
       // left arrow
     } else if (e.keyCode === 39) {
       let reply_to_id ;
+
       // right arrow
       if (this.videoIndexCount - 1 >= 0) {
         this.videoIndexCount--;
