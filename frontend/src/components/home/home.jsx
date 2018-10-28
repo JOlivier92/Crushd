@@ -75,11 +75,10 @@ class Home extends React.Component {
             <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
         </div>
-
       </div>
-                <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>
+        <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>
           <p>HELP</p>
-          <i class="fas fa-question" />
+          <i className="fas fa-question" />
         </button>
     </div>
   }

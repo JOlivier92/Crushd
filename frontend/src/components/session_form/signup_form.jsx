@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
   selectedComponent(e) {
     e.preventDefault();
     const { idx } = this.state;
-    const components = ["signupItem2", "signupItem3"];
+    const components = ["signupItem2", "signupItem3","signupItem4","signupItem5"];
     const selected = components[idx];
     const newIdx = idx + 1;
     return this.setState({ component: selected, idx: newIdx });
@@ -65,27 +65,20 @@ class SignupForm extends React.Component {
   signupItem1() {
     return (
       <div>
-        <label>
-          Mobile Number:
-          <br />
           <input
             type="text"
             value={this.state.phone_number}
             onChange={this.update("phone_number")}
+            placeholder="Your phone number"
             className="login-input"
           />
-        </label>
-        <br />
-        <label>
-          Email:
-          <br />
           <input
             type="text"
             value={this.state.email}
             onChange={this.update("email")}
+            placeholder="Your email address"
             className="login-input"
           />
-        </label>
       </div>
     );
   }
@@ -94,8 +87,7 @@ class SignupForm extends React.Component {
     return (
       <div>
         <label>
-          Birthdate:
-          <br />
+          <span>Birthdate:</span>
           <input
             type="date"
             value={this.state.birthdate}
@@ -103,10 +95,9 @@ class SignupForm extends React.Component {
             className="login-input"
           />
         </label>
-        <br />
-        <br />
+
         <label>
-          Gender:
+          <span>Gender:</span>
           <br />
           <fieldset id="genderClass">
             <div className="radio">
@@ -206,53 +197,52 @@ class SignupForm extends React.Component {
   signupItem3() {
     return (
       <div>
-        <label>
-          Username:
-          <br />
           <input
             type="text"
             value={this.state.username}
             onChange={this.update("username")}
             className="login-input"
+            placeholder="Username"
           />
-        </label>
-        <br />
-        <label>
-          Zipcode:
-          <br />
           <input
             type="text"
             value={this.state.zipcode}
             onChange={this.update("zipcode")}
             className="login-input"
+            placeholder="Zipcode"
           />
-        </label>
-        <br />
-        <label>
-          Password:
-          <br />
           <input
             type="password"
             value={this.state.password}
             onChange={this.update("password")}
             className="login-input"
+            placeholder="Password"
           />
-        </label>
-
-        <br />
-
-        <label>
-          Confirm Password:
-          <br />
           <input
             type="password"
             value={this.state.confirmPassword}
             onChange={this.update("confirmPassword")}
             className="login-input"
+            placeholder="Confirm Password"
           />
-        </label>
       </div>
     );
+  }
+
+  onboardingItem1() {
+    return (
+      <div className="onboardingText">
+        <p>You can swipe left and right on your potential crushees videos. If you like their video, you can respond with a video.</p>
+      </div>
+    )
+  }
+
+  onboardingItem2() {
+    return (
+      <div className="onboardingText">
+        <p>You can then message those that respond to your video or get messages from people who liked your response.</p>
+      </div>
+    )
   }
 
   handleCloseModal() {
@@ -263,9 +253,11 @@ class SignupForm extends React.Component {
   render() {
     const { component } = this.state;
     const selection = {
-      signupItem1: this.signupItem1(),
-      signupItem2: this.signupItem2(),
-      signupItem3: this.signupItem3()
+      signupItem1: this.onboardingItem1(),
+      signupItem2: this.onboardingItem2(),
+      signupItem3: this.signupItem1(),
+      signupItem4: this.signupItem2(),
+      signupItem5: this.signupItem3()
     };
 
     return (
@@ -279,12 +271,12 @@ class SignupForm extends React.Component {
               <i className="fas fa-times" />
             </span>
           </div>
-          <h2 className="signup-message">GET STARTED!</h2>
+          <h2 className="signup-message">Find your new <strong>crush</strong></h2>
           <br />
           {this.renderErrors()}
           <div className="signup-form">
             {selection[component]}
-            {component === "signupItem3"
+            {component === "signupItem5"
               ? <input
                   className="session-submit"
                   type="submit"
@@ -292,7 +284,7 @@ class SignupForm extends React.Component {
                 />
               : ""}
           </div>
-          {component !== "signupItem3"
+          {component !== "signupItem5"
             ? <button
                 className="session-continue"
                 onClick={this.selectedComponent.bind(this)}
