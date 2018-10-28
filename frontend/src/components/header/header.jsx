@@ -55,7 +55,7 @@ class Header extends React.Component {
             <Link to="/" className="header-button" onClick={logout}>
               Log Out
             </Link>
-  
+
             <div id="menuToggle">
               <input id="hamburger" type="checkbox" />
               <span />
@@ -65,20 +65,24 @@ class Header extends React.Component {
                 <li onClick={() => this.disable()}>
                   <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">My Profile</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Matches</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Messages</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Responses</Link>
                 </li>
                 <li>
-                  <Link to="/" className="mobile-header-button" onClick={logout}>
+                  <Link
+                    to="/"
+                    className="mobile-header-button"
+                    onClick={logout}
+                  >
                     Log Out
                   </Link>
                 </li>
