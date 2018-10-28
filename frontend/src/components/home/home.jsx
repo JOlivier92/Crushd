@@ -81,6 +81,10 @@ class Home extends React.Component {
         {mainScreen === "videosIndex"
           ? <VideosIndexContainer />
           : <UploadVideoContainer />}
+        <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>
+          <p>HELP</p>
+          <i class="fas fa-question" />
+        </button>
       </div>
     );
   }
