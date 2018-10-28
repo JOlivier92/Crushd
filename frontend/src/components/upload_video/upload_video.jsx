@@ -5,7 +5,7 @@ import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import { createNewVideo } from "./../../util/video_api_util";
 import HomeNavContainer from "../home/home_nav/home_nav_container";
-import { createNewResponseVideo } from "../../util/response_video_api_util";
+import { createNewResponseVideo } from "./../../util/response_video_api_util";
 
 const videoType = "video/webm";
 const firebase = require("firebase");

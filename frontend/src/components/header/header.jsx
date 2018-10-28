@@ -10,6 +10,8 @@ class Header extends React.Component {
     this.state = {
       loading: true
     };
+
+    this.disable = this.disable.bind(this);
   }
 
   async componentDidMount() {
@@ -30,6 +32,11 @@ class Header extends React.Component {
     );
   }
 
+  disable() {
+    const hamburger = document.getElementById("hamburger");
+    hamburger.checked = false;
+  }
+
   nav() {
     const { logout, currentUser, loading } = this.props;
     if (loading) {
@@ -48,30 +55,34 @@ class Header extends React.Component {
             <Link to="/" className="header-button" onClick={logout}>
               Log Out
             </Link>
-  
+
             <div id="menuToggle">
-              <input type="checkbox" />
+              <input id="hamburger" type="checkbox" />
               <span />
               <span />
               <span />
               <ul id="menu" className="mobile-header-btn-group">
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">My Profile</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Matches</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Messages</Link>
                 </li>
-                <li>
+                <li onClick={() => this.disable()}>
                   <Link to="/">Responses</Link>
                 </li>
                 <li>
-                  <Link to="/" className="mobile-header-button" onClick={logout}>
+                  <Link
+                    to="/"
+                    className="mobile-header-button"
+                    onClick={logout}
+                  >
                     Log Out
                   </Link>
                 </li>
