@@ -3,6 +3,7 @@
   width: 400px;
   padding: 25px;
   background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   border-radius: 8px;
   text-align: center;
   position: absolute;
@@ -17,8 +18,13 @@
   font-size: 25px;
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
-  font-style: italic;
-  color: #c33764;
+  font-weight: 100;
+  /*font-style: italic;
+  color: #c33764;*/
+}
+
+.signup-message > strong {
+  font-weight: bold;
 }
 
 .login-message {
@@ -32,12 +38,18 @@
 
 .login-input {
   background: transparent;
-  border-bottom: 3px solid lightgray;
-  height: 45px;
+  border-bottom: 1px solid #979797;
   width: 250px;
+  width: 90%;
   margin-bottom: 5px;
   padding-left: 10px;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #333333;
+  font-family: 'Roboto';
+  font-weight: 100;  
 }
 
 input[type=date] {
@@ -197,3 +209,22 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+div.signup-form {
+
+}
+
+
+div.signup-form > label {
+  display: block;
+}
+
+div.signup-form > label > span {
+  display: inline-block;
+  width: 20%;
+}
+
+div.signup-form > label > input.login-input {
+  width: 70%;
+  display: inline-block;
+  margin: unset;
+}
