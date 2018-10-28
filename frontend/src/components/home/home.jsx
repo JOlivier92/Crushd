@@ -4,9 +4,7 @@ import MessagesIndexContainer from "./../messages/messages_index_container";
 import VideosIndexContainer from "./../videos/videos_index_container";
 import UploadVideoContainer from "./../upload_video/upload_video_container";
 import "./home.css";
-import RightArrow from "./right-arrow.png";
-import LeftArrow from "./left-arrow.png";
-import Space from "./space-btn.png"
+
 import Loader from "react-loader-spinner";
 
 import { createNewVideo } from "../../util/video_api_util";
@@ -90,21 +88,12 @@ class Home extends React.Component {
           </div>
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
-        <div className="arrow-keys">
-          <div className="arrow">
-            <img className="space-btn" src={Space} />
-            &nbsp;&nbsp;
-            <p className="arrow-text">MUTE/UNMUTE SOUND</p>
-            &emsp;
-            <img className="keyboard-btn" src={LeftArrow} />
-            <p className="arrow-text">NEXT PROFILE</p>
-            &emsp;
-            <img className="keyboard-btn" src={RightArrow} />
-            <p className="arrow-text">SUBMIT RESPONSE</p>
-          </div>
-        </div>
+        <div> 
+          {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
+        
       </div>
+        
+    </div>
   }
 }
 

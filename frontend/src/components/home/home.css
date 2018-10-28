@@ -411,6 +411,8 @@
     }
 }
 
+
+
 .videos-index-view {
     position: absolute;
     top: 150px;
@@ -421,29 +423,4 @@
     width: 425px;
 }
 
-.arrow {
-    padding-top: 41.5%;
-    padding-left: 15%;
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 85%;
-    color: rgb(160, 160, 160)
-}
-
-.space-btn {
-    width: 3.5%;
-    height: 4%;
-    padding-top: 1px;
-}
-
-.keyboard-btn {
-    width: 2.5%;
-    height: 3%;
-    padding-top: 4.5px;
-}
-
-.arrow-text {
-    padding-top: 0.6%;
-}
 
