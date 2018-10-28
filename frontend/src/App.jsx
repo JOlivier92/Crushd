@@ -6,9 +6,10 @@ import { Switch, Route } from "react-router-dom";
 
 import HeaderContainer from "./components/header/header_container";
 import HomeContainer from "./components/home/home_container";
-import { AuthRoute, ProtectedRoute } from "./util/route_util";
+import { ProtectedRoute } from "./util/route_util";
 import Modal from "./components/modal/modal";
 import UploadVideoContainer from "./components/upload_video/upload_video_container";
+import ChatRoomContainer from "./components/chatroom/chatroom_container";
 
 // random comment
 class App extends Component {
@@ -20,13 +21,14 @@ class App extends Component {
         <Route path="/" component={HeaderContainer} />
         <Switch>
           <ProtectedRoute exact path="/" component={HomeContainer} />
+          <ProtectedRoute exact path="/upload" component={UploadVideoContainer} />
+          <ProtectedRoute path="/:userid/reply" component={UploadVideoContainer} />
+          {/* Protected Matches Route */}
           <ProtectedRoute
             exact
-            path="/upload"
-            component={UploadVideoContainer}
+            patch="/chatroom"
+            component={ChatRoomContainer}
           />
-          {/* Protected Matches Route */}
-          {/* Protected Messages Route */}
         </Switch>
       </div>
     );

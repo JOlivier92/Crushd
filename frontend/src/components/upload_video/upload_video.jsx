@@ -5,6 +5,8 @@ import ResponsesIndexContainer from "./../responses/responses_index_container";
 import MessagesIndexContainer from "./../messages/messages_index_container";
 import { createNewVideo } from "./../../util/video_api_util";
 import HomeNavContainer from "../home/home_nav/home_nav_container";
+import { createNewResponseVideo } from "./../../util/response_video_api_util";
+
 const videoType = "video/webm";
 const firebase = require("firebase");
 require("firebase/firestore");
@@ -18,7 +20,6 @@ class UploadVideo extends React.Component {
       navOption: true,
       mainScreen: "videosIndex",
       recorded: false,
-      videos: [],
       seconds: "30",
       loading: true
     };
@@ -180,10 +181,16 @@ class UploadVideo extends React.Component {
       timestampsInSnapshots: true
     });
 
+    let response = false;
+    let reply_to_id ;
     let video = this.state.videos[index];
     let currentUser = this.props.currentUser;
-
-    let blob = await fetch(video).then(r => {
+    if (this.props.match.path === "/:userid/reply") {
+      reply_to_id = this.props.match.url.slice(1, -6)
+      response = true;
+      ref = storageRef.child(`responseVideo_${ reply_to_id }_${ currentUser.id }.mp4`);
+    }
+    await fetch(video).then(r => {
       var blob = null;
       var xhr = new XMLHttpRequest();
       xhr.open("GET", r.url);
@@ -192,12 +199,20 @@ class UploadVideo extends React.Component {
         blob = xhr.response;
         ref.put(blob).then(function(snapshot) {
           console.log("Uploaded a blob!");
-          createNewVideo({
-            user_id: currentUser.id,
-            videoURL: `userVideo_${currentUser.id}.mp4`,
-            sexual_preference: currentUser.sexual_preference,
-            gender: currentUser.gender
-          });
+          if (response) {
+            createNewResponseVideo({
+              user_id: currentUser.id,
+              videoURL: `responseVideo_${reply_to_id}_${currentUser.id}.mp4`,
+              response_to_id: `${reply_to_id}`
+            });
+          } else {
+            createNewVideo({
+              user_id: currentUser.id,
+              videoURL: `userVideo_${currentUser.id}.mp4`,
+              sexual_preference: currentUser.sexual_preference,
+              gender: currentUser.gender
+            });
+          }
         });
       };
       xhr.send();
@@ -212,16 +227,6 @@ class UploadVideo extends React.Component {
           <Loader className="spinner" type="Hearts" height="200" width="200" />;
         </div>
       );
-    }
-
-    let buttonOne = null;
-    let buttonTwo = null;
-    if (navOption) {
-      buttonOne = "nav-chosen-button active";
-      buttonTwo = "nav-chosen-button";
-    } else {
-      buttonOne = "nav-chosen-button";
-      buttonTwo = "nav-chosen-button active";
     }
     return (
       <div className="home-content-section">

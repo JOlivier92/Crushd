@@ -5,13 +5,10 @@ import VideosIndexContainer from "./../videos/videos_index_container";
 import UploadVideoContainer from "./../upload_video/upload_video_container";
 import HomeNavContainer from "./home_nav/home_nav_container";
 import "./home.css";
+import RightArrow from "./right-arrow.png";
+import LeftArrow from "./left-arrow.png";
 import Loader from "react-loader-spinner";
 
-import { createNewVideo } from "../../util/video_api_util";
-
-const videoType = "video/webm";
-
-const firebase = require("firebase");
 // Required for side-effects
 require("firebase/firestore");
 
@@ -24,7 +21,6 @@ class Home extends React.Component {
       navOption: true,
       mainScreen: "videosIndex",
       recorded: false,
-      videos: [],
       seconds: "30",
       loading: true
     };
@@ -62,31 +58,29 @@ class Home extends React.Component {
       );
     }
 
-    let buttonOne = null;
-    let buttonTwo = null;
-    if (navOption) {
-      buttonOne = "nav-chosen-button active";
-      buttonTwo = "nav-chosen-button";
-    } else {
-      buttonOne = "nav-chosen-button";
-      buttonTwo = "nav-chosen-button active";
-    }
-
-    return (
+    return <div className="home-content-section">
       <div className="home-content-section">
        {<HomeNavContainer />}
         <div>
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        {mainScreen === "videosIndex"
-          ? <VideosIndexContainer />
-          : <UploadVideoContainer />}
+
+        {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
+        <div className="arrow-keys">
+          <div className="arrow">
+            <img className="arrow-key" alt="left-arrow-key" src={LeftArrow} />
+            <p className="arrow-text">NOPE</p>
+            &emsp;
+            <img className="arrow-key" alt="right-arrow-key" src={RightArrow} />
+            <p className="arrow-text">SUBMIT RESPONSE</p>
+          </div>
+        </div>
+      </div>
         <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>
           <p>HELP</p>
-          <i class="fas fa-question" />
+          <i className="fas fa-question" />
         </button>
-      </div>
-    );
+    </div>
   }
 }
 

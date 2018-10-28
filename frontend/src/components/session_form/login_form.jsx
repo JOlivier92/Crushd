@@ -120,10 +120,12 @@ class LoginForm extends React.Component {
             </label>
 
             <br />
+
             <button className="session-submit">
               <input id="session-submit" type="submit" value={this.props.formType} />
             </button>
             <br />
+
             <button className="guest-submit" onClick={this.loginAsGuest}>
               Login As Guest
             </button>

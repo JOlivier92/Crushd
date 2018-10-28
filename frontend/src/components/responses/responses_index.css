@@ -81,3 +81,29 @@
         display: none;
     }
 }
+
+.loader-sidebar-container {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.loader-sidebar-container svg {
+    z-index: 1;
+    margin-right: 50px;
+    fill: rgb(206, 20, 75);
+    animation: hideshow 3s ease infinite;
+}
+
+@keyframes hideshow {
+    50% {
+        opacity: 1;
+        fill: #1d2671;
+    }
+
+    100% {
+        opacity: 1;
+        fill: rgb(206, 20, 75);
+    }
+}
