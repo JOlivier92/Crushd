@@ -11,22 +11,39 @@
 }
 
 .splash-btns .btns {
+    /*
     background-color: #fff;
     border: 1px solid #fff;
+    color: #232323;
+    */
+    color: white;
     border-radius: 5px;
     max-height: 42px;
     width: 70px;
     margin-right: 30px;
     padding: 8px;
-    color: #232323;
     cursor: pointer;
     transition: background-color 0.5s ease;
     transition: color 0.2s ease;
 }
 
+.login-btn  {
+    background-color: #353983;
+}
+.login-btn:hover {
+    background-color: #4d3b82;
+}
+.signup-btn  {
+    background-color: #b1497a;
+}
+
+.signup-btn:hover {
+    background-color: #93457c;
+}
+
 .splash-btns .btns:hover {
-    background-color: transparent;
-    color: #fff;
+    /*background-color: transparent;
+    color: #fff;*/
 }
 
 

@@ -56,6 +56,7 @@ class ResponsesIndex extends React.Component {
     );
     const showMatches = (
       <div className="upload-video-option-container">
+        <h3>Your potential crushes</h3>
         <div className="upload-inner">
           <div className="response-videos-index-container">
             {Object.values(this.props.responseVideos).map(video => (

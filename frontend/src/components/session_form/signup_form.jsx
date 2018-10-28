@@ -65,27 +65,20 @@ class SignupForm extends React.Component {
   signupItem1() {
     return (
       <div>
-        <label>
-          Mobile Number:
-          <br />
           <input
             type="text"
             value={this.state.phone_number}
             onChange={this.update("phone_number")}
+            placeholder="Your phone number"
             className="login-input"
           />
-        </label>
-        <br />
-        <label>
-          Email:
-          <br />
           <input
             type="text"
             value={this.state.email}
             onChange={this.update("email")}
+            placeholder="Your email address"
             className="login-input"
           />
-        </label>
       </div>
     );
   }
@@ -94,8 +87,7 @@ class SignupForm extends React.Component {
     return (
       <div>
         <label>
-          Birthdate:
-          <br />
+          <span>Birthdate:</span>
           <input
             type="date"
             value={this.state.birthdate}
@@ -103,10 +95,9 @@ class SignupForm extends React.Component {
             className="login-input"
           />
         </label>
-        <br />
-        <br />
+
         <label>
-          Gender:
+          <span>Gender:</span>
           <br />
           <fieldset id="genderClass">
             <div className="radio">
@@ -279,7 +270,7 @@ class SignupForm extends React.Component {
               <i className="fas fa-times" />
             </span>
           </div>
-          <h2 className="signup-message">GET STARTED!</h2>
+          <h2 className="signup-message">Find your new <strong>crush</strong></h2>
           <br />
           {this.renderErrors()}
           <div className="signup-form">
