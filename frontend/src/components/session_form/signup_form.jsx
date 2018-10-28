@@ -285,21 +285,16 @@ class SignupForm extends React.Component {
           <div className="signup-form">
             {selection[component]}
             {component === "signupItem3"
-              ? <input
-                  className="session-submit"
-                  type="submit"
-                  value={this.props.formType}
-                />
-              : ""}
+              ? <button className="session-submit">
+                  <input type="submit" value={this.props.formType} />
+                </button>
+              : <button
+                  className="session-continue"
+                  onClick={this.selectedComponent.bind(this)}
+                >
+                  Continue
+                </button>}
           </div>
-          {component !== "signupItem3"
-            ? <button
-                className="session-continue"
-                onClick={this.selectedComponent.bind(this)}
-              >
-                Continue
-              </button>
-            : ""}
         </form>
       </div>
     );

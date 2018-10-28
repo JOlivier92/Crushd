@@ -1,5 +1,4 @@
 import React from "react";
-import Heart from "./like-heart.svg";
 import './videos_index.css';
 import Loader from "react-loader-spinner";
 import VideosIndexItem from "./videos_index_item";
@@ -34,13 +33,13 @@ class VideosIndex extends React.Component {
   checkKey(e) {
     e = e || window.event;
 
-    if (e.keyCode == "38") {
+    if (e.keyCode === "38") {
       // up arrow
-    } else if (e.keyCode == "40") {
+    } else if (e.keyCode === "40") {
       // down arrow
-    } else if (e.keyCode == "37") {
+    } else if (e.keyCode === "37") {
       // left arrow
-    } else if (e.keyCode == "39") {
+    } else if (e.keyCode === "39") {
       // right arrow
       let video = document.getElementsByClassName("videos-index-view")[0];
       video.classList.toggle("animated");
