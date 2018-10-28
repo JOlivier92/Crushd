@@ -1,7 +1,7 @@
 import React from "react";
 import SplashContainer from "../splash/splash_container";
 import Loader from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./header.css";
 
 class Header extends React.Component {
@@ -104,4 +104,5 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
+
