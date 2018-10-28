@@ -160,14 +160,12 @@
         width: 40px;
     }
 
-    .btn-outer-one:hover,
     .btn-inner-one:hover {
-<<<<<<< HEAD
-        
-=======
-        background-color: #e84c3d;
->>>>>>> 8792f73bf50c5f1b5b5f8c5ca906b9998a2b16e5
         color: #fff;
+    }
+
+    .btn-outer-one:hover {
+        color: red;
     }
 
     .btn-outer-two:hover {
