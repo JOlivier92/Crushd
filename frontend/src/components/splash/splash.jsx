@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Link } from "react-router-dom";
 import "./splash.css";
 import Logo from "./crushd_logo_gradient.png";
 
@@ -63,7 +61,7 @@ class Splash extends Component {
             {!logoHidden ? (
               <h2>A video revolution in online dating.</h2>
             ) : (
-              <h2 />
+              <div/>
             )}
           </div>
           <Carousel
@@ -78,46 +76,46 @@ class Splash extends Component {
             interval={7500}
           >
             <div>
-              <img src="https://bit.ly/2SeV0YP" />
+              <img src="https://bit.ly/2SeV0YP" alt="carasoul"/>
               <p className="legend">Legend 1</p>
             </div>
             <div>
-              <img src="https://bit.ly/2D3xpFU" />
+              <img src="https://bit.ly/2D3xpFU" alt="carasoul"/>
               <p className="legend">Legend 2</p>
             </div>
             <div>
-              <img src="https://bit.ly/2Rd4tye" />
+              <img src="https://bit.ly/2Rd4tye" alt="carasoul"/>
               <p className="legend">Legend 3</p>
             </div>
             <div>
-              <img src="https://bit.ly/2OM0TP8" />
+              <img src="https://bit.ly/2OM0TP8" alt="carasoul"/>
               <p className="legend">Legend 1</p>
             </div>
             <div>
-              <img src="https://bit.ly/2PmJwUl" />
+              <img src="https://bit.ly/2PmJwUl" alt="carasoul"/>
               <p className="legend">Legend 2</p>
             </div>
             <div>
-              <img src="https://bit.ly/2Sh3fUi" />
+              <img src="https://bit.ly/2Sh3fUi" alt="carasoul"/>
               <p className="legend">Legend 3</p>
             </div>
             <div>
-              <img src="https://bit.ly/2AqCvK1" />
+              <img src="https://bit.ly/2AqCvK1" alt="carasoul"/>
               <p className="legend">Legend 1</p>
             </div>
             <div>
-              <img src="https://bit.ly/2D3xpFU" />
+              <img src="https://bit.ly/2D3xpFU" alt="carasoul"/>
               <p className="legend">Legend 2</p>
             </div>
             <div>
-              <img src="https://bit.ly/2CDH9Ws" />
+              <img src="https://bit.ly/2CDH9Ws" alt="carasoul"/>
               <p className="legend">Legend 3</p>
             </div>
           </Carousel>
         </div>
         <div className="mobile-splash-container">
           <div className="logo">
-            {!logoHidden ? <img src={Logo} /> : <div />}
+            {!logoHidden ? <img src={Logo} alt="logo"/> : <div />}
             {!logoHidden ? <h2>A video revolution in online dating.</h2> : <div />}
             
           </div>

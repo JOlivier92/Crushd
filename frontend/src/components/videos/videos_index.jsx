@@ -1,13 +1,9 @@
 import React from "react";
-import Heart from "./like-heart.svg";
 import { withRouter } from "react-router-dom"
 import "./videos_index.css";
 import Loader from "react-loader-spinner";
 import VideosIndexItem from "./videos_index_item";
 import "./animate.css";
-
-const FIREBASE_VIDEO_URL =
-  "https://firebasestorage.googleapis.com/v0/b/crushd-efd3f.appspot.com/o/userVideo_5bcd152cad51222e4005d4a5.mp4?alt=media&token=d2acb0e3-28d7-4f43-b43e-dfd7bb3c1ae9";
 
 class VideosIndex extends React.Component {
   constructor(props) {
@@ -99,7 +95,7 @@ class VideosIndex extends React.Component {
         {this.props.videos.map(video => (
           <VideosIndexItem
             className="video-index-view"
-            key={video.id}
+            key={video.videoURL}
             firebaseURL={
               "https://firebasestorage.googleapis.com/v0/b/crushd-efd3f.appspot.com/o/" +
               video.videoURL +

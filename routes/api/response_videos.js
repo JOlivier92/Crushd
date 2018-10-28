@@ -47,8 +47,10 @@ exports.upload = function (req, res) {
 };
 
 exports.getIndex = function (req, res) {
+    debugger;
     ResponseVideo.find({ response_to_id: req.params.userid}).then(idx => {
         idx = idx.map(responseVideo => responseVideo._doc);
+        debugger;
         res.json({
             responseVideos: idx
         });
