@@ -32,7 +32,6 @@ const users = require("./routes/api/users");
 const videos = require("./routes/api/videos");
 const responseVideos = require("./routes/api/response_videos");
 const chats = require("./routes/api/chats");
-const messages = require("./routes/api/messages");
 
 // Authentication modules
 const jsonwebtoken = require("jsonwebtoken");

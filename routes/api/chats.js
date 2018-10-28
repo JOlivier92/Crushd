@@ -1,43 +1,34 @@
-// Socket IO - Driven chat messaging
 const Chat = require("../../models/Chat");
 // create chat validations TODO
 exports.createChat = function (req, res) {
     debugger;
     const newChat = new Chat({
-        createdAt: ""
+        createdAt: "",
         parties: [req.body.videoURL],
-        gender: req.body.gender,
-        sexual_preference: req.body.sexual_preference
+        chatroomURL: "figurethisout"
     });
-
-    Video.findOne({ user_id: req.body.user_id }).then(video => {
-        if (video) {
-            Video.updateOne({ user_id: req.body.user_id },
-                { $set: { videoURL: req.body.videoURL } }).then(video => {
-                    res.json({
-                        user_id: req.body.user_id,
-                        videoURL: req.body.videoURL,
-                        gender: req.body.gender,
-                        sexual_preference: req.body.sexual_preference
-                    });
-                });
+    Chat.findOne({ parties: { $all: [req.params.userid, ]}}).then(chat => {
+        if (chat) {
+            res.json({
+                createdAt: req.body.time,
+                parties: req.body.parties,
+                chatroomURL: "figurethisout"
+            });
         } else {
-            newVideo.save().then(video => {
+            newChat.save().then(chat => {
                 res.json({
-                    user_id: req.body.user_id,
-                    videoURL: req.body.videoURL,
-                    gender: req.body.gender,
-                    sexual_preference: req.body.sexual_preference
+                    createdAt: req.body.time,
+                    parties: req.body.parties,
+                    chatroomURL: "figurethisout"
                 });
             });
         }
     })
-
 };
 
 exports.getIndex = function (req, res) {
     debugger
-    Chat.find({ parties : {$contains : req.params.userid}}).then(idx => {
+    Chat.find({ parties: `${req.params.userid}`}).then(idx => {
         idx = idx.map(chat => chat._doc);
         res.json({
             matches: idx
