@@ -117,7 +117,7 @@ class VideosIndex extends React.Component {
             <img className="keyboard-btn" src={LeftArrow} />
             <p className="arrow-text">NEXT PROFILE</p>
             &emsp;
-            <img className="keyboard-btn" src={RightArrow} />
+            <img className="keyboard-btn" alt="spacebtn" src={RightArrow} />
             <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
         {this.props.videos.map(video => (
