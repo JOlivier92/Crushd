@@ -26,7 +26,6 @@ export const fetchChats = id => dispatch => {
 };
 
 export const createNewChat = parties => dispatch => {
-    debugger;
     axios
         .post("/api/chats", parties)
         .then(res => dispatch(addNewChat(res)));
