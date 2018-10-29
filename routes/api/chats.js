@@ -6,14 +6,16 @@ exports.createChat = function (req, res) {
         parties: req.body,
         chatroomURL: `${req.body[0]}_${req.body[1]}`
     });
-    Chat.findOne({ parties: { $all: [req.params.userid, ]}}).then(chat => {
+    Chat.findOne({ parties: { $all: [req.body[0], req.body[1]]}}).then(chat => {
         if (chat) {
+            console.log("I'm here :)")
             res.json({
                 createdAt: chat.createdAt,
                 parties: chat.parties,
                 chatroomURL: chat.chatroomURL
             });
         } else {
+            console.log("I'm here :(")
             newChat.save().then(chat => {
                 res.json({
                     createdAt: chat.createdAt,
