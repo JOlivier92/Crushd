@@ -32,6 +32,7 @@
         height: 80px;
         margin: 0 auto;
         padding-top: 30px;
+        cursor: pointer;
     }
 
     .response-inner p {
