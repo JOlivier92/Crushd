@@ -217,6 +217,7 @@ class UploadVideo extends React.Component {
       };
       xhr.send();
     });
+    this.closeRecorder();
   }
 
   render() {
@@ -312,7 +313,7 @@ class UploadVideo extends React.Component {
         </div>
         <button className="help" onClick={() => this.props.openModal({ modal: "faq" })}>
           <p>HELP</p>
-          <i class="fas fa-question" />
+          <i className="fas fa-question" />
         </button>
       </div>
     );

@@ -14,7 +14,7 @@ import {
 const mapStateToProps = ({ errors }) => {
   return {
     errors: Object.values(errors.session),
-    formType: "LOGIN",
+    formType: "Log in",
     navLink: <Link to="/signup">signup in instead</Link>
   };
 };

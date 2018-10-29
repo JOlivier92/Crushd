@@ -56,7 +56,12 @@ class SignupForm extends React.Component {
   selectedComponent(e) {
     e.preventDefault();
     const { idx } = this.state;
-    const components = ["signupItem2", "signupItem3","signupItem4","signupItem5"];
+    const components = [
+      "signupItem2",
+      "signupItem3",
+      "signupItem4",
+      "signupItem5"
+    ];
     const selected = components[idx];
     const newIdx = idx + 1;
     return this.setState({ component: selected, idx: newIdx });
@@ -65,20 +70,20 @@ class SignupForm extends React.Component {
   signupItem1() {
     return (
       <div>
-          <input
-            type="text"
-            value={this.state.phone_number}
-            onChange={this.update("phone_number")}
-            placeholder="Your phone number"
-            className="login-input"
-          />
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.update("email")}
-            placeholder="Your email address"
-            className="login-input"
-          />
+        <input
+          type="text"
+          value={this.state.phone_number}
+          onChange={this.update("phone_number")}
+          placeholder="Your phone number"
+          className="login-input"
+        />
+        <input
+          type="text"
+          value={this.state.email}
+          onChange={this.update("email")}
+          placeholder="Your email address"
+          className="login-input"
+        />
       </div>
     );
   }
@@ -197,34 +202,34 @@ class SignupForm extends React.Component {
   signupItem3() {
     return (
       <div>
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.update("username")}
-            className="login-input"
-            placeholder="Username"
-          />
-          <input
-            type="text"
-            value={this.state.zipcode}
-            onChange={this.update("zipcode")}
-            className="login-input"
-            placeholder="Zipcode"
-          />
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            className="login-input"
-            placeholder="Password"
-          />
-          <input
-            type="password"
-            value={this.state.confirmPassword}
-            onChange={this.update("confirmPassword")}
-            className="login-input"
-            placeholder="Confirm Password"
-          />
+        <input
+          type="text"
+          value={this.state.username}
+          onChange={this.update("username")}
+          className="login-input"
+          placeholder="Username"
+        />
+        <input
+          type="text"
+          value={this.state.zipcode}
+          onChange={this.update("zipcode")}
+          className="login-input"
+          placeholder="Zipcode"
+        />
+        <input
+          type="password"
+          value={this.state.password}
+          onChange={this.update("password")}
+          className="login-input"
+          placeholder="Password"
+        />
+        <input
+          type="password"
+          value={this.state.confirmPassword}
+          onChange={this.update("confirmPassword")}
+          className="login-input"
+          placeholder="Confirm Password"
+        />
       </div>
     );
   }
@@ -232,17 +237,23 @@ class SignupForm extends React.Component {
   onboardingItem1() {
     return (
       <div className="onboardingText">
-        <p>You can swipe left and right on your potential crushees videos. If you like their video, you can respond with a video.</p>
+        <p>
+          You can swipe left and right on your potential crushees videos. If you
+          like their video, you can respond with a video.
+        </p>
       </div>
-    )
+    );
   }
 
   onboardingItem2() {
     return (
       <div className="onboardingText">
-        <p>You can then message those that respond to your video or get messages from people who liked your response.</p>
+        <p>
+          You can then message those that respond to your video or get messages
+          from people who liked your response.
+        </p>
       </div>
-    )
+    );
   }
 
   handleCloseModal() {
@@ -271,7 +282,9 @@ class SignupForm extends React.Component {
               <i className="fas fa-times" />
             </span>
           </div>
-          <h2 className="signup-message">Find your new <strong>crush</strong></h2>
+          <h2 className="signup-message">
+            Find your new <strong>crush</strong>
+          </h2>
           <br />
           {this.renderErrors()}
           <div className="signup-form">
@@ -282,16 +295,13 @@ class SignupForm extends React.Component {
                   type="submit"
                   value={this.props.formType}
                 />
-              : ""}
+              : <button
+                  className="session-continue"
+                  onClick={this.selectedComponent.bind(this)}
+                >
+                  Continue
+                </button>}
           </div>
-          {component !== "signupItem5"
-            ? <button
-                className="session-continue"
-                onClick={this.selectedComponent.bind(this)}
-              >
-                Continue
-              </button>
-            : ""}
         </form>
       </div>
     );
