@@ -11,11 +11,6 @@
 }
 
 .splash-btns .btns {
-    /*
-    background-color: #fff;
-    border: 1px solid #fff;
-    color: #232323;
-    */
     color: white;
     border-radius: 5px;
     max-height: 42px;
@@ -40,12 +35,6 @@
 .signup-btn:hover {
     background-color: #93457c;
 }
-
-.splash-btns .btns:hover {
-    /*background-color: transparent;
-    color: #fff;*/
-}
-
 
 @media all and (min-width: 769px) {
     .header-group {
