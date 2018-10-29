@@ -224,7 +224,7 @@ class UploadVideo extends React.Component {
     if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="200" width="200" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />
         </div>
       );
     }
@@ -312,7 +312,7 @@ class UploadVideo extends React.Component {
         </div>
         <button className="help" onClick={() => this.props.openModal({ modal: "faq" })}>
           <p>HELP</p>
-          <i class="fas fa-question" />
+          <i className="fas fa-question" />
         </button>
       </div>
     );
