@@ -1,7 +1,6 @@
 import React from "react";
 
 const ResponseVideosIndexItem = ({ firebaseURL, videoURLProp, createNewChat}) => {
-  debugger;
     return <div className="response-videos-index-view">
         <video id="movie" src={firebaseURL} height="" width="80%" autoPlay controls muted loop play="true">
           {" "}

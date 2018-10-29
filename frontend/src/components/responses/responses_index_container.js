@@ -10,7 +10,6 @@ const mapStateToProps = ({session, responseIndex}) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  debugger;
   return {
     fetchResponseVideos: (id) => dispatch(fetchResponseVideos(id)),
     createNewChat: (parties) => dispatch(createNewChat(parties))

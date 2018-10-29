@@ -6,6 +6,7 @@ import ui from "./ui_reducer";
 import videos from "./videos_reducer";
 import video_idx from "./video_index_reducer";
 import response_idx from './video_response_index_reducer';
+import chat_idx from './chat_index_reducer';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   ui,
   userVideo: videos,
   videoIndex: video_idx,
-  responseIndex: response_idx
+  responseIndex: response_idx,
+  chatIndex: chat_idx
 });
 
 export default rootReducer;
