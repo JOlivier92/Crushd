@@ -10,6 +10,7 @@ import { ProtectedRoute } from "./util/route_util";
 import Modal from "./components/modal/modal";
 import UploadVideoContainer from "./components/upload_video/upload_video_container";
 import ChatRoomContainer from "./components/chatroom/chatroom_container";
+import NoMatch from "./components/no_match/no_match";
 
 // random comment
 class App extends Component {
@@ -25,10 +26,10 @@ class App extends Component {
           <ProtectedRoute path="/:userid/reply" component={UploadVideoContainer} />
           {/* Protected Matches Route */}
           <ProtectedRoute
-            exact
-            patch="/chatroom"
+            path="/chatroom"
             component={ChatRoomContainer}
           />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     );

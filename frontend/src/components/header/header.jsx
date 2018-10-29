@@ -39,10 +39,21 @@ class Header extends React.Component {
 
   nav() {
     const { logout, currentUser, loading } = this.props;
+    let navButton ;
+    if (this.props.history.location.pathname !== "/") {
+      navButton = <Link to="/" className="header-button">
+                    Go Home
+                  </Link>
+    } else {
+      navButton = <Link to="/" className="header-button" onClick={logout}>
+                    Log Out
+                  </Link>
+    }
+    
     if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="200" width="200" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />
         </div>
       );
     } else {
@@ -52,9 +63,7 @@ class Header extends React.Component {
             <h2 className="header-name">
               Hi, {currentUser.name}!
             </h2>
-            <Link to="/" className="header-button" onClick={logout}>
-              Log Out
-            </Link>
+            {navButton}
 
             <div id="menuToggle">
               <input id="hamburger" type="checkbox" />

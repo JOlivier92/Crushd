@@ -6,6 +6,10 @@ import VideosIndexItem from "./videos_index_item";
 import Heart from "./like-heart.svg";
 import "./animate.css";
 
+import RightArrow from "./right-arrow.png";
+import LeftArrow from "./left-arrow.png";
+import Space from "./space-btn.png";
+
 class VideosIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +55,7 @@ class VideosIndex extends React.Component {
   checkKey(e) {
     let video ;
     e = e || window.event;
+
     if (e.keyCode === 38) {
       // up arrow
     } else if (e.keyCode === 40) {
@@ -68,6 +73,7 @@ class VideosIndex extends React.Component {
       // left arrow
     } else if (e.keyCode === 39) {
       let reply_to_id ;
+
       // right arrow
       if (this.videoIndexCount - 1 >= 0) {
         this.videoIndexCount--;
@@ -108,7 +114,7 @@ class VideosIndex extends React.Component {
     if (loading) {
       return (
         <div className="loader-container">
-          <Loader className="spinner" type="Hearts" height="200" width="200" />;
+          <Loader className="spinner" type="Hearts" height="200" width="200" />
         </div>
       );
     }
