@@ -447,7 +447,9 @@
     padding: 10px 0;
     width: 425px;
 }
-
+.arrow-keys {
+    margin-left: 20px;
+}
 .arrow {
     padding-top: 604px;
     padding-left: 224px;
@@ -464,6 +466,8 @@
 }
 
 .arrow-text {
+    margin-left: 10px;
+    margin-right: 10px;
     padding-top: 7px;
 }
 

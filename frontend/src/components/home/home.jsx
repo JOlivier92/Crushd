@@ -71,8 +71,8 @@ class Home extends React.Component {
             <img className="arrow-key" alt="left-arrow-key" src={LeftArrow} />
             <p className="arrow-text">NOPE</p>
             &emsp;
+            <p className="arrow-text">RESPOND</p>
             <img className="arrow-key" alt="right-arrow-key" src={RightArrow} />
-            <p className="arrow-text">SUBMIT RESPONSE</p>
           </div>
         </div>
       </div>
