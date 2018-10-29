@@ -38,7 +38,7 @@ class Header extends React.Component {
   }
 
   nav() {
-    debugger;
+    const { logout, currentUser, loading } = this.props;
     let navButton ;
     if (this.props.history.location.pathname !== "/") {
       navButton = <Link to="/" className="header-button">
@@ -49,7 +49,7 @@ class Header extends React.Component {
                     Log Out
                   </Link>
     }
-    const { logout, currentUser, loading } = this.props;
+    
     if (loading) {
       return (
         <div className="loader-container">

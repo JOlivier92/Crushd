@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Favicon from "react-favicon";
 import "./App.css";
 // import { Provider } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import HeaderContainer from "./components/header/header_container";
 import HomeContainer from "./components/home/home_container";
