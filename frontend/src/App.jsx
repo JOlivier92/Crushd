@@ -26,7 +26,6 @@ class App extends Component {
           <ProtectedRoute path="/:userid/reply" component={UploadVideoContainer} />
           {/* Protected Matches Route */}
           <ProtectedRoute
-            exact
             path="/chatroom"
             component={ChatRoomContainer}
           />

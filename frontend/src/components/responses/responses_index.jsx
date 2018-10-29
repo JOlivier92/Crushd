@@ -11,7 +11,6 @@ class ResponsesIndex extends React.Component {
     this.state = {
       loading: true,
     };
-    this.openResponseModal = this.openResponseModal.bind(this);
   }
 
   sleep(ms) {
@@ -22,10 +21,6 @@ class ResponsesIndex extends React.Component {
     await this.props.fetchResponseVideos(this.props.currentUser.id);
     await this.sleep(1000);
     this.setState({ loading: false });
-  }
-
-  openResponseModal() {
-    return ("hiii")
   }
   
   render() {
@@ -69,7 +64,6 @@ class ResponsesIndex extends React.Component {
                   "?alt=media&token=d2acb0e3-28d7-4f43-b43e-dfd7bb3c1ae9"
                 }
                 videoURLProp={video.videoURL}
-                // props={this.props}
                 createNewChat={createNewChat}
               />
             ))}

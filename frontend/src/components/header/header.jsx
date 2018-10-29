@@ -38,6 +38,17 @@ class Header extends React.Component {
   }
 
   nav() {
+    debugger;
+    let navButton ;
+    if (this.props.history.location.pathname !== "/") {
+      navButton = <Link to="/" className="header-button">
+                    Go Home
+                  </Link>
+    } else {
+      navButton = <Link to="/" className="header-button" onClick={logout}>
+                    Log Out
+                  </Link>
+    }
     const { logout, currentUser, loading } = this.props;
     if (loading) {
       return (
@@ -52,9 +63,7 @@ class Header extends React.Component {
             <h2 className="header-name">
               Hi, {currentUser.name}!
             </h2>
-            <Link to="/" className="header-button" onClick={logout}>
-              Log Out
-            </Link>
+            {navButton}
 
             <div id="menuToggle">
               <input id="hamburger" type="checkbox" />

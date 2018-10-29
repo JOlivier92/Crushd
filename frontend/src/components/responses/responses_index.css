@@ -107,3 +107,19 @@
         fill: rgb(206, 20, 75);
     }
 }
+
+.chat-link {
+    background-color: transparent;
+}
+.fa-comments {
+    color: #C33764;
+    transition: 0.4s;
+}
+
+.fa-comments:hover {
+    color: #1D2671;
+}
+
+.response-videos-index-container .btn-outer-one:hover {
+    background-color: transparent;
+}
