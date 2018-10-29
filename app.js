@@ -50,7 +50,10 @@ app.get("/api/videos/:userid", videos.getIndex);
 // response video modules
 app.get("/api/response_videos/:userid", responseVideos.getIndex);
 app.post("/api/response_videos", responseVideos.upload);
-// Messaging modules
+
+// Chat modules
+app.get("/api/chats/:userid", chats.getIndex);
+app.post("/api/chats", chats.createChat);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 

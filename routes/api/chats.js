@@ -3,23 +3,23 @@ const Chat = require("../../models/Chat");
 exports.createChat = function (req, res) {
     debugger;
     const newChat = new Chat({
-        createdAt: "",
-        parties: [req.body.videoURL],
-        chatroomURL: "figurethisout"
+        createdAt: `${Date.now()}`,
+        parties: req.body,
+        chatroomURL: `${req.body[0]}_${req.body[1]}`
     });
     Chat.findOne({ parties: { $all: [req.params.userid, ]}}).then(chat => {
         if (chat) {
             res.json({
                 createdAt: req.body.time,
                 parties: req.body.parties,
-                chatroomURL: "figurethisout"
+                chatroomURL: chat.chatroomURL
             });
         } else {
             newChat.save().then(chat => {
                 res.json({
-                    createdAt: req.body.time,
-                    parties: req.body.parties,
-                    chatroomURL: "figurethisout"
+                    createdAt: chat.createAt,
+                    parties: chat.parties,
+                    chatroomURL: chat.chatroomURL
                 });
             });
         }

@@ -30,6 +30,8 @@ class ResponsesIndex extends React.Component {
   
   render() {
     const { loading } = this.state;
+    const { createNewChat } = this.props;
+
     if (loading) {
       return (
       <div className="responses-index-view">
@@ -54,26 +56,26 @@ class ResponsesIndex extends React.Component {
             </div>
           </div>
     );
-    const showMatches = (
-      <div className="upload-video-option-container">
+    const showMatches = <div className="upload-video-option-container">
         <div className="upload-inner">
           <div className="response-videos-index-container">
             {Object.values(this.props.responseVideos).map(video => (
               <ResponseVideosIndexItem
                 className="response-video-index-view"
-                onClick={console.log("hi")}
                 key={video.videoURL}
                 firebaseURL={
                   "https://firebasestorage.googleapis.com/v0/b/crushd-efd3f.appspot.com/o/" +
                   video.videoURL +
                   "?alt=media&token=d2acb0e3-28d7-4f43-b43e-dfd7bb3c1ae9"
                 }
+                videoURLProp={video.videoURL}
+                // props={this.props}
+                createNewChat={createNewChat}
               />
             ))}
           </div>
         </div>
-    </div>
-    );
+      </div>;
     if (this.props.responseVideos.length > 0) {
       return (
         <div className="responses-index-view">
