@@ -17,17 +17,6 @@ Crush'd is an online dating application like no other. Users can go on Crush'd a
 
 Crush'd is primarily built with the MERN stack, a combination of following four technologies: MongoDB, Express, React, and Node.
 
-We will need to:
-
-* Build a database to store user and browsing data such as videos, 'likes' and 'dis-likes'.
-* Construct a web application with interactive web page to browse user profiles and videos.
-* Build a messenger feature that allows users who have liked each other to interact in real time.
-
-
-## Functionality & MVP
-
-
-
 ## WireFrames
 
 ![alt text](https://github.com/georgec12104531/Testing/blob/master/Screen%20Shot%202018-10-20%20at%205.49.18%20PM.png)
@@ -36,42 +25,7 @@ We will need to:
 
 ## Technologies & Challenges
 
-* Our team will be using the MERN stack (React, Redux, Node, Express & MongoDB) for this application, which allows us to use Javascript in both the front as well as the back end. 
-* A few challenges that we will encounter includes learning how to compress video after submission for storage and decompression upon retrieval. We will also need to learn how to use Socket.io to recreate instant messaging between matches.
-
-## Things Accomplished Over The Weekend
-
-* All members of the team read the Chrome and MERN tutorials
-* Set up database - **Joe** ???
-* Wireframes of website UI - **George**
-* Wrote proposal Readme and planned work for the week - **All team members**
-* Implement user authorization on database backend - **Joe** (completed on Sunday)
-
-## Group Members and Work Breakdown
-**George Chang, Joe Olivier, Don Sirivat, Domonic Adams**
-
-### October 20 - 21st
-* 
-* 
-* 
-
-### October 22nd
-* New account creation, login, and guest/demo login - 
-* Users can sign up, sign, and log out -
-* Users can use a demo login to try the site -
-* Users can't use certain features (video submission) without logging in -
-
-### October 23rd - 24th
-* "Bachelor/Bachelorette" Video Submission  -
-* User can upload bachelor/bachelorette video -
-* Video is compressed and stored in db (associated with user) -
-
-### October 25th
-* User has a home page -
-* Home page has index of featured profiles -
-* Home page has index of bachelor/bachelorettes in the area -
-* Links to account page, video submission, and logout -
-* Video Submission Page -
+* Our team used the MERN stack (React, Redux, Node, Express & MongoDB) for this application, which allowed us to use Javascript in both the front as well as the back end. 
 * User can respond to other video profiles -
 * Video response is uploaded and compressed to db -
 
