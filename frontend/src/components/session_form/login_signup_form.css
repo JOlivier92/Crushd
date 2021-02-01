@@ -40,6 +40,22 @@
   color: #c33764;
 }
 
+@media all and (min-width: 641px) and (max-width: 768px) {
+  .login-form-box {
+    margin: auto;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    margin-top: 150px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+}
+
 .login-input {
   background: transparent;
   border-bottom: 1px solid #979797;
@@ -63,6 +79,20 @@ input[type=date] {
 
 .guest-submit, .session-submit, .session-continue {
   background-color: #c33764;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 30px;
+  transition-duration: 0.1s;
+  padding: 10px 90px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid #c33764;
+  cursor: pointer;
+}
+
+/* .guest-submit {
+  background-color: #c33764;
   color: #fff;
   text-decoration: none;
   font-size: 20px;
@@ -73,6 +103,11 @@ input[type=date] {
   margin-top: 20px;
   border: 1px solid #c33764;
   cursor: pointer;
+} */
+
+input[type="submit"] {
+  background-color: transparent;
+  color: #fff;
 }
 
 input[type="submit"] {
@@ -97,6 +132,13 @@ input[type="submit"] {
   color: #c33764;
   background: none;
   cursor: pointer;
+}
+
+.session-submit input:hover {
+  color: #c33764;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .session-continue:hover {
@@ -146,6 +188,25 @@ input[type="submit"] {
   background: #c33764;
 }
 
+/* .session-continue {
+  background-color: #c33764;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 30px;
+  transition-duration: 0.1s;
+  padding: 10px 90px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid #c33764;
+  cursor: pointer;
+}
+
+.session-continue:hover {
+  color: #c33764;
+  background: none;
+} */
+
 .close {
   position: absolute;
   top: 18px;
@@ -182,6 +243,7 @@ input[type="submit"] {
     height: 100vh;
     background: rgba(255, 255, 255, 1);
     text-align: center;
+    position: absolute;
     margin-top: 0;
     z-index: 2;
     border-radius: 0%;

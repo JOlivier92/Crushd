@@ -64,9 +64,17 @@ class Home extends React.Component {
         <div>
           {navOption ? <ResponsesIndexContainer /> : <MessagesIndexContainer />}
         </div>
-        
-          {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
-        
+
+        {mainScreen === "videosIndex" ? <VideosIndexContainer /> : <UploadVideoContainer />}
+        <div className="arrow-keys">
+          <div className="arrow">
+            <img className="arrow-key" alt="left-arrow-key" src={LeftArrow} />
+            <p className="arrow-text">NOPE</p>
+            &emsp;
+            <p className="arrow-text">RESPOND</p>
+            <img className="arrow-key" alt="right-arrow-key" src={RightArrow} />
+          </div>
+        </div>
       </div>
         <p className="asdf">THDKFHASKLFJDLSFJLSADFJDLSAFJL</p>
         <button className="help" onClick={() => this.props.openModal({modal: "faq"})}>

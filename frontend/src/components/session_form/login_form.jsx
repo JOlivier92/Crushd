@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidMount() {
-    this.demoCount = 0 
+    this.demoCount = 0;
   }
 
   update(field) {
@@ -54,7 +54,6 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     if (this.demoCount === 0) {
-      
       const email = "x@gmail.com".split("");
       const password = "123123".split("");
       const button = document.getElementById("session-submit");
@@ -63,7 +62,6 @@ class LoginForm extends React.Component {
       );
     }
     this.demoCount++;
-
   }
 
   fillForm(email, password, button) {
@@ -95,10 +93,14 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    return <div className="login-form-container">
+    return (
+      <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="close">
-            <span className="close-modal" onClick={() => this.handleCloseModal()}>
+            <span
+              className="close-modal"
+              onClick={() => this.handleCloseModal()}
+            >
               <i className="fas fa-times" />
             </span>
           </div>
@@ -109,29 +111,43 @@ class LoginForm extends React.Component {
             <label>
               Email:
               <br />
-              <input type="text" value={this.state.email} onChange={this.update("email")} className="login-input" />
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="login-input"
+              />
             </label>
             <br />
             <br />
             <label>
               Password:
               <br />
-              <input type="password" value={this.state.password} onChange={this.update("password")} className="login-input" />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="login-input"
+              />
             </label>
 
             <br />
 
             <button className="session-submit">
-              <input id="session-submit" type="submit" value={this.props.formType} />
+              <input
+                id="session-submit"
+                type="submit"
+                value={this.props.formType}
+              />
             </button>
             <br />
-
             <button className="guest-submit" onClick={this.loginAsGuest}>
               Login As Guest
             </button>
           </div>
         </form>
-      </div>;
+      </div>
+    );
   }
 }
 

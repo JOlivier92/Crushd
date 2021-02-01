@@ -217,6 +217,7 @@ class UploadVideo extends React.Component {
       };
       xhr.send();
     });
+    this.closeRecorder();
   }
 
   render() {

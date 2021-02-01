@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom"
 import "./videos_index.css";
 import Loader from "react-loader-spinner";
 import VideosIndexItem from "./videos_index_item";
+import Heart from "./like-heart.svg";
 import "./animate.css";
 
 import RightArrow from "./right-arrow.png";
@@ -19,6 +20,8 @@ class VideosIndex extends React.Component {
 
     this.checkKey = this.checkKey.bind(this);
     this.shuffle = this.shuffle.bind(this);
+    this.dislikeAction = this.dislikeAction.bind(this);
+    this.likeAction = this.likeAction.bind(this);
   }
 
   async componentDidMount() {
@@ -86,6 +89,26 @@ class VideosIndex extends React.Component {
     }
   }
 
+  dislikeAction() {
+    let video;
+    if (this.videoIndexCount - 1 >= 0) {
+      this.videoIndexCount--;
+      video = document.getElementsByClassName("videos-index-view")[this.videoIndexCount];
+      video.classList.toggle("animated");
+      video.classList.toggle("fadeOutLeft");
+    }
+  }
+
+  likeAction() {
+    let video;
+    if (this.videoIndexCount - 1 >= 0) {
+      this.videoIndexCount--;
+      video = document.getElementsByClassName("videos-index-view")[this.videoIndexCount];
+      video.classList.toggle("animated");
+      video.classList.toggle("fadeOutRight");
+    }
+  }
+
   render() {
     const { loading } = this.state;
     if (loading) {
@@ -95,9 +118,9 @@ class VideosIndex extends React.Component {
         </div>
       );
     }
-    return (
-      <div className="videos-index-container">
-          {this.props.videos.map(video => (
+    return <div className="videos-index-container">
+          {this.props.videos.map(video =>
+        <div className="videos-index-view">
             <VideosIndexItem
               className="video-index-view"
               key={video.videoURL}
@@ -107,21 +130,25 @@ class VideosIndex extends React.Component {
                 "?alt=media&token=d2acb0e3-28d7-4f43-b43e-dfd7bb3c1ae9"
               }
             />
-          ))}
-          <div className="arrow">
-            <img className="space-btn" alt="space-btn" src={Space}  />
-            &nbsp;&nbsp;
-            <p className="arrow-text">MUTE/UNMUTE SOUND</p>
-            &emsp;
-            <img className="keyboard-btn" alt="left-arrow" src={LeftArrow} />
-            <p className="arrow-text">NEXT PROFILE</p>
-            &emsp;
-            <img className="keyboard-btn" alt="spacebtn" src={RightArrow} />
-            <p className="arrow-text">SUBMIT RESPONSE</p>
+          <div className="video-view-btns">
+            <div 
+            className="btn-outer-one"
+            onClick={() => this.dislikeAction()}>
+              <div className="btn-inner-one">
+                <i className="fas fa-times" />
+              </div>
+            </div>
+            <div 
+            className="btn-outer-two"
+            onClick={() => this.likeAction()}>
+              <div className="btn-inner-two">
+                <img src={Heart} alt="like" />
+              </div>
+            </div>
           </div>
-
-      </div>
-    )
+        </div>
+          )}
+      </div>;
   }
 }
 
